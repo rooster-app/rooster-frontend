@@ -59,6 +59,16 @@ a {
   --white-smoke: rgb(245, 245, 245);
 }
 
+.blur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 99;
+}
+
 /* Default Button Configs */
 .teal_bttn {
   border: none;
