@@ -1,23 +1,44 @@
 // @packages
-import * as Yup from "yup";
-import LoginInput from "../../components/inputs/loginInput";
-import { Formik, Form } from "formik";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import * as Yup from 'yup';
+import Cookies from 'js-cookie';
+import DotLoader from 'react-spinners/DotLoader';
+import LoginInput from '../../components/inputs/loginInput';
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { Formik, Form } from 'formik';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 // @scripts
-import RoosterImage from "../../images/rooster-logo.png";
+import RoosterImage from '../../images/rooster-logo.png';
 
 const loginInfos = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
-export default function LoginForm() {
+export default function LoginForm({ setVisible }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState(loginInfos);
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const eye = <FontAwesomeIcon icon={faEye} />;
+
   const { email, password } = login;
-  const handleLoginChange = (e) => {
+
+  const loginInputChangeHandler = (e) => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
+  };
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
   };
 
   const loginValidation = Yup.object({
@@ -27,6 +48,25 @@ export default function LoginForm() {
       .max(100),
     password: Yup.string().required('Password is required'),
   });
+
+  const loginSubmit = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/login`,
+        {
+          email,
+          password,
+        }
+      );
+      dispatch({ type: 'LOGIN', payload: data });
+      Cookies.set('user', JSON.stringify(data));
+      navigate('/');
+    } catch (error) {
+      setLoading(false);
+      setError(error.response.data.message);
+    }
+  };
 
   return (
     <div className='login_wrap'>
@@ -43,22 +83,32 @@ export default function LoginForm() {
               email,
               password,
             }}
-            validationSchema={loginValidation}>
+            validationSchema={loginValidation}
+            onSubmit={() => {
+              loginSubmit();
+            }}>
             {(formik) => (
               <Form>
                 <LoginInput
                   type='text'
                   name='email'
                   placeholder='Coastal Email Address'
-                  onChange={handleLoginChange}
+                  onChange={loginInputChangeHandler}
                 />
-                <LoginInput
-                  type='password'
-                  name='password'
-                  placeholder='Password'
-                  onChange={handleLoginChange}
-                  bottom
-                />
+                <div className='password_wrapper'>
+                  <LoginInput
+                    type={passwordShown ? 'text' : 'password'}
+                    name='password'
+                    placeholder='Password'
+                    onChange={loginInputChangeHandler}
+                    bottom
+                  />
+                  <i
+                    className='password_eye'
+                    onClick={togglePasswordVisiblity}>
+                    {eye}
+                  </i>{' '}
+                </div>
                 <button type='submit' className='teal_bttn'>
                   Log In
                 </button>
@@ -68,8 +118,16 @@ export default function LoginForm() {
           <Link to='/forgot' className='forgot_password'>
             Forgotten Password?
           </Link>
+          <DotLoader color='#1876f2' loading={loading} size={30} />
+
+          {error && <div className='error_text'>{error}</div>}
           <div className='sign_splitter'></div>
-          <button className='teal_bttn open_signup'>Create Account</button>
+
+          <button
+            className='teal_bttn open_signup'
+            onClick={() => setVisible(true)}>
+            Create Account
+          </button>
         </div>
       </div>
     </div>

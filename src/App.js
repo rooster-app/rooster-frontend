@@ -1,7 +1,10 @@
+// @packages
 import { Routes, Route } from "react-router-dom";
+// @scripts
 import Login from "./pages/login";
 import Profile from "./pages/profile";
 import Home from "./pages/home";
+
 function App() {
   return (
     <div>
