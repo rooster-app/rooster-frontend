@@ -1,0 +1,381 @@
+/*-----LoginForm-----*/
+.login {
+  height: 100vh;
+  background: linear-gradient(
+    to top,
+    #041e2b,
+    #023f51,
+    #ff0000,
+    #00829a,
+    #0cb1c7
+  );
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.rooster_img {
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  width: 300px; 
+}
+
+.logo_name {
+  font-family: 'Billabong', sans-serif;
+  color: var(--cool-black);
+  font-size: 45px;
+  font-weight: lighter;
+  margin-top: -5px;
+  margin-bottom: -20px;
+}
+
+.login_wrap {
+  height: 78vh;
+  color: var(--cool-black);
+}
+
+.login_1 {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.login_1 span {
+  font-size: 20px;
+  color: var(--bg-primary);
+  display: none; /* toggle for small screens */
+}
+
+.login_2 {
+  text-align: center;
+}
+
+.login_2_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--cool-white);
+  box-shadow: 0 1px 2px var(--shadow-1);
+  padding: 1rem;
+  padding-bottom: 2rem;
+  width: 350px;
+  height: fit-content;
+  margin: 1rem auto;
+  user-select: none;
+  border-radius: 10px;
+}
+
+.login_2_wrap button {
+  width: 100%;
+  height: 50px;
+  font-size: 17px;
+  font-weight: 700;
+  user-select: none;
+}
+
+.forgot_password {
+  color: var(--teal);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.forgot_password:hover {
+  text-decoration: underline;
+}
+
+.sign_splitter {
+  width: 100%;
+  height: 1px;
+  background: var(--dark-teal);
+}
+
+.sign_extra {
+  font-size: 15px;
+}
+/*-----LoginForm End-----*/
+
+
+/*-----Password Eye-----*/
+.password_wrapper {
+  position: relative;
+}
+
+.password_eye {
+  font-size: 18px;
+  position: absolute;
+  right: 27px;
+  bottom: 22px;
+  color: var(--form-grey);
+}
+
+.password_eye:hover {
+  color: var(--light-teal);
+  cursor: pointer;
+}
+/*-----Password Eye End-----*/
+
+
+/*-----RegisterForm-----*/
+.register {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-primary);
+  box-shadow: 0 1px 2px var(--shadow-1);
+  border-radius: 10px;
+  padding: 15px;
+  padding-bottom: 1rem;
+  width: 350px;
+  height: fit-content;
+  color: var(--color-primary);
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+.register_header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--bg-third);
+}
+
+.register_header i {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.register_header span:first-of-type {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.register_header span:last-of-type {
+  font-size: 15px;
+  color: var(--color-secondary);
+}
+
+.register_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reg_line {
+  padding: 7px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reg_col {
+  position: relative;
+  align-self: flex-start;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.reg_line_header {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--color-secondary);
+}
+
+.reg_line_header i {
+  margin-top: 3px;
+}
+
+.reg_grid {
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  height: 35px;
+  width: 100%;
+}
+
+.reg_grid select {
+  width: 90px;
+  font-size: 16px;
+  color: var(--color-primary);
+  background: var(--bg-primary);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reg_grid label {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: var(--color-primary);
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid var(--color-secondary);
+  padding: 0 10px;
+}
+
+.reg_infos {
+  font-size: 11px;
+  margin-top: 10px;
+  color: var(--color-secondary);
+}
+
+.reg_infos span {
+  color: var(--blue-color);
+}
+
+.reg_btn_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 10px 0;
+}
+/*-----RegisterForm End-----*/
+
+
+/*-----CCUcollege-----*/
+.ccu_select {
+  width: 270px;
+  margin-top: 5px;
+  height: 35px;
+  font-size: 14px;
+  color: var(--cool-black);
+  background: var(--bg-primary);
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*-----CCUcollege End-----*/
+
+
+/*----dob, ccu and gender errors-----*/
+.reg_grid .input_error {
+  width: 300px;
+  position: absolute;
+  top: 70px;
+}
+.ccu_container .input_error {
+  width: 300px;
+  position: absolute;
+  top: 70px;
+}
+.input_error_select_large {
+  left: -97%;
+  top: 15px !important;
+}
+/*----dob, ccu and gender errors End-----*/
+
+
+/*----error and success styles -------*/
+.error_text {
+  color: #b94a48;
+}
+.success_text {
+  color: var(--green-color);
+}
+.signup_error_msg {
+  color: var(--error-red);
+  font-size: 13px;
+}
+/*----error and success styles End-----*/
+
+
+/*-----Media queries-----*/
+@media (min-width: 850px) {
+  .login_wrap {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .login_1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-bottom: 15vh;
+  }
+  .login_1 img {
+    width: 370px;
+    margin-left: -1.7rem;
+  }
+  .login_1 span {
+    font-size: 28px;
+    display: block;
+  }
+  .login_2_wrap {
+    width: 400px;
+  }
+  .input_wrap {
+    width: 360px !important;
+  }
+}
+
+@media (min-width: 650px) {
+  .login_footer_wrap {
+    max-width: 650px;
+  }
+}
+
+@media (min-width: 539px) {
+  .login_footer_wrap {
+    max-width: 520px;
+  }
+  .register {
+    width: 400px;
+  }
+  .reg_line {
+    flex-direction: row;
+  }
+  .reg_grid select,
+  .reg_grid label {
+    width: 110px;
+  }
+  .reg_grid .input_error {
+    width: 350px;
+  }
+}
+
+@media (max-width: 390px) {
+  .rooster_img {
+    width: 275px !important;
+    margin-bottom: -30px !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .input_wrap {
+    width: 280px !important;
+  }
+  .register {
+    width: 340px !important;
+  }
+
+  .sign_splitter {
+    width: 280px !important;
+  }
+  .login_2_wrap {
+    width: 320px !important;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 330px) {
+  .login_2_wrap {
+    width: 300px !important;
+    margin: 0 auto;
+  }
+  .rooster_img {
+    width: 210px !important;
+    margin-top: -20px !important;
+  }
+}
+/*-----Media queries-----*/

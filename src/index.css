@@ -38,4 +38,85 @@ a {
   --shadow-2: rgba(0, 0, 0, 0.1);
   --shadow-3: rgba(0, 0, 0, 0.3);
   --shadow-inset: rgba(255, 255, 255, 0.5);
+
+  --cool-black: rgb(21, 25, 34);
+  --cool-gray: #8c92ac;
+  --cool-white: rgb(244, 253, 255);
+  --coral: #db3600;
+  --dark-teal: #00829a;
+  --error-red: #b94a48;
+  --form-grey: rgba(0, 0, 0, 0.25);
+  --grey: rgb(112, 112, 112);
+  --light-grey: #d3d3d3;
+  --light-teal: rgb(12, 177, 199);
+  --midnite: #041e2b;
+  --pm-black: #050505;
+  --rooster-red: #ff0000;
+  --splitter: linear-gradient(to top, #041e2b, #023f51, #00829a, #0cb1c7);
+  --scrollbarBG: #cfd8dc;
+  --thumbBG: #90a4ae;
+  --teal: rgb(0, 130, 154);
+  --white-smoke: rgb(245, 245, 245);
 }
+
+.blur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 99;
+}
+
+/* Default Button Configs */
+.teal_bttn {
+  border: none;
+  outline: none;
+  padding: 8.5px 12px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right,
+    var(--midnite),
+    var(--dark-teal),
+    var(--teal),
+    var(--light-teal)
+  );
+  box-shadow: 0 2px 8px 0 rgba(49, 196, 190, 0.75);
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.teal_bttn:hover {
+  background-position: 100% 0;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 3px 12px 0 rgba(49, 196, 190, 0.75);
+}
+
+.open_signup {
+  margin-top: 1rem;
+  width: 70% !important;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+  background: linear-gradient(to right, #f5ce62, #e43603, #fa8072, #e85a19);
+  box-shadow: 0 2px 8px 0 rgba(229, 66, 10, 0.75);
+}
+
+.open_signup:hover {
+  box-shadow: 0 3px 10px 0 rgba(229, 66, 10, 0.75);
+}
+/* Default Button Configs-End */
