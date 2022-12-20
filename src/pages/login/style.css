@@ -1,0 +1,121 @@
+.login {
+  height: 100vh;
+  background: linear-gradient(
+    to top,
+    #041e2b,
+    #023f51,
+    #ff0000,
+    #00829a,
+    #0cb1c7
+  );
+  background-repeat: no-repeat;
+}
+
+.rooster_img {
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  width: 300px; 
+}
+
+.logo_name {
+  font-family: 'Billabong', sans-serif;
+  color: var(--cool_black);
+  font-size: 45px;
+  font-weight: lighter;
+  margin-top: -5px;
+  margin-bottom: -20px;
+}
+
+.login_wrap {
+  height: 78vh;
+  color: var(--cool-black);
+}
+
+.login_1 {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.login_1 span {
+  font-size: 20px;
+  color: var(--bg-primary)
+}
+
+.login_2 {
+  text-align: center;
+}
+
+.login_2_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--cool-white);
+  box-shadow: 0 1px 2px var(--shadow-1);
+  padding: 1rem;
+  padding-bottom: 2rem;
+  width: 350px;
+  height: fit-content;
+  margin: 1rem auto;
+  user-select: none;
+  border-radius: 10px;
+}
+
+.login_2_wrap button {
+  width: 100%;
+  height: 50px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.forgot_password {
+  color: var(--teal);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.forgot_password:hover {
+  text-decoration: underline;
+}
+
+.sign_splitter {
+  width: 100%;
+  height: 1px;
+  background: var(--dark-teal);
+}
+
+.sign_extra {
+  font-size: 15px;
+}
+
+/*----Media queries--------------*/
+@media (min-width: 850px) {
+  .login_wrap {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .login_1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-bottom: 15vh;
+  }
+  .login_1 img {
+    width: 370px;
+    margin-left: -1.7rem;
+  }
+  .login_1 span {
+    font-size: 28px;
+  }
+  .login_2_wrap {
+    width: 400px;
+  }
+  .input_wrap {
+    width: 360px !important;
+  }
+}
+/*----Media queries--------------*/
