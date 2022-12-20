@@ -1,3 +1,6 @@
+// @scripts
+import Header from '../../components/header'
+
 export default function Home() {
-  return <div>Home</div>;
+  return (<Header/>);
 }

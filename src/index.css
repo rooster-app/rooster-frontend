@@ -43,7 +43,7 @@ a {
   --cool-gray: #8c92ac;
   --cool-white: rgb(244, 253, 255);
   --coral: #db3600;
-  --dark-teal: #00829a;
+  --dark-teal: #023f51;
   --error-red: #b94a48;
   --form-grey: rgba(0, 0, 0, 0.25);
   --grey: rgb(112, 112, 112);
@@ -69,7 +69,7 @@ a {
   z-index: 99;
 }
 
-/* Default Button Configs */
+/*---Default Button Configs---*/
 .teal_bttn {
   border: none;
   outline: none;
@@ -119,4 +119,51 @@ a {
 .open_signup:hover {
   box-shadow: 0 3px 10px 0 rgba(229, 66, 10, 0.75);
 }
-/* Default Button Configs-End */
+/*---Default Button Configs End---*/
+
+
+/*----Hovers----*/
+.hover1:hover {
+  background: var(--bg-secondary);
+}
+.hover2:hover {
+  background: var(--bg-third);
+}
+.hover3:hover {
+  background: #d4d6da3a;
+}
+/*----Hovers End----*/
+
+
+.card {
+  height: 500px;
+  width: 500px;
+  background: red;
+}
+
+
+/*----Scrollbar----*/
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #aeaeafa1;
+  border-radius: 5px;
+}
+/*----Scrollbar End----*/
+
+
+/*----Circles----*/
+.small_circle {
+  position: relative;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 11px;
+  background: var(--bg-third);
+  cursor: pointer;
+}
+/*----Circles End----*/
