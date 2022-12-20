@@ -45,7 +45,21 @@ export default function LoginForm({ setVisible }) {
     email: Yup.string()
       .required('Email address is required.')
       .email('Must be a valid email.')
-      .max(100),
+      .max(100)
+      // Code To Restrict Email Domain: @coastal.edu
+      .test(
+        'coastal-domain',
+        'Email domain @coastal.edu required',
+        function (email_value) {
+          const validRegex = new RegExp(
+            /^[A-Za-z0-9_!#$%&'*+/=?`{|}~^.-]+@coastal.edu+$/,
+            'gm'
+          );
+          if (email_value) {
+            return email_value.toLowerCase().match(validRegex);
+          }
+        }
+      ),
     password: Yup.string().required('Password is required'),
   });
 

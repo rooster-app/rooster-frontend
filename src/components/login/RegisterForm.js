@@ -85,7 +85,7 @@ export default function RegisterForm({ setVisible }) {
       )
       .email('Enter a valid email address')
       .max(90, 'Email must be less than 90 characters')
-      // Code To Restrict Email Domain: coastal.edu
+      // Code To Restrict Email Domain: @coastal.edu
       .test(
         'coastal-domain',
         'Email domain @coastal.edu required',
