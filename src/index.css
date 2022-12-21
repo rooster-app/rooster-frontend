@@ -52,7 +52,7 @@ a {
   --midnite: #041e2b;
   --pm-black: #050505;
   --rooster-red: #ff0000;
-  --splitter: linear-gradient(to top, #041e2b, #023f51, #00829a, #0cb1c7);
+  --rooster-divider: linear-gradient(to top, #041e2b, #023f51, #00829a, #0cb1c7);
   --scrollbarBG: #cfd8dc;
   --thumbBG: #90a4ae;
   --teal: rgb(0, 130, 154);
