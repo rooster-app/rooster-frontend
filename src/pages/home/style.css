@@ -14,13 +14,13 @@
 }
 
 @media (max-width: 1175px) {
-  .stories,
   .createPost {
-    width: 84%;
+    width: 550px;
+    margin-left: -70px;
   }
-  .home_middle {
+  /* .home_middle {
     margin-left: 5%;
-  }
+  } */
   .right_home {
     width: 18vw;
   }
@@ -58,16 +58,15 @@
   .contact_circle {
     width: 20px;
   }
-  .stories,
   .createPost {
-    width: 100%;
+    width: 600px;
+    margin-left: 20px;
   }
 }
-
 @media (max-width: 960px) {
   .createPost {
-    width: 100%;
-    margin-left: 10%;
+    width: 540px;
+    margin-left: 9%;
   }
   .right_home {
     left: 78%;
@@ -105,9 +104,12 @@
     display: none;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .right_home {
     display: none;
+  }
+  .createPost {
+    width: 120%;
   }
 }
 @media (max-width: 620px) {
