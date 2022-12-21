@@ -268,7 +268,7 @@ export default function RegisterForm({ setVisible }) {
               <div className='reg_btn_wrapper'>
                 <button className='teal_bttn open_signup'>Sign Up</button>
               </div>
-              <DotLoader color='#1876f2' loading={loading} size={30} />
+              <DotLoader color='#0cb1c7' loading={loading} size={30} />
               {error && <div className='error_text'>{error}</div>}
               {success && <div className='success_text'>{success}</div>}
             </Form>

@@ -132,7 +132,7 @@ export default function LoginForm({ setVisible }) {
           <Link to='/forgot' className='forgot_password'>
             Forgotten Password?
           </Link>
-          <DotLoader color='#1876f2' loading={loading} size={30} />
+          <DotLoader color='#0cb1c7' loading={loading} size={30} />
 
           {error && <div className='error_text'>{error}</div>}
           <div className='sign_splitter'></div>
