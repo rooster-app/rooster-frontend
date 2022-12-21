@@ -133,6 +133,7 @@ header {
   font-size: 14px;
   line-height: 19px;
   margin-right: 10px;
+  color: var(--bg-primary);
 }
 
 .profile_link img {
