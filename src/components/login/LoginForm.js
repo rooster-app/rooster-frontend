@@ -11,8 +11,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-// @scripts
-import RoosterImage from '../../images/rooster-logo.png';
 
 const loginInfos = {
   email: '',
@@ -32,13 +30,13 @@ export default function LoginForm({ setVisible }) {
 
   const { email, password } = login;
 
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
+
   const loginInputChangeHandler = (e) => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
-  };
-
-  const togglePasswordVisiblity = () => {
-    setPasswordShown(passwordShown ? false : true);
   };
 
   const loginValidation = Yup.object({
@@ -85,7 +83,11 @@ export default function LoginForm({ setVisible }) {
   return (
     <div className='login_wrap'>
       <div className='login_1'>
-        <img className='rooster_img' src={RoosterImage} alt='' />
+        <img
+          className='rooster_img'
+          src='../../../images/rooster-logo.png'
+          alt=''
+        />
         <span>A social networking site for the CCU community</span>
       </div>
       <div className='login_2'>
@@ -117,9 +119,7 @@ export default function LoginForm({ setVisible }) {
                     onChange={loginInputChangeHandler}
                     bottom
                   />
-                  <i
-                    className='password_eye'
-                    onClick={togglePasswordVisiblity}>
+                  <i className='password_eye' onClick={togglePasswordVisiblity}>
                     {eye}
                   </i>{' '}
                 </div>
@@ -129,10 +129,10 @@ export default function LoginForm({ setVisible }) {
               </Form>
             )}
           </Formik>
-          <Link to='/forgot' className='forgot_password'>
+          <Link to='/reset' className='forgot_password'>
             Forgotten Password?
           </Link>
-          <DotLoader color='#1876f2' loading={loading} size={30} />
+          <DotLoader color='#0cb1c7' loading={loading} size={30} />
 
           {error && <div className='error_text'>{error}</div>}
           <div className='sign_splitter'></div>

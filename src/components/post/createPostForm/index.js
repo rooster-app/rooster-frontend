@@ -1,5 +1,5 @@
 // @scripts
-import { Feeling, LiveVideo, Photo } from "../../svg";
+import { Feeling, LiveVideo, Photo } from "../../../svg";
 import "./style.css";
 
 export default function CreatePost({ user }) {
