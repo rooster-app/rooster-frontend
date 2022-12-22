@@ -1,7 +1,7 @@
 // @packages
 import { useSelector } from "react-redux";
 // @scripts
-import CreatePost from "../../components/createPostForm";
+import CreatePost from "../../components/post/createPostForm";
 import Header from "../../components/header";
 import LeftHome from "../../components/home/left";
 import RightHome from "../../components/home/right";

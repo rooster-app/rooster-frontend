@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 // @scripts
-import CreatePostForm from '../../components/createPostForm';
+import CreatePostForm from '../../components/post/createPostForm';
 import Header from '../../components/header';
 import LeftHome from '../../components/home/left';
 import RightHome from '../../components/home/right';
