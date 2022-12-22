@@ -1,6 +1,6 @@
 /*-----LoginForm-----*/
 .login {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(
     to top,
     #041e2b,

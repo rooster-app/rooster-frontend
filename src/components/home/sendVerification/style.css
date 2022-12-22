@@ -1,0 +1,26 @@
+.send_verification {
+  background: var(--bg-primary);
+  box-shadow: 0 1px 2px var(--shadow-1);
+  padding: 20px;
+  font-size: 14px;
+  color: var(--primary-black);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.send_verification button {
+  margin-top: 10px;
+}
+
+.success_text {
+  margin-top: 8px;
+  text-align: center;
+  color: green;
+}
+
+.error_text {
+  margin-top: 8px;
+  color: var(--error-red);
+  text-align: center;
+}

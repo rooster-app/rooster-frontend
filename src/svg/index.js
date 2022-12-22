@@ -10,6 +10,7 @@ import ArrowDown from "./arrowDown";
 import Notifications from "./notifications";
 import Search from "./search";
 import Return from "./return";
+import RoosterLogo from "./roosterLogo";
 import ArrowDown1 from "./arrowDow1";
 import Plus from "./plus";
 import ArrowRight from "./arrowRight";
@@ -35,6 +36,7 @@ export {
   ArrowDown,
   Search,
   Return,
+  RoosterLogo,
   ArrowDown1,
   Plus,
   ArrowRight,
