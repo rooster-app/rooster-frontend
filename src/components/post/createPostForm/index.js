@@ -1,29 +1,41 @@
 // @scripts
-import { Feeling, LiveVideo, Photo } from "../../../svg";
-import "./style.css";
+import { Feeling, Photo } from '../../../svg';
+import './style.css';
 
-export default function CreatePost({ user }) {
+export default function CreatePostForm({ user, setPostModalVisible }) {
   return (
     <div className="createPost">
       <div className="createPost_header">
         <img src={user?.picture} alt="" />
-        <div className="open_post hover2">
+        <div
+          className="open_post hover2"
+          onClick={() => setPostModalVisible(true)}
+        >
           What's on your mind, {user?.first_name}
         </div>
       </div>
       <div className="create_splitter"></div>
       <div className="createPost_body">
-        <div className="createPost_icon hover1">
-          <LiveVideo color="#f3425f" />
-            Live Video
+        <div
+          className="createPost_icon hover1"
+          onClick={() => setPostModalVisible(true)}
+        >
+          <img src={`../../../left/events.png`} alt="" />
+          Post Event
         </div>
-        <div className="createPost_icon hover1">
+        <div
+          className="createPost_icon hover1"
+          onClick={() => setPostModalVisible(true)}
+        >
           <Photo color="#4bbf67" />
-            Photo/Video
+          Share Photo
         </div>
-        <div className="createPost_icon hover1">
+        <div
+          className="createPost_icon hover1"
+          onClick={() => setPostModalVisible(true)}
+        >
           <Feeling color="#f7b928" />
-            Feeling/Activity
+          Feeling/Activity
         </div>
       </div>
     </div>
