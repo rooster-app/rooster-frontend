@@ -1,18 +1,16 @@
 // @packages
-import { useState } from "react";
+import { useState } from 'react';
 // @scripts
-import "./style.css";
-import LeftLink from "./LeftLink";
-import Shortcut from "./Shortcut";
-import { ArrowDown1 } from "../../../svg";
-import { Link } from "react-router-dom";
-import { left } from "../../../data/home";
+import './style.css';
+import LeftLink from './LeftLink';
+import Shortcut from './Shortcut';
+import { ArrowDown1 } from '../../../svg';
+import { Link } from 'react-router-dom';
+import { left } from '../../../data/home';
 
 export default function LeftHome({ user }) {
   const [visible, setVisible] = useState(false);
 
-  console.log("User Acct: ", user.github_acct);
-  
   return (
     <div className="left_home scrollbar">
       <Link to="/profile" className="left_link hover1">
@@ -84,7 +82,9 @@ export default function LeftHome({ user }) {
           name="My Instagram"
         />
         <Shortcut
-          link={user?.github_acct ? user.github_acct : "https://www.github.com/"}
+          link={
+            user?.github_acct ? user.github_acct : 'https://www.github.com/'
+          }
           img="../../images/github.png"
           name="My GitHub"
         />
@@ -102,7 +102,7 @@ export default function LeftHome({ user }) {
         <Link to="/">Ads</Link>
         <span>. </span>
         <Link to="/">
-           <i className="ad_choices_icon"></i>{" "}
+          <i className="ad_choices_icon"></i>{' '}
         </Link>
         Rooster © 2023
       </div>

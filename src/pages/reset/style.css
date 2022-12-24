@@ -1,6 +1,6 @@
 .reset {
   background: var(--bg-secondary);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .reset_header {
