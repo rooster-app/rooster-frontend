@@ -20,7 +20,7 @@ export default function EmojiPickerBackgrounds({
     textRef.current.selectionEnd = cursorPosition;
   }, [cursorPosition]);
 
-  const handleEmoji = (e, { emoji }) => {
+  const handleEmoji = ({ event, emoji }) => {
     const ref = textRef.current;
     ref.focus();
     const start = text.substring(0, ref.selectionStart);

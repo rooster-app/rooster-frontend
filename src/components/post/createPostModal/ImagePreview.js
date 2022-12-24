@@ -17,7 +17,6 @@ export default function ImagePreview({
   const handleImages = (e) => {
     let files = Array.from(e.target.files);
     files.forEach((img) => {
-      console.log(img);
       if (
         img.type !== 'image/jpeg' &&
         img.type !== 'image/png' &&
@@ -25,11 +24,12 @@ export default function ImagePreview({
         img.type !== 'image/gif'
       ) {
         setError(
-          `${img.name} format is unsupported ! only Jpeg, Png, Webp, Gif are allowed.`
+          `${img.name} format is unsupported. Only jpeg, png, webp, gif are allowed.`
         );
         files = files.filter((item) => item.name !== img.name);
         return;
-      } else if (img.size > 1024 * 1024) {
+        // reject image greater than 5MB
+      } else if (img.size > 1024 * 1024 * 5) {
         setError(`${img.name} exceeds max size: 5MB allowed.`);
         files = files.filter((item) => item.name !== img.name);
         return;
@@ -69,7 +69,7 @@ export default function ImagePreview({
                 }}
               >
                 <i className="addPhoto_icon"></i>
-                Add Photos/Videos
+                Add Photos
               </button>
             </div>
             <div
@@ -121,7 +121,7 @@ export default function ImagePreview({
               <div className="add_circle">
                 <i className="addPhoto_icon"></i>
               </div>
-              <span>Add Photos/Videos</span>
+              <span>Add Photos</span>
               <span>or drag and drop</span>
             </div>
           </div>
