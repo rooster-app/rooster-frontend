@@ -91,7 +91,7 @@ a {
     var(--teal),
     var(--light-teal)
   );
-  box-shadow: 0 2px 8px 0 rgba(49, 196, 190, 0.75);
+  box-shadow: 0 1px 2px rgba(49, 196, 190, 0.75);
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
@@ -104,7 +104,7 @@ a {
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  box-shadow: 0 3px 12px 0 rgba(49, 196, 190, 0.75);
+  box-shadow: 0 2px 8px rgba(49, 196, 190, 0.75);
 }
 
 .open_signup {
@@ -113,17 +113,18 @@ a {
   font-weight: 600 !important;
   font-size: 17px !important;
   background: linear-gradient(to right, #f5ce62, #e43603, #fa8072, #e85a19);
-  box-shadow: 0 2px 8px 0 rgba(229, 66, 10, 0.75);
+  box-shadow: 0 1px 2px rgba(229, 66, 10, 0.75);
 }
 
 .open_signup:hover {
-  box-shadow: 0 3px 10px 0 rgba(229, 66, 10, 0.75);
+  box-shadow: 0 2px 8px rgba(229, 66, 10, 0.75);
 }
 
 .gray_bttn {
   border: none;
   outline: none;
   background: var(--bg-secondary);
+  box-shadow: 0 1px 2px var(--shadow-1);
   padding: 8.5px 12px;
   border-radius: 7px;
   font-family: inherit;

@@ -40,14 +40,14 @@ export default function SendEmail({
             <input type="radio" name="" id="email" checked readOnly />
             <div className="label_col">
               <span>Send code via email</span>
-              <span>{userInfos.email}</span>
+              <span>{userInfos?.email}</span>
             </div>
           </label>
         </div>
         <div className="reset_right">
-          <img src={userInfos.picture} alt="" />
-          <span>{userInfos.email}</span>
-          <span>{userInfos.ccu_college}</span>
+          <img src={userInfos?.picture} alt="user_photo" />
+          <span>{userInfos?.email}</span>
+          <span>{userInfos?.ccu_college}</span>
         </div>
       </div>
       {error && (
@@ -57,7 +57,7 @@ export default function SendEmail({
       )}
       <div className="reset_form_btns">
         <Link to="/login" className="gray_bttn hover2">
-          Not You ?
+          Not You?
         </Link>
         <button
           onClick={() => {
