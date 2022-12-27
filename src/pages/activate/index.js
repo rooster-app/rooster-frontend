@@ -28,7 +28,7 @@ export default function Activate() {
 
   useEffect(() => {
     activateAccount();
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const activateAccount = async () => {
