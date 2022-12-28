@@ -14,6 +14,7 @@ export default function PostMenu({
   const [test, setTest] = useState(postUserId === userId ? true : false);
   const menu = useRef(null);
   useOnClickOutside(menu, () => setShowMenu(false));
+
   return (
     <ul className="post_menu" ref={menu}>
       {test && <MenuItem icon="pin_icon" title="Pin Post" />}
@@ -51,7 +52,7 @@ export default function PostMenu({
         <MenuItem
           icon="trash_icon"
           title="Move to trash"
-          subtitle="items in your trash are deleted after 30 days"
+          subtitle="Items in your trash are deleted after 30 days"
         />
       )}
       {!test && <div className="line"></div>}
@@ -59,7 +60,7 @@ export default function PostMenu({
         <MenuItem
           img="../../../icons/report.png"
           title="Report post"
-          subtitle="i'm concerned about this post"
+          subtitle="I'm concerned about this post"
         />
       )}
     </ul>

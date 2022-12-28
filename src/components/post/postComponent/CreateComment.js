@@ -15,7 +15,7 @@ export default function CreateComment({ user }) {
     textRef.current.selectionEnd = cursorPosition;
   }, [cursorPosition]);
 
-  const handleEmoji = (e, { emoji }) => {
+  const handleEmoji = ({ event, emoji }) => {
     const ref = textRef.current;
     ref.focus();
     const start = text.substring(0, ref.selectionStart);
@@ -35,6 +35,7 @@ export default function CreateComment({ user }) {
     ) {
       setError(`${file.name} format is not supported.`);
       return;
+      // 5MB restriction
     } else if (file.size > 1024 * 1024 * 5) {
       setError(`${file.name} is too large max 5mb allowed.`);
       return;
@@ -48,67 +49,64 @@ export default function CreateComment({ user }) {
   };
 
   return (
-    <div className="create_comment_wrap">
-      <div className="create_comment">
-        <img src={user?.picture} alt="" />
-        <div className="comment_input_wrap">
+    <div className='create_comment_wrap'>
+      <div className='create_comment'>
+        <img src={user?.picture} alt='' />
+        <div className='comment_input_wrap'>
           {picker && (
-            <div className="comment_emoji_picker">
+            <div className='comment_emoji_picker'>
               <Picker onEmojiClick={handleEmoji} />
             </div>
           )}
           <input
-            type="file"
+            type='file'
             hidden
             ref={imgInput}
-            accept="image/jpeg,image/png,image/gif,image/webp"
+            accept='image/jpeg,image/png,image/gif,image/webp'
             onChange={handleImage}
           />
           {error && (
-            <div className="postError comment_error">
-              <div className="postError_error">{error}</div>
-              <button className="blue_btn" onClick={() => setError('')}>
+            <div className='postError comment_error'>
+              <div className='postError_error'>{error}</div>
+              <button className='teal_bttn' onClick={() => setError('')}>
                 Try again
               </button>
             </div>
           )}
           <input
-            type="text"
+            type='text'
             ref={textRef}
             value={text}
-            placeholder="Write a comment..."
+            placeholder='Write a comment...'
             onChange={(e) => setText(e.target.value)}
           />
           <div
-            className="comment_circle_icon hover2"
+            className='comment_circle_icon hover2'
             onClick={() => {
               setPicker((prev) => !prev);
-            }}
-          >
-            <i className="emoji_icon"></i>
+            }}>
+            <i className='emoji_icon'></i>
           </div>
           <div
-            className="comment_circle_icon hover2"
-            onClick={() => imgInput.current.click()}
-          >
-            <i className="camera_icon"></i>
+            className='comment_circle_icon hover2'
+            onClick={() => imgInput.current.click()}>
+            <i className='camera_icon'></i>
           </div>
-          <div className="comment_circle_icon hover2">
-            <i className="gif_icon"></i>
+          <div className='comment_circle_icon hover2'>
+            <i className='gif_icon'></i>
           </div>
-          <div className="comment_circle_icon hover2">
-            <i className="sticker_icon"></i>
+          <div className='comment_circle_icon hover2'>
+            <i className='sticker_icon'></i>
           </div>
         </div>
       </div>
       {commentImage && (
-        <div className="comment_img_preview">
-          <img src={commentImage} alt="" />
+        <div className='comment_img_preview'>
+          <img src={commentImage} alt='' />
           <div
-            className="small_white_circle"
-            onClick={() => setCommentImage('')}
-          >
-            <i className="exit_icon"></i>
+            className='small_white_circle'
+            onClick={() => setCommentImage('')}>
+            <i className='exit_icon'></i>
           </div>
         </div>
       )}
