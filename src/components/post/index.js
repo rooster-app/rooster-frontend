@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 // @scripts
 import './style.css';
-import { Dots, Public } from '../../../svg';
+import { Dots, Public } from '../../svg';
 import ReactsPopup from './ReactsPopup';
 import CreateComment from './CreateComment';
 import PostMenu from './PostMenu';
 
-export default function Post({ post, user }) {
+export default function Post({ post, user, profile }) {
   const [visible, setVisible] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="post">
+    <div className="post" style={{width: `${profile && "100%"}`}}>
       <div className="post_header">
         <Link
           to={`/profile/${post.user.username}`}

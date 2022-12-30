@@ -1,5 +1,5 @@
 // @packages
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Picker from 'emoji-picker-react';
 
 export default function EmojiPickerBackgrounds({
@@ -31,18 +31,20 @@ export default function EmojiPickerBackgrounds({
   };
 
   const postBackgrounds = [
-    '../../../images/postbackgrounds/1.jpg',
-    '../../../images/postbackgrounds/2.jpg',
-    '../../../images/postbackgrounds/3.jpg',
-    '../../../images/postbackgrounds/4.jpg',
-    '../../../images/postbackgrounds/5.jpg',
-    '../../../images/postbackgrounds/6.jpg',
-    '../../../images/postbackgrounds/7.jpg',
-    '../../../images/postbackgrounds/8.jpg',
-    '../../../images/postbackgrounds/9.jpg',
+    '../../../images/postBackgrounds/1.jpg',
+    '../../../images/postBackgrounds/2.jpg',
+    '../../../images/postBackgrounds/3.jpg',
+    '../../../images/postBackgrounds/4.jpg',
+    '../../../images/postBackgrounds/5.jpg',
+    '../../../images/postBackgrounds/6.jpg',
+    '../../../images/postBackgrounds/7.jpg',
+    '../../../images/postBackgrounds/8.jpg',
+    '../../../images/postBackgrounds/9.jpg',
   ];
 
-  const backgroundHanlder = (i) => {
+  console.log('--->', postBackgrounds);
+
+  const backgroundHandler = (i) => {
     bgRef.current.style.backgroundImage = `url(${postBackgrounds[i]})`;
     setBackground(postBackgrounds[i]);
     bgRef.current.classList.add('bgHandler');
@@ -59,7 +61,7 @@ export default function EmojiPickerBackgrounds({
       <div className={!type2 ? 'flex_center' : ''} ref={bgRef}>
         <textarea
           ref={textRef}
-          maxLength="250"
+          maxLength='250'
           value={text}
           placeholder={`What's on your mind, ${user.first_name}`}
           className={`post_input ${type2 ? 'input2' : ''}`}
@@ -70,43 +72,40 @@ export default function EmojiPickerBackgrounds({
                 ? Math.abs(textRef.current.value.length * 0.1 - 32)
                 : '0'
             }%`,
-          }}
-        ></textarea>
+          }}></textarea>
       </div>
       <div className={!type2 ? 'post_emojis_wrap' : ''}>
         {picker && (
           <div
             className={`comment_emoji_picker ${
               type2 ? 'movepicker2' : 'rlmove'
-            }`}
-          >
+            }`}>
             <Picker onEmojiClick={handleEmoji} />
           </div>
         )}
         {!type2 && (
           <img
-            src="../../../icons/colorful.png"
-            alt=""
+            src='../../../icons/colorful.png'
+            alt=''
             onClick={() => {
               setShowBgs((prev) => !prev);
             }}
           />
         )}
         {!type2 && showBgs && (
-          <div className="post_backgrounds">
+          <div className='post_backgrounds'>
             <div
-              className="no_bg"
+              className='no_bg'
               onClick={() => {
                 removeBackground();
-              }}
-            ></div>
+              }}></div>
             {postBackgrounds.map((bg, i) => (
               <img
                 src={bg}
                 key={i}
-                alt=""
+                alt=''
                 onClick={() => {
-                  backgroundHanlder(i);
+                  backgroundHandler(i);
                 }}
               />
             ))}
@@ -117,8 +116,7 @@ export default function EmojiPickerBackgrounds({
           className={`emoji_icon_large ${type2 ? 'moveleft' : ''}`}
           onClick={() => {
             setPicker((prev) => !prev);
-          }}
-        ></i>
+          }}></i>
       </div>
     </div>
   );

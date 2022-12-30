@@ -23,7 +23,7 @@ import AllMenu from './AllMenu';
 import useClickOutside from '../../helpers/clickOutside';
 import UserMenu from './userMenu';
 
-export default function Header() {
+export default function Header({ page }) {
   const { user } = useSelector((user) => ({ ...user }));
   // color fill for nav icons
   const color = '#65676b';
@@ -68,9 +68,14 @@ export default function Header() {
         <SearchMenu color={color} setShowSearchMenu={setShowSearchMenu} />
       )}
       <div className='header_middle'>
-        <Link to='/' className='middle_icon active'>
-          {/*color in svg*/}
-          <Home color={'#ffffff'} />
+        <Link
+          to='/'
+          className={`middle_icon ${page === 'home' ? 'active' : ''}`}>
+          {page === 'home' ? (
+            <Home color={'#ffffff'} />
+          ) : (
+            <Home color={color} />
+          )}
         </Link>
         <Link to='/' className='middle_icon hover1'>
           <Friends color={color} />
@@ -87,9 +92,13 @@ export default function Header() {
         </Link>
       </div>
       <div className='header_right'>
-        <Link to='/profile' className='profile_link hover1'>
+        <Link
+          to='/profile'
+          className={`profile_link hover1 ${
+            page === 'profile' ? 'active_link' : ''
+          }`}>
           <img src={user?.picture} alt='' />
-          <span className="header_username">{user?.first_name}</span>
+          <span className='header_username'>{user?.first_name}</span>
         </Link>
         <div
           className={`circle_icon hover1 ${showAllMenu && 'active_header'}`}

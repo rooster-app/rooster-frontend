@@ -6,10 +6,10 @@ import './style.css';
 import EmojiPickerBackgrounds from './EmojiPickerBackgrounds';
 import AddToYourPost from './AddToYourPost';
 import ImagePreview from './ImagePreview';
-import useClickOutside from '../../../helpers/clickOutside';
+import useClickOutside from '../../helpers/clickOutside';
 import { createPost } from '../../functions/createPost';
 import PostError from './PostError';
-import dataURItoBlob from '../../../helpers/dataURItoBlob';
+import dataURItoBlob from '../../helpers/dataURItoBlob';
 import { uploadImages } from '../../functions/uploadImages';
 
 export default function CreatePostModal({ user, setPostModalVisible }) {
