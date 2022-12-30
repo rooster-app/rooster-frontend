@@ -24,8 +24,8 @@ export default function Cover({ cover, visitor, photos }) {
   const cRef = useRef(null);
 
   useClickOutside(menuRef, () => setShowCoverMenu(false));
-
   const [error, setError] = useState('');
+
   const handleImage = (e) => {
     let file = e.target.files[0];
     if (

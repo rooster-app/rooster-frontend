@@ -14,40 +14,16 @@ import { postsReducer } from './functions/reducers';
 import Profile from './pages/profile';
 import Reset from './pages/reset';
 
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case 'POSTS_REQUEST':
-//       return { ...state, loading: true, error: '' };
-//     case 'POSTS_SUCCESS':
-//       return {
-//         ...state,
-//         loading: false,
-//         posts: action.payload,
-//         error: '',
-//       };
-//     case 'POSTS_ERROR':
-//       return { ...state, loading: false, error: action.payload };
-
-//     default:
-//       return state;
-//   }
-// }
-
 function App() {
   const [postModalVisible, setPostModalVisible] = useState(false);
   const { user } = useSelector((state) => ({ ...state }));
 
+  // eslint-disable-next-line
   const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
     loading: false,
     posts: [],
     error: '',
   });
-
-  // const [{ posts }, dispatch] = useReducer(reducer, {
-  //   loading: false,
-  //   posts: [],
-  //   error: '',
-  // });
 
   useEffect(() => {
     const getAllPosts = async () => {

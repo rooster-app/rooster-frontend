@@ -6,11 +6,12 @@ import useClickOutside from '../../helpers/clickOutside';
 
 export default function OldCovers({ photos, setCoverPicture, setShow }) {
   const { user } = useSelector((state) => ({ ...state }));
-  const Ref = useRef(null);
-  useClickOutside(Ref, () => setShow(false));
+  const clickOutsideRef = useRef(null);
+  useClickOutside(clickOutsideRef, () => setShow(false));
+
   return (
     <div className='blur'>
-      <div className='postBox selectCoverBox' ref={Ref}>
+      <div className='postBox selectCoverBox' ref={clickOutsideRef}>
         <div className='box_header'>
           <div
             className='small_circle'
