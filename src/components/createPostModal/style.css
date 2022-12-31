@@ -9,6 +9,7 @@
   min-height: 228px;
   width: 500px;
   border-radius: 9px;
+  max-height: calc(100vh - 60px);
 }
 
 .box_header {
@@ -26,6 +27,7 @@
   position: absolute;
   right: 16px;
   top: 12px;
+  overflow-x: auto;
 }
 
 .box_profile {
@@ -60,11 +62,12 @@
   padding: 3px 8px 4px 8px;
   border-radius: 7px;
   background: var(--bg-third);
-  cursor: pointer;
+  /* cursor: pointer; */
+  margin-bottom: 2px;
 }
 
 .box_privacy span {
-  margin-bottom: 1px;
+  padding-top: 2px;
 }
 
 .flex_center {
@@ -475,4 +478,72 @@
   100% {
     width: 100%;
   }
+}
+
+@media (max-width: 735px) {
+  .rlmove {
+    right: 10px;
+  }
+}
+@media (max-width: 550px) {
+  .postBox {
+    width: 96%;
+  }
+  .post_backgrounds {
+    width: 80%;
+    overflow-x: auto;
+  }
+  .post_backgrounds img {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (max-width: 530px) {
+  .post_input {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 470px) {
+  .post_input {
+    margin-left: 60px;
+  }
+}
+@media (max-width: 430px) {
+  .post_input {
+    margin-left: 90px;
+    font-size: 23px;
+  }
+}
+@media (max-width: 405px) {
+  .preview_actions {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mobile_text {
+    width: 50%;
+  }
+  .post_input {
+    font-size: 21px;
+  }
+}
+@media (max-width: 380px) {
+  .post_input {
+    font-size: 18px;
+    margin-left: 140px;
+  }
+  .addtoyourpost {
+    justify-content: center;
+  }
+  .addto_text {
+    display: none;
+  }
+}
+@media (max-width: 330px) {
+  .post_input {
+    margin-left: 160px;
+  }
+}
+
+.l0 {
+  left: 0;
 }

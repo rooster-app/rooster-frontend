@@ -6,10 +6,10 @@ import './style.css';
 import EmojiPickerBackgrounds from './EmojiPickerBackgrounds';
 import AddToYourPost from './AddToYourPost';
 import ImagePreview from './ImagePreview';
-import useClickOutside from '../../../helpers/clickOutside';
+import useClickOutside from '../../helpers/clickOutside';
 import { createPost } from '../../functions/createPost';
 import PostError from './PostError';
-import dataURItoBlob from '../../../helpers/dataURItoBlob';
+import dataURItoBlob from '../../helpers/dataURItoBlob';
 import { uploadImages } from '../../functions/uploadImages';
 
 export default function CreatePostModal({ user, setPostModalVisible }) {
@@ -26,7 +26,7 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
   });
 
   const postSubmit = async () => {
-    if (background) {
+    if (background && !images.length) {
       setLoading(true);
       const response = await createPost(
         null,
@@ -119,7 +119,7 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
             <div className="box_privacy">
               <img src="../../../icons/public.png" alt="" />
               <span>Public</span>
-              <i className="arrowDown_icon"></i>
+              {/* <i className="arrowDown_icon"></i> */}
             </div>
           </div>
         </div>
