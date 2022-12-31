@@ -52,7 +52,6 @@ header {
 }
 /*----Header Left End----*/
 
-
 /*---Header Middle-----*/
 .header_middle {
   display: flex;
@@ -111,7 +110,6 @@ header {
   color: #fff;
 }
 /*----Header Middle End----*/
-
 
 /*---Header Right-----*/
 .header_right {
@@ -172,7 +170,6 @@ header {
   color: #fff;
 }
 /*---Header Right End----*/
-
 
 /*----Search Menu----*/
 .search_area {
@@ -243,7 +240,6 @@ header {
   color: var(--blue-color);
 }
 /*----Search Menu End----*/
-
 
 /*----Search All Menu-----*/
 .all_menu {
@@ -387,7 +383,6 @@ header {
 }
 /*----Search All Menu End----*/
 
-
 /*----User menu----*/
 .mmenu {
   padding: 0 0.3rem;
@@ -521,16 +516,20 @@ header {
 }
 /*---User Menu End---*/
 
-
 /*---Active Header---*/
 .active_header {
   background: var(--light-blue-color);
 }
+
 .active_header svg {
   fill: var(--light-teal);
 }
-/*---Active Header End---*/
 
+.active_link {
+  background: var(--light-blue-color);
+  color: var(--light-teal);
+}
+/*---Active Header End---*/
 
 /*---responsive----------*/
 @media (max-width: 1295px) {
@@ -583,7 +582,6 @@ header {
     display: none;
   }
 }
-/*---responsive----------*/
 
 @media (max-width: 620px) {
   .profile_link {
