@@ -5,6 +5,8 @@
 .pictureBox {
   width: 700px !important;
   height: 700px;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
 }
 
 .update_picture_wrap {

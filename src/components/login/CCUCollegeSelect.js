@@ -15,12 +15,12 @@ const CCUcollege = ({ collegeError, handleRegisterChange }) => {
         className='ccu_select'
         name='ccu_college'
         onChange={handleRegisterChange}>
-        <option value=''>-- Please select --</option>
+        <option value=''>-- select CCU college --</option>
         <option value='Wall College of Business'>
           Wall College of Business
         </option>
         <option value='The Spadoni College of Education and Social Sciences'>
-          The Spadoni College of Education and Social Sciences
+          Spadoni College of Education and Social Sciences
         </option>
         <option value='Edwards College of Humanities and Fine Arts'>
           Edwards College of Humanities and Fine Arts

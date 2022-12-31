@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export const updateProfilePicture = async (url, token) => {
   try {
-    // eslint-disable-next-line
     const { data } = await axios.put(
       `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/updateProfilePicture`,
       {

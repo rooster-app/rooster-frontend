@@ -37,7 +37,7 @@
   border-bottom-right-radius: 8px;
 }
 
-.udpate_cover_wrapper {
+.update_cover_wrapper {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
@@ -145,6 +145,12 @@
   gap: 8px;
   padding: 0 18px;
   margin-bottom: 7px;
+  pointer-events: none !important;
+}
+
+.edit-bttn {
+  border-radius: 4px !important;
+  /* background: var(--teal) !important; */
 }
 
 .invert {
@@ -288,6 +294,7 @@
 }
 /*----PplYouMayKnow End----*/
 
+/*----Menu----*/
 .left_header_grid {
   font-size: 22px;
   font-weight: 600;
@@ -477,6 +484,36 @@
   margin-left: 50px;
 }
 
+/*---Animated Scroll Position Lock---*/
+.scrollFixed .profile_left {
+  position: fixed;
+  width: 360px;
+}
+
+.scrollFixed .profile_right {
+  margin-left: 370px;
+  width: 504px;
+}
+
+.scrollFixed .profile_right .createPost {
+  width: 504px;
+}
+
+.showLess .profile_left {
+  bottom: 30px;
+}
+
+.showMore .profile_left {
+  top: 64px;
+}
+
+@media (max-width: 1175px) {
+  .createPost,
+  .post {
+    margin-left: 0px !important;
+  }
+}
+
 @media (max-width: 900px) {
   .profile_w_left {
     flex-direction: column;
@@ -518,21 +555,10 @@
   }
 }
 @media (max-width: 510px) {
-  .udpate_cover_wrapper {
+  .update_cover_wrapper {
     bottom: 3rem;
   }
-}
-.scrollFixed .profile_left {
-  position: fixed;
-  width: 360px;
-}
-.scrollFixed .profile_right {
-  margin-left: 360px;
-  width: 504px;
-}
-.showLess .profile_left {
-  bottom: 10px;
-}
-.showMore .profile_left {
-  top: 54px;
+  .profile_bottom {
+    padding: 0px !important;
+  }
 }

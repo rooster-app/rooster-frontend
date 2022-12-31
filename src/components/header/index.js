@@ -17,7 +17,6 @@ import {
   Search,
   Watch,
 } from '../../svg';
-// import Logo from "../../images/rooster-logo.png"
 import SearchMenu from './SearchMenu';
 import AllMenu from './AllMenu';
 import useClickOutside from '../../helpers/clickOutside';

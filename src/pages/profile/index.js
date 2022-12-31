@@ -21,12 +21,17 @@ import ProfileMenu from './ProfileMenu';
 import { profileReducer } from '../../functions/reducers';
 
 export default function Profile({ setPostModalVisible }) {
+  const { user } = useSelector((state) => ({ ...state }));
+
   const { username } = useParams();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => ({ ...state }));
   const [photos, setPhotos] = useState({});
   const [postPhotoUrls, setPostPhotoUrls] = useState();
+  const [othername, setOthername] = useState();
+
   var userName = username === undefined ? user.username : username;
+  // determine if the user is profile page visitor or owner
+  var visitor = userName === user.username ? false : true;
 
   // eslint-disable-next-line
   const [{ loading, error, profile }, dispatch] = useReducer(profileReducer, {
@@ -44,8 +49,6 @@ export default function Profile({ setPostModalVisible }) {
     setOthername(profile?.details?.otherName);
   }, [profile]);
 
-  var visitor = userName === user.username ? false : true;
-  const [othername, setOthername] = useState();
   // cloudinary path to get photos from
   const path = `${userName}/*`;
   const max = 30;
@@ -93,7 +96,6 @@ export default function Profile({ setPostModalVisible }) {
         } catch (error) {
           console.log(error);
         }
-
         dispatch({
           type: 'PROFILE_SUCCESS',
           payload: data,
@@ -114,7 +116,7 @@ export default function Profile({ setPostModalVisible }) {
   const [scrollHeight, setScrollHeight] = useState();
 
   useEffect(() => {
-    setHeight(profileTop.current.clientHeight + 300);
+    setHeight(profileTop.current.clientHeight + 30);
     setLeftHeight(leftSide.current.clientHeight);
     window.addEventListener('scroll', getScroll, { passive: true });
     return () => {

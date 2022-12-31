@@ -51,9 +51,9 @@ export default function ProfielPictureInfos({
             <img src="../../../icons/plus.png" alt="" className="invert" />
             <span>Add to story</span>
           </div> */}
-          <div className="teal_bttn">
+          <div className="teal_bttn edit-bttn">
             <i className="edit_icon"></i>
-            <span>Edit profile</span>
+            <span>Edit Profile Enabled</span>
           </div>
         </div>
       )}

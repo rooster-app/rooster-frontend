@@ -610,4 +610,12 @@
   .comment_input_wrap input {
     font-size: 12px;
   }
+  .comment_circle_icon {
+    width: 26px;
+  }
+}
+@media (max-width: 350px) {
+  .comment_circle_icon {
+    width: 24px !important;
+  }
 }

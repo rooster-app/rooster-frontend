@@ -1,18 +1,19 @@
 export default function Bio({
-  infos,
+  detail,
   handleChange,
+  infos,
   max,
+  name,
+  placeholder,
+  relationship,
+  setShow,
   setShowBio,
   updateDetails,
-  placeholder,
-  name,
-  detail,
-  setShow,
-  rel,
+  ccu_college,
 }) {
   return (
     <div className='add_bio_wrap'>
-      {rel ? (
+      {relationship ? (
         <select
           className='select_rel'
           name={name}
@@ -23,12 +24,36 @@ export default function Bio({
           <option value='Married'>Married</option>
           <option value='Divorced'>Divorced</option>
         </select>
+      ) : ccu_college ? (
+        <select
+          className='select_rel'
+          name={name}
+          value={infos.college}
+          onChange={handleChange}>
+          <option value=''>--- Select CCU College ---</option>
+          <option value='Wall College of Business'>
+            Wall College of Business
+          </option>
+          <option value='The Spadoni College of Education and Social Sciences'>
+            Spadoni College of Education and Social Sciences
+          </option>
+          <option value='Edwards College of Humanities and Fine Arts'>
+            Edwards College of Humanities and Fine Arts
+          </option>
+          <option value='Gupta College of Science'>
+            Gupta College of Science
+          </option>
+          <option value='HTC Honors College'>HTC Honors College</option>
+          <option value='Conway Medical Center College of Health and Human Performance'>
+            Conway Medical College of Health and Human Performance
+          </option>
+        </select>
       ) : (
         <textarea
           placeholder={placeholder}
           name={name}
           value={infos?.[name]}
-          maxLength={detail ? 25 : 100}
+          maxLength={detail ? 28 : 100}
           className='textarea_blue details_input'
           onChange={handleChange}></textarea>
       )}

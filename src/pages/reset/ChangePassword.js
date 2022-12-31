@@ -14,7 +14,6 @@ export default function ChangePassword({
   conf_password,
   setConf_password,
   error,
-  laoding,
   setLoading,
   userInfos,
   setError,

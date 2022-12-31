@@ -12,6 +12,7 @@
 }
 
 .info_text {
+  margin-top: 6px;
   word-break: break-word;
 }
 
@@ -50,7 +51,7 @@
   font-size: 12px;
   color: var(--color-secondary);
   align-self: flex-end;
-  margin-top: 2px;
+  margin-top: 7px;
 }
 
 .add_bio_wrap .flex {
@@ -68,7 +69,7 @@
 }
 
 .infosBox {
-  height: 650px;
+  height: 82vh;
   width: 800px !important;
 }
 
@@ -129,6 +130,14 @@
   margin: 10px 0;
   padding: 0 10px;
   border-radius: 5px;
+}
+
+.smaller-icon {
+  width: 24px;
+}
+
+.box_header span {
+  color: var(--color-primary) !important;
 }
 
 @media (max-width: 810px) {

@@ -12,7 +12,8 @@ export default function Detail({
   updateDetails,
   infos,
   text,
-  rel,
+  relationship,
+  ccu_college
 }) {
   const [show, setShow] = useState(false);
   return (
@@ -20,7 +21,17 @@ export default function Detail({
       <div className='add_details_flex ' onClick={() => setShow(true)}>
         {value ? (
           <div className='info_profile '>
-            <img src={`../../../icons/${img}.png`} alt='' />
+            <img
+              src={`../../../icons/${img}.png`}
+              className={`${
+                img === 'github'
+                  ? 'smaller-icon'
+                  : img === 'linkedin'
+                  ? 'smaller-icon'
+                  : ''
+              }`}
+              alt=''
+            />
             {value}
             <i className='edit_icon'></i>
           </div>
@@ -40,7 +51,8 @@ export default function Detail({
           infos={infos}
           detail
           setShow={setShow}
-          rel={rel}
+          relationship={relationship}
+          ccu_college={ccu_college}
         />
       )}
     </div>
