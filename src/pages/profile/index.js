@@ -50,7 +50,7 @@ export default function Profile({ setPostModalVisible }) {
   }, [profile]);
 
   // cloudinary path to get photos from
-  const path = `${userName}/*`;
+  const path = `${user.id}/*`;
   const max = 30;
   const sort = 'desc';
 

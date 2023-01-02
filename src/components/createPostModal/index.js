@@ -7,7 +7,7 @@ import EmojiPickerBackgrounds from './EmojiPickerBackgrounds';
 import AddToYourPost from './AddToYourPost';
 import ImagePreview from './ImagePreview';
 import useClickOutside from '../../helpers/clickOutside';
-import { createPost } from '../../functions/createPost';
+import { createPost } from '../../functions/post';
 import PostError from './PostError';
 import dataURItoBlob from '../../helpers/dataURItoBlob';
 import { uploadImages } from '../../functions/uploadImages';
