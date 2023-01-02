@@ -26,22 +26,21 @@ const SendVerification = ({ user }) => {
   };
 
   return (
-    <div className="send_verification">
+    <div className='send_verification'>
       <span>
         This account has not been verified. Please verify your account before it
-        is deleted in 5 days from creating.
+        is deleted in 24 hours from creating.
       </span>
 
       <button
-        className="teal_bttn"
+        className='teal_bttn'
         onClick={() => {
           sendVerificationLink();
-        }}
-      >
+        }}>
         Click here to resend email verification
       </button>
-      {error && <div className="error_text">{error}</div>}
-      {success && <div className="success_text">{success}</div>}
+      {error && <div className='error_text'>{error}</div>}
+      {success && <div className='success_text'>{success}</div>}
     </div>
   );
 };

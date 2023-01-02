@@ -64,9 +64,9 @@ export default function EditDetails({
           <Detail
             value={details?.college}
             img='studies'
-            placeholder='Add a college'
+            placeholder='Change CCU college'
             name='college'
-            text='college'
+            text='different CCU college'
             handleChange={handleChange}
             updateDetails={updateDetails}
             infos={infos}
@@ -78,6 +78,17 @@ export default function EditDetails({
             placeholder='Add a high school'
             name='highSchool'
             text='a high school'
+            handleChange={handleChange}
+            updateDetails={updateDetails}
+            infos={infos}
+          />
+          <div className='details_header'>Pronouns</div>
+          <Detail
+            value={details?.pronouns}
+            img='friends'
+            placeholder='Add pronouns'
+            name='pronouns'
+            text='pronouns'
             handleChange={handleChange}
             updateDetails={updateDetails}
             infos={infos}
@@ -120,7 +131,7 @@ export default function EditDetails({
           <Detail
             value={details?.github}
             img='github'
-            placeholder='Add instagram'
+            placeholder='Add GitHub handle'
             name='github'
             text='github'
             handleChange={handleChange}
@@ -131,7 +142,7 @@ export default function EditDetails({
           <Detail
             value={details?.instagram}
             img='instagram'
-            placeholder='Add instagram'
+            placeholder='Add Instagram username'
             name='instagram'
             text='instagram'
             handleChange={handleChange}
@@ -142,7 +153,7 @@ export default function EditDetails({
           <Detail
             value={details?.instagram}
             img='linkedin'
-            placeholder='Add instagram'
+            placeholder='Add Linkedin username'
             name='linkedin'
             text='linkedin'
             handleChange={handleChange}
