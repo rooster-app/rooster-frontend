@@ -113,7 +113,6 @@ export default function ProfilePicture({ username, setShow, pRef, photos }) {
           setImage={setImage}
           image={image}
           setShow={setShow}
-          setError={setError}
           pRef={pRef}
         />
       )}

@@ -145,7 +145,7 @@
   transform: translateY(19px);
 }
 
-/*-----Password Eye-----*/
+/* Password Eye */
 .password_wrapper {
   position: relative;
 }
@@ -162,9 +162,9 @@
   color: var(--light-teal);
   cursor: pointer;
 }
-/*-----Password Eye End-----*/
 
-/*----Responsive----*/
+
+/* Responsive */
 @media (max-width: 350px) {
   .reset_form {
     height: fit-content;
@@ -201,7 +201,6 @@
     padding-left: 65%;
   }
 }
-
 @media (min-width: 850px) and (max-width: 1050px) {
   .reset_form .input_error {
     left: 0;
@@ -224,4 +223,3 @@
     left: -92%;
   }
 }
-/*----Responsive End----*/

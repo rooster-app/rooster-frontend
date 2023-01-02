@@ -13,14 +13,15 @@ export default function Detail({
   infos,
   text,
   relationship,
-  ccu_college
+  ccu_college,
 }) {
   const [show, setShow] = useState(false);
   return (
     <div>
       <div className='add_details_flex ' onClick={() => setShow(true)}>
         {value ? (
-          <div className='info_profile '>
+          <div
+            className={`info_profile ${name === 'pronouns' ? 'pronouns' : ''}`}>
             <img
               src={`../../../icons/${img}.png`}
               className={`${
@@ -32,7 +33,7 @@ export default function Detail({
               }`}
               alt=''
             />
-            {value}
+            <span>{value}</span>
             <i className='edit_icon'></i>
           </div>
         ) : (

@@ -69,7 +69,7 @@ a {
   z-index: 999999999999;
 }
 
-/*---Default Button Configs---*/
+/* Default Button Configs */
 .teal_bttn {
   border: none;
   outline: none;
@@ -104,7 +104,7 @@ a {
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  box-shadow: 0 2px 8px rgba(49, 196, 190, 0.75);
+  box-shadow: 0 3px 8px rgba(49, 196, 190, 0.75);
 }
 
 .open_signup {
@@ -160,8 +160,7 @@ a {
   transform: translateY(-1px);
 } */
 
-/*---Default Button Configs End---*/
-
+/* Default Button Configs End */
 
 /*----Hovers----*/
 .hover1:hover {
@@ -173,8 +172,7 @@ a {
 .hover3:hover {
   background: #d4d6da3a;
 }
-/*----Hovers End----*/
-
+/* Hovers End */
 
 .card {
   height: 500px;
@@ -182,8 +180,7 @@ a {
   background: red;
 }
 
-
-/*----Scrollbar----*/
+/* Scrollbar */
 .scrollbar::-webkit-scrollbar {
   width: 8px;
 }
@@ -191,10 +188,9 @@ a {
   background: #aeaeafa1;
   border-radius: 5px;
 }
-/*----Scrollbar End----*/
+/* Scrollbar End */
 
-
-/*----Circles----*/
+/* Circles */
 .small_circle {
   position: relative;
   height: 36px;
@@ -207,13 +203,12 @@ a {
   background: var(--bg-third);
   cursor: pointer;
 }
-/*----Circles End----*/
+/* Circles End */
 
-
-/*----Filters----*/
+/* Filters */
 .filter_blue {
   filter: invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%)
     saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg)
     brightness(97%) contrast(96%);
 }
-/*----Filters End----*/
+/* Filters End */

@@ -126,8 +126,9 @@ export default function RegisterForm({ setVisible }) {
       );
       setError('');
       setSuccess(data.message);
+      setLoading(false);
       const { message, ...rest } = data;
-      setTimeout(() => {
+      setTimeout(async () => {
         dispatch({ type: 'LOGIN', payload: rest });
         Cookies.set('user', JSON.stringify(rest));
         navigate('/');
@@ -270,7 +271,7 @@ export default function RegisterForm({ setVisible }) {
               </div>
               <DotLoader color='#0cb1c7' loading={loading} size={30} />
               {error && <div className='error_text'>{error}</div>}
-              {success && <div className='success_text'>{success}</div>}
+              {success && <div className='success_text'>{success}.</div>}
             </Form>
           )}
         </Formik>

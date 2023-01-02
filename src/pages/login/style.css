@@ -1,4 +1,4 @@
-/*-----LoginForm-----*/
+/* LoginForm */
 .login {
   min-height: 100vh;
   background: linear-gradient(
@@ -93,10 +93,9 @@
 .sign_extra {
   font-size: 15px;
 }
-/*-----LoginForm End-----*/
 
 
-/*-----Password Eye-----*/
+/* Password Eye */
 .password_wrapper {
   position: relative;
 }
@@ -113,10 +112,9 @@
   color: var(--light-teal);
   cursor: pointer;
 }
-/*-----Password Eye End-----*/
 
 
-/*-----RegisterForm-----*/
+/* RegisterForm */
 .register {
   position: absolute;
   top: 50%;
@@ -240,10 +238,9 @@
   justify-content: center;
   margin: 20px 0 10px 0;
 }
-/*-----RegisterForm End-----*/
 
 
-/*-----CCUcollege-----*/
+/* CCUcollege */
 .ccu_select {
   width: 270px;
   margin-top: 5px;
@@ -254,10 +251,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
-/*-----CCUcollege End-----*/
 
 
-/*----dob, ccu and gender errors-----*/
+/* Dob, CCU and Gender errors */
 .reg_grid .input_error {
   width: 300px;
   position: absolute;
@@ -272,24 +268,24 @@
   left: -97%;
   top: 15px !important;
 }
-/*----dob, ccu and gender errors End-----*/
 
 
-/*----error and success styles -------*/
+/* Error and Success */
 .error_text {
   color: #b94a48;
 }
 .success_text {
   color: var(--green-color);
+  font-size: 18px;
+  font-weight: 600;
 }
 .signup_error_msg {
   color: var(--error-red);
   font-size: 13px;
 }
-/*----error and success styles End-----*/
 
 
-/*-----Media queries-----*/
+/* Media queries */
 @media (min-width: 850px) {
   .login_wrap {
     display: flex;
@@ -318,13 +314,11 @@
     width: 360px !important;
   }
 }
-
 @media (min-width: 650px) {
   .login_footer_wrap {
     max-width: 650px;
   }
 }
-
 @media (min-width: 539px) {
   .login_footer_wrap {
     max-width: 520px;
@@ -343,14 +337,12 @@
     width: 350px;
   }
 }
-
 @media (max-width: 390px) {
   .rooster_img {
     width: 275px !important;
     margin-bottom: -30px !important;
   }
 }
-
 @media (max-width: 370px) {
   .input_wrap {
     width: 280px !important;
@@ -367,7 +359,6 @@
     margin: 0 auto;
   }
 }
-
 @media (max-width: 330px) {
   .login_2_wrap {
     width: 300px !important;
@@ -378,4 +369,3 @@
     margin-top: -20px !important;
   }
 }
-/*-----Media queries-----*/

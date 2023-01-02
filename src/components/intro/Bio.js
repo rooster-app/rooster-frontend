@@ -17,7 +17,7 @@ export default function Bio({
         <select
           className='select_rel'
           name={name}
-          value={infos.relationship}
+          value={infos?.relationship}
           onChange={handleChange}>
           <option value='Single'>Single</option>
           <option value='In a relationship'>In a relationship</option>
@@ -28,7 +28,7 @@ export default function Bio({
         <select
           className='select_rel'
           name={name}
-          value={infos.college}
+          value={infos?.college}
           onChange={handleChange}>
           <option value=''>--- Select CCU College ---</option>
           <option value='Wall College of Business'>

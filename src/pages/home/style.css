@@ -176,12 +176,29 @@
     width: 18px;
   }
 }
-@media (max-width: 384px) {
+@media (max-width: 400px) {
   .createPost,
-  .post,
-  .send_Verification {
-    width: 350px;
+  .post {
+    margin-top: 1rem;
   }
+  .home_middle,
+  .createPost,
+  .post {
+    width: 100%;
+    margin: 1rem auto;
+  }
+  .send_Verification {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .home_middle {
+    margin: 56px auto;
+  }
+  .createPost_body {
+    padding: 5px 0;
+  }
+}
+@media (max-width: 384px) {
   .createPost_icon {
     font-size: 11px;
   }
@@ -193,11 +210,6 @@
   }
 }
 @media (max-width: 340px) {
-  .send_verification,
-  .createPost,
-  .post {
-    width: 300px;
-  }
   .open_post {
     font-size: 12px;
   }

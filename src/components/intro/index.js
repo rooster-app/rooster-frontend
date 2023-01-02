@@ -23,6 +23,7 @@ export default function Intro({ detailss, visitor, setOthername }) {
   const initial_data = {
     bio: details?.bio ? details.bio : '',
     otherName: details?.otherName ? details.otherName : '',
+    pronouns: details?.pronouns ? details.pronouns : '',
     job: details?.job ? details.job : '',
     workplace: details?.workplace ? details.workplace : '',
     highSchool: details?.highSchool ? details.highSchool : '',
@@ -119,6 +120,12 @@ export default function Intro({ detailss, visitor, setOthername }) {
           <img src='../../../icons/studies.png' alt='' />
           Studies at{' '}
           {`${details?.college ? details.college : user.ccu_college}`}
+        </div>
+      )}
+      {details?.pronouns && (
+        <div className='info_profile pronouns'>
+          <img src='../../../icons/friends.png' alt='' />
+          <span>{details.pronouns}</span>
         </div>
       )}
       {details?.highSchool && (

@@ -42,14 +42,14 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
         setText('');
         setPostModalVisible(false);
       } else {
-        setError(response.message);
+        setError(response);
       }
     } else if (images && images.length) {
       setLoading(true);
       const postImages = images.map((img) => {
         return dataURItoBlob(img);
       });
-      const path = `${user.username}/post_images`;
+      const path = `${user.id}/post_images`;
       let formData = new FormData();
       formData.append('path', path);
       postImages.forEach((image) => {
@@ -96,28 +96,27 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
     }
   };
   return (
-    <div className="blur">
-      <div className="postBox" ref={popup}>
+    <div className='blur'>
+      <div className='postBox' ref={popup}>
         {error && <PostError error={error} setError={setError} />}
-        <div className="box_header">
+        <div className='box_header'>
           <div
-            className="small_circle"
+            className='small_circle'
             onClick={() => {
               setPostModalVisible(false);
-            }}
-          >
-            <i className="exit_icon"></i>
+            }}>
+            <i className='exit_icon'></i>
           </div>
           <span>Create Post</span>
         </div>
-        <div className="box_profile">
-          <img src={user.picture} alt="" className="box_profile_img" />
-          <div className="box_col">
-            <div className="box_profile_name">
+        <div className='box_profile'>
+          <img src={user.picture} alt='' className='box_profile_img' />
+          <div className='box_col'>
+            <div className='box_profile_name'>
               {user.first_name} {user.last_name}
             </div>
-            <div className="box_privacy">
-              <img src="../../../icons/public.png" alt="" />
+            <div className='box_privacy'>
+              <img src='../../../icons/public.png' alt='' />
               <span>Public</span>
               {/* <i className="arrowDown_icon"></i> */}
             </div>
@@ -149,13 +148,12 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
         )}
         <AddToYourPost setShowPrev={setShowPrev} />
         <button
-          className="post_submit teal_bttn"
+          className='post_submit teal_bttn'
           onClick={() => {
             postSubmit();
           }}
-          disabled={loading}
-        >
-          {loading ? <PulseLoader color="#fff" size={5} /> : 'Post'}
+          disabled={loading}>
+          {loading ? <PulseLoader color='#fff' size={5} /> : 'Post'}
         </button>
       </div>
     </div>
