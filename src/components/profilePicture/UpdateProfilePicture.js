@@ -13,7 +13,6 @@ import { uploadImages } from '../../functions/uploadImages';
 export default function UpdateProfilePicture({
   setImage,
   image,
-  setError,
   setShow,
   pRef,
 }) {
@@ -25,6 +24,7 @@ export default function UpdateProfilePicture({
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const slider = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels);
@@ -65,7 +65,7 @@ export default function UpdateProfilePicture({
       let img = await getCroppedImage();
       let blob = await fetch(img).then((b) => b.blob());
       // path to send to cloudinary
-      const path = `${user.username}/profile_pictures`;
+      const path = `${user.id}/profile_pictures`;
       let formData = new FormData();
       formData.append('file', blob);
       formData.append('path', path);
@@ -105,11 +105,11 @@ export default function UpdateProfilePicture({
           setShow(false);
         } else {
           setLoading(false);
-          setError(new_post.message);
+          setError(new_post);
         }
       } else {
         setLoading(false);
-        setError(updated_picture.message);
+        setError(updated_picture);
       }
     } catch (error) {
       setLoading(false);
@@ -119,12 +119,20 @@ export default function UpdateProfilePicture({
 
   return (
     <div className='postBox update_img'>
-      <div className='box_header' >
+      <div className='box_header'>
         <div className='small_circle' onClick={() => setImage('')}>
           <i className='exit_icon'></i>
         </div>
         <span>Update Profile Picture</span>
       </div>
+      {error && (
+        <div className='postError comment_error'>
+          <div className='postError_error'>{error}</div>
+          <button className='teal_bttn' onClick={() => setError('')}>
+            Try again
+          </button>
+        </div>
+      )}
       <div className='update_image_desc'>
         <textarea
           placeholder='Description'

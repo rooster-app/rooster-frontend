@@ -1,6 +1,5 @@
 // @packages
-import axios from 'axios';
-import { useEffect, useReducer, useState } from 'react';
+import { useState } from 'react';
 // @scripts
 import './style.css';
 import LeftLink from './LeftLink';
@@ -8,54 +7,9 @@ import Shortcut from './Shortcut';
 import { ArrowDown1 } from '../../../svg';
 import { Link } from 'react-router-dom';
 import { left } from '../../../data/home';
-import { profileReducer } from '../../../functions/reducers';
 
-export default function LeftHome({ user }) {
+export default function LeftHome({ user, profile }) {
   const [visible, setVisible] = useState(false);
-
-  // eslint-disable-next-line
-  const [{ loading, error, profile }, dispatch] = useReducer(profileReducer, {
-    loading: false,
-    profile: {},
-    error: '',
-  });
-
-  useEffect(() => {
-    getProfile();
-    // eslint-disable-next-line
-  }, [user]);
-
-  const getProfile = async () => {
-    try {
-      dispatch({
-        type: 'PROFILE_REQUEST',
-      });
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/getProfile/${user.username}`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
-      );
-      if (data.success) {
-        dispatch({
-          type: 'PROFILE_SUCCESS',
-          payload: data,
-        });
-      } else {
-        dispatch({
-          type: 'PROFILE_ERROR',
-          payload: data.message,
-        });
-      }
-    } catch (error) {
-      dispatch({
-        type: 'PROFILE_ERROR',
-        payload: error.response.data.message,
-      });
-    }
-  };
 
   return (
     <div className='left_home scrollbar'>
@@ -123,7 +77,7 @@ export default function LeftHome({ user }) {
         <Shortcut
           link={
             profile?.details?.instagram
-              ? `https://www.instagram.com/${profile.details.instagram}`
+              ? `https://www.instagram.com/${profile?.details.instagram}`
               : 'https://www.instagram.com/'
           }
           img='../../images/insta.png'
@@ -132,7 +86,7 @@ export default function LeftHome({ user }) {
         <Shortcut
           link={
             profile?.details?.github
-              ? `https://www.github.com/${profile.details.github}`
+              ? `https://www.github.com/${profile?.details.github}`
               : 'https://www.github.com/'
           }
           img='../../images/github.png'
@@ -141,7 +95,7 @@ export default function LeftHome({ user }) {
         <Shortcut
           link={
             profile?.details?.linkedin
-              ? `https://www.linkedin.com/in/${profile.details.linkedin}`
+              ? `https://www.linkedin.com/in/${profile?.details.linkedin}`
               : 'https://www.linkedin.com/'
           }
           img='../../images/linkedin.png'

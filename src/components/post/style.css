@@ -555,7 +555,7 @@
 }
 
 
-@media (max-width: 415px) {
+@media (max-width: 435px) {
   .post .grid_2 img,
   .post .grid_3 img,
   .post .grid_4 img,
@@ -586,7 +586,7 @@
   }
 }
 @media (max-width: 400px) {
-  .posts {
+  .post {
     width: 100%;
     margin: 0 auto;
   }

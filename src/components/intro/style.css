@@ -76,7 +76,7 @@
 .details_wrapper {
   padding: 1rem;
   overflow-y: auto;
-  height: 75vh;
+  height: 570px;
 }
 
 .details_col {
@@ -138,6 +138,14 @@
 
 .box_header span {
   color: var(--color-primary) !important;
+}
+
+.pronouns img {
+  margin-left: 3px;
+}
+
+.pronouns span {
+  margin-left: 2px;
 }
 
 @media (max-width: 810px) {
