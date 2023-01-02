@@ -10,7 +10,7 @@ import Post from '../../components/post';
 import { profileReducer } from '../../functions/reducers';
 import RightHome from '../../components/home/right';
 import SendVerification from '../../components/home/sendVerification';
-import './style.css';
+import './home_style.css';
 
 export default function Home({ setPostModalVisible, posts }) {
   const { user } = useSelector((user) => ({ ...user }));

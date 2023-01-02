@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // @scripts
 import PulseLoader from 'react-spinners/PulseLoader';
 import getCroppedImg from '../../helpers/getCroppedImg';
-import { createPost } from '../../functions/createPost';
+import { createPost } from '../../functions/post';
 import { updateProfilePicture } from '../../functions/user';
 import { uploadImages } from '../../functions/uploadImages';
 

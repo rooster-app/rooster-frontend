@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import OldCovers from './OldCovers';
 import getCroppedImg from '../../helpers/getCroppedImg';
 import useClickOutside from '../../helpers/clickOutside';
-import { createPost } from '../../functions/createPost';
+import { createPost } from '../../functions/post';
 import { updateCover } from '../../functions/user';
 import { uploadImages } from '../../functions/uploadImages';
 

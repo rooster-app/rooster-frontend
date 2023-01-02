@@ -6,7 +6,7 @@ import './style.css';
 import UpdateProfilePicture from './UpdateProfilePicture';
 // import useOnClickOutside from "../../helpers/clickOutside";
 
-export default function ProfilePicture({ username, setShow, pRef, photos }) {
+export default function ProfilePicture({ setShow, pRef, photos }) {
   const { user } = useSelector((state) => ({ ...state }));
 
   const popup = useRef(null);
@@ -79,9 +79,7 @@ export default function ProfilePicture({ username, setShow, pRef, photos }) {
           <h4>your profile pictures</h4>
           <div className='old_pictures'>
             {photos
-              .filter(
-                (img) => img.folder === `${user.username}/profile_pictures`
-              )
+              .filter((img) => img.folder === `${user.id}/profile_pictures`)
               .map((photo) => (
                 <img
                   src={photo.secure_url}
@@ -94,9 +92,7 @@ export default function ProfilePicture({ username, setShow, pRef, photos }) {
           <h4>other pictures</h4>
           <div className='old_pictures'>
             {photos
-              .filter(
-                (img) => img.folder !== `${user.username}/profile_pictures`
-              )
+              .filter((img) => img.folder !== `${user.id}/profile_pictures`)
               .map((photo) => (
                 <img
                   src={photo.secure_url}

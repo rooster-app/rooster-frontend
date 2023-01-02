@@ -25,12 +25,12 @@ const reactsArray = [
   },
 ];
 
-export default function ReactsPopup({ visible, setVisible }) {
+export default function ReactsPopup({ visible, setVisible, reactHandler }) {
   return (
     <>
       {visible && (
         <div
-          className="reacts_popup"
+          className='reacts_popup'
           onMouseOver={() => {
             setTimeout(() => {
               setVisible(true);
@@ -40,11 +40,13 @@ export default function ReactsPopup({ visible, setVisible }) {
             setTimeout(() => {
               setVisible(false);
             }, 500);
-          }}
-        >
+          }}>
           {reactsArray.map((react, i) => (
-            <div className="react" key={i}>
-              <img src={react.image} alt="" />
+            <div
+              className='react'
+              key={i}
+              onClick={() => reactHandler(react.name)}>
+              <img src={react.image} alt='' />
             </div>
           ))}
         </div>

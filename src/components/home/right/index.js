@@ -13,7 +13,7 @@ export default function RightHome({ user, profile }) {
         <div className='contacts_header'>
           <div className='contacts_header_left'>CCU Contacts</div>
           <div className='contacts_header_right'>
-            <div className='contact_circle hover1'>
+            {/* <div className='contact_circle hover1'>
               <NewRoom color={color} />
             </div>
             <div className='contact_circle hover1'>
@@ -21,7 +21,7 @@ export default function RightHome({ user, profile }) {
             </div>
             <div className='contact_circle hover1'>
               <Dots color={color} />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className='contacts_list'>

@@ -69,7 +69,7 @@ export default function Header({ page }) {
       <div className='header_middle'>
         <Link
           to='/'
-          className={`middle_icon ${page === 'home' ? 'active' : ''}`}>
+          className={`middle_icon ${page === 'home' ? 'active' : 'hover1'}`}>
           {page === 'home' ? (
             <Home color={'#ffffff'} />
           ) : (
@@ -126,7 +126,6 @@ export default function Header({ page }) {
             }}>
             <ArrowDown />
           </div>
-
           {showUserMenu && <UserMenu user={user} />}
         </div>
       </div>
