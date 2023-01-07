@@ -4,15 +4,15 @@ import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// ***Auth: block line below until beta***
 import { useNavigate } from 'react-router-dom';
 
 // @scripts
+import ActivateForm from './ActivateForm';
 import CreatePostForm from '../../components/createPostForm';
 import Header from '../../components/header';
 import LeftHome from '../../components/home/left';
 import RightHome from '../../components/home/right';
-import ActivateForm from './ActivateForm';
+import { defaultFriend } from '../../functions/user';
 import './style.css';
 
 export default function Activate() {
@@ -49,13 +49,13 @@ export default function Activate() {
         type: 'VERIFY',
         payload: true,
       });
-      // ***Auth: block lines below until beta***
+      // add default friend on account activation
+      await defaultFriend(user.token);
       setTimeout(() => {
         navigate('/');
-      }, 3500);
+      }, 2500);
     } catch (error) {
       setError(error.response.data.message);
-      // ***Auth: block lines below until beta***
       setTimeout(() => {
         navigate('/');
       }, 3500);
@@ -63,26 +63,26 @@ export default function Activate() {
   };
 
   return (
-    <div className="home">
+    <div className='home'>
       {success && (
         <ActivateForm
-          type="success"
-          header="Account verification succeeded"
+          type='success'
+          header='Account verification succeeded'
           text={success}
           loading={loading}
         />
       )}
       {error && (
         <ActivateForm
-          type="error"
-          header="Account verification failed"
+          type='error'
+          header='Account verification failed'
           text={error}
           loading={loading}
         />
       )}
       <Header />
       <LeftHome user={user} />
-      <div className="home_middle">
+      <div className='home_middle'>
         <CreatePostForm user={user} />
       </div>
       <RightHome user={user} />

@@ -89,15 +89,15 @@ export default function Cover({ cover, visitor, photos }) {
       setLoading(true);
       let img = await getCroppedImage();
       let blob = await fetch(img).then((b) => b.blob());
-      const path = `${user.id}/cover_pictures`;
+      const path = `${user?.id}/cover_pictures`;
 
       let formData = new FormData();
       formData.append('file', blob);
       formData.append('path', path);
       // upload to cloudinary for img url
-      const res = await uploadImages(formData, path, user.token);
+      const res = await uploadImages(formData, path, user?.token);
       // update the user cover with the url in the database
-      const updated_picture = await updateCover(res[0].url, user.token);
+      const updated_picture = await updateCover(res[0].url, user?.token);
       if (updated_picture === 'ok') {
         // then create a new post
         const new_post = await createPost(
@@ -105,10 +105,10 @@ export default function Cover({ cover, visitor, photos }) {
           null,
           null,
           res,
-          user.id,
-          user.token
+          user?.id,
+          user?.token
         );
-        if (new_post.success) {
+        if (new_post.success === true) {
           setLoading(false);
           setCoverPicture('');
           cRef.current.src = res[0].url;

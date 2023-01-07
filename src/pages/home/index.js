@@ -15,6 +15,8 @@ import './home_style.css';
 export default function Home({ setPostModalVisible, posts }) {
   const { user } = useSelector((user) => ({ ...user }));
 
+
+
   const [height, setHeight] = useState();
   const middle = useRef(null);
 
