@@ -1,10 +1,10 @@
 // @scripts
 import Contact from './Contact';
-import { Dots, NewRoom, Search } from '../../../svg';
+// import { Dots, NewRoom, Search } from '../../../svg';
 import './style.css';
 
 export default function RightHome({ user, profile }) {
-  const color = '#65676b';
+  // const color = '#65676b';
   return (
     <div className='right_home'>
       <div className='heading'>Rooster</div>
