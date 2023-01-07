@@ -285,7 +285,6 @@
   transform: translateY(1px);
   -webkit-filter: invert(40%);
 }
-
 .pin_icon {
   background-image: url("../../../public/icons/icons1.png");
   background-position: 0px -378px;

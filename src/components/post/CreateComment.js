@@ -1,13 +1,19 @@
 // @packages
+import { ClipLoader } from 'react-spinners';
 import { useEffect, useRef, useState } from 'react';
 import Picker from 'emoji-picker-react';
+// @scripts
+import { comment } from '../../functions/post';
+import dataURItoBlob from '../../helpers/dataURItoBlob';
+import { uploadImages } from '../../functions/uploadImages';
 
-export default function CreateComment({ user }) {
+export default function CreateComment({ user, postId, setComments, setCount }) {
   const [picker, setPicker] = useState(false);
   const [text, setText] = useState('');
   const [error, setError] = useState('');
   const [commentImage, setCommentImage] = useState('');
   const [cursorPosition, setCursorPosition] = useState();
+  const [loading, setLoading] = useState(false);
   const textRef = useRef(null);
   const imgInput = useRef(null);
 
@@ -48,6 +54,39 @@ export default function CreateComment({ user }) {
     };
   };
 
+  const handleComment = async (e) => {
+    if (e.key === 'Enter') {
+      if (commentImage !== '') {
+        setLoading(true);
+        const img = dataURItoBlob(commentImage);
+        const path = `${user.id}/post_images/${postId}`;
+        let formData = new FormData();
+        formData.append('path', path);
+        formData.append('file', img);
+        const imgComment = await uploadImages(formData, path, user.token);
+        const comments = await comment(
+          postId,
+          text,
+          imgComment[0].url,
+          user.token
+        );
+        setComments(comments);
+        setCount((prev) => ++prev);
+        setLoading(false);
+        setText('');
+        setCommentImage('');
+      } else {
+        setLoading(true);
+        const comments = await comment(postId, text, '', user.token);
+        setComments(comments);
+        setCount((prev) => ++prev);
+        setLoading(false);
+        setText('');
+        setCommentImage('');
+      }
+    }
+  };
+
   return (
     <div className='create_comment_wrap'>
       <div className='create_comment'>
@@ -79,7 +118,11 @@ export default function CreateComment({ user }) {
             value={text}
             placeholder='Write a comment...'
             onChange={(e) => setText(e.target.value)}
+            onKeyUp={handleComment}
           />
+          <div className='comment_circle' style={{ marginTop: '5px' }}>
+            <ClipLoader size={20} color='#0cb1c7' loading={loading} />
+          </div>
           <div
             className='comment_circle_icon hover2'
             onClick={() => {
@@ -92,12 +135,12 @@ export default function CreateComment({ user }) {
             onClick={() => imgInput.current.click()}>
             <i className='camera_icon'></i>
           </div>
-          <div className='comment_circle_icon hover2'>
+          {/* <div className='comment_circle_icon hover2'>
             <i className='gif_icon'></i>
           </div>
           <div className='comment_circle_icon hover2'>
             <i className='sticker_icon'></i>
-          </div>
+          </div> */}
         </div>
       </div>
       {commentImage && (

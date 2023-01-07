@@ -67,3 +67,46 @@ export const getReacts = async (postId, token) => {
     return error.response.data.message;
   }
 };
+
+export const comment = async (postId, comment, image, token) => {
+  try {
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/post/comment`,
+      {
+        postId,
+        comment,
+        image,
+      },
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+
+export const deleteComment = async (postId, commentId, token) => {
+  try {
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/post/deleteComment`,
+      {
+        postId,
+        commentId,
+      },
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
