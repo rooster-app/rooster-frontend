@@ -69,7 +69,11 @@ export default function Header({ getAllPosts, page }) {
         </div>
       </div>
       {showSearchMenu && (
-        <SearchMenu color={color} setShowSearchMenu={setShowSearchMenu} />
+        <SearchMenu
+          color={color}
+          setShowSearchMenu={setShowSearchMenu}
+          token={user?.token}
+        />
       )}
       <div className='header_middle'>
         <Link

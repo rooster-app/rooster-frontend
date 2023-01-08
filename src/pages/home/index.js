@@ -24,8 +24,8 @@ export default function Home({
   const middle = useRef(null);
 
   useEffect(() => {
-    setHeight(middle.current.clientHeight + 35);
-  }, [home_loading, height]);
+    setHeight(middle.current.clientHeight + 65);
+  }, [posts, height]);
 
   // eslint-disable-next-line
   const [{ loading, error, profile }, dispatch] = useReducer(profileReducer, {
