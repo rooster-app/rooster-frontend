@@ -30,14 +30,16 @@ export default function Post({ post, user, profile }) {
   }, [post]);
 
   const getPostReacts = async () => {
-    const res = await getReacts(post._id, user.token);
-    setReacts(res.reacts);
-    setCheck(res.check);
-    setTotal(res.total);
+    if (user?.token && post?._id) {
+      const res = await getReacts(post?._id, user?.token);
+      setReacts(res.reacts);
+      setCheck(res.check);
+      setTotal(res.total);
+    }
   };
 
   const reactHandler = async (type) => {
-    reactPost(post._id, type, user.token);
+    reactPost(post?._id, type, user?.token);
     // if the new type of reaction is what is in the database
     if (check === type) {
       setCheck();
@@ -266,7 +268,7 @@ export default function Post({ post, user, profile }) {
           setCount={setCount}
           user={user}
         />
-        {comments &&
+        {comments?.length > 0 &&
           comments
             .sort((a, b) => {
               return new Date(b.commentAt) - new Date(a.commentAt);
@@ -282,7 +284,7 @@ export default function Post({ post, user, profile }) {
                 user={user}
               />
             ))}
-        {count < comments.length && (
+        {count < comments?.length && (
           <div className='view_comments' onClick={() => showMore()}>
             View more comments
           </div>

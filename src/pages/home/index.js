@@ -12,17 +12,20 @@ import RightHome from '../../components/home/right';
 import SendVerification from '../../components/home/sendVerification';
 import './home_style.css';
 
-export default function Home({ setPostModalVisible, posts }) {
+export default function Home({
+  getAllPosts,
+  setPostModalVisible,
+  posts,
+  home_loading,
+}) {
   const { user } = useSelector((user) => ({ ...user }));
-
-
 
   const [height, setHeight] = useState();
   const middle = useRef(null);
 
   useEffect(() => {
-    setHeight(middle.current.clientHeight);
-  }, [posts]);
+    setHeight(middle.current.clientHeight + 35);
+  }, [home_loading, height]);
 
   // eslint-disable-next-line
   const [{ loading, error, profile }, dispatch] = useReducer(profileReducer, {
@@ -70,14 +73,14 @@ export default function Home({ setPostModalVisible, posts }) {
 
   return (
     <div className='home' style={{ height: `${height + 100}px` }}>
-      <Header page='home' />
+      <Header page='home' getAllPosts={getAllPosts} />
       <LeftHome user={user} profile={profile} />
       <div className='home_middle' ref={middle}>
         {user?.verified === false && <SendVerification user={user} />}
         <CreatePostForm user={user} setPostModalVisible={setPostModalVisible} />
         <div className='posts'>
-          {posts.map((post) => (
-            <Post key={post._id} post={post} user={user} />
+          {posts?.map((post) => (
+            <Post key={post?._id} post={post} user={user} />
           ))}
         </div>
       </div>
