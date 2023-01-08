@@ -6,11 +6,12 @@ import { useSelector } from 'react-redux';
 import ProfilePicture from '../../components/profilePicture';
 import Friendship from './Friendship';
 
-export default function ProfielPictureInfos({
+export default function ProfilePictureInfos({
   profile,
   visitor,
   photos,
   othername,
+  shuffledFriends
 }) {
   const { user } = useSelector((state) => ({ ...state }));
   const [show, setShow] = useState(false);
@@ -53,8 +54,8 @@ export default function ProfielPictureInfos({
             )}
           </div>
           <div className='profile_friend_imgs'>
-            {profile?.friends &&
-              profile.friends.slice(0, 5).map((friend, index) => (
+            {shuffledFriends &&
+              shuffledFriends.slice(0, 5).map((friend, index) => (
                 <Link to={`/profile/${friend.username}`} key={index}>
                   <img
                     src={friend.picture}

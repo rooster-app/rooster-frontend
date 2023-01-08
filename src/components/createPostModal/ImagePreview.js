@@ -58,10 +58,10 @@ export default function ImagePreview({
         {images && images.length ? (
           <div className="add_pics_inside1 p0">
             <div className="preview_actions">
-              <button className="hover1">
+              {/* <button className="hover1">
                 <i className="edit_icon"></i>
                 Edit
-              </button>
+              </button> */}
               <button
                 className="hover1"
                 onClick={() => {

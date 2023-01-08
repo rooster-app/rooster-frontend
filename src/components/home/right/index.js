@@ -1,10 +1,23 @@
+// @packages
+import { useState } from 'react';
+// import { Dots, NewRoom, Search } from '../../../svg';
+
 // @scripts
 import Contact from './Contact';
-// import { Dots, NewRoom, Search } from '../../../svg';
 import './style.css';
 
 export default function RightHome({ user, profile }) {
+  const [shuffledFriends, setShuffledFriends] = useState(false);
+  const [shuffledFriendsArray, setShuffledFriendsArray] = useState();
+
+  if (profile?.friends && !shuffledFriends) {
+    const shuffledFriends = [...profile?.friends];
+    shuffledFriends.sort((a, b) => 0.5 - Math.random());
+    setShuffledFriendsArray(shuffledFriends);
+    setShuffledFriends(true);
+  }
   // const color = '#65676b';
+
   return (
     <div className='right_home'>
       <div className='heading'>Rooster</div>
@@ -25,9 +38,9 @@ export default function RightHome({ user, profile }) {
           </div>
         </div>
         <div className='contacts_list'>
-          {profile?.friends &&
-            profile?.friends
-              ?.slice(0, 20)
+          {shuffledFriendsArray &&
+            shuffledFriendsArray
+              .slice(0, 10)
               .map((friend, index) => <Contact friend={friend} key={index} />)}
         </div>
       </div>

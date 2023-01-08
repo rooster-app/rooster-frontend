@@ -19,17 +19,19 @@ export default function Friends({ friends }) {
       )}
       <div className='profile_card_grid'>
         {friends &&
-          friends?.slice(0, 9).map((friend, index) => (
-            <Link
-              key={index}
-              to={`/profile/${friend?.username}`}
-              className='profile_photo_card'>
-              <img src={friend.picture} alt='' />
-              <span>
-                {friend?.first_name} {friend?.last_name}
-              </span>
-            </Link>
-          ))}
+          friends
+            .slice(0, 9)
+            .map((friend, index) => (
+              <Link
+                key={index}
+                to={`/profile/${friend?.username}`}
+                className='profile_photo_card'>
+                <img src={friend.picture} alt='' />
+                <span>
+                  {friend?.first_name} {friend?.last_name}
+                </span>
+              </Link>
+            ))}
       </div>
     </div>
   );

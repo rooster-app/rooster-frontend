@@ -362,8 +362,12 @@
   color: var(--color-secondary);
   font-weight: 600;
   font-size: 14px;
-  transform: translateY(-1px);
+  /* transform: translateY(-1px); */
   text-transform: capitalize;
+}
+
+.ignore_action {
+  cursor: default;
 }
 
 .reacts_popup {

@@ -1,5 +1,5 @@
 // @packages
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 // @scripts
@@ -12,11 +12,14 @@ import { Dots, Public } from '../../svg';
 import { getReacts, reactPost } from '../../functions/post';
 
 export default function Post({ post, user, profile }) {
+  const postRef = useRef(null);
   const [check, setCheck] = useState();
+  const [savedPost, setSavedPost] = useState();
   const [comments, setComments] = useState([]);
   const [count, setCount] = useState(1);
   const [reacts, setReacts] = useState();
   const [showMenu, setShowMenu] = useState(false);
+  const [openComment, setOpenComment] = useState(false);
   const [visible, setVisible] = useState(false);
   const [total, setTotal] = useState(0);
 
@@ -30,14 +33,15 @@ export default function Post({ post, user, profile }) {
   }, [post]);
 
   const getPostReacts = async () => {
-    const res = await getReacts(post._id, user.token);
+    const res = await getReacts(post?._id, user?.token);
     setReacts(res.reacts);
     setCheck(res.check);
     setTotal(res.total);
+    setSavedPost(res.checkSaved);
   };
 
   const reactHandler = async (type) => {
-    reactPost(post._id, type, user.token);
+    reactPost(post?._id, type, user?.token);
     // if the new type of reaction is what is in the database
     if (check === type) {
       setCheck();
@@ -63,12 +67,19 @@ export default function Post({ post, user, profile }) {
     }
   };
 
+  const commentHandler = () => {
+    setOpenComment((value) => !value);
+  };
+
   const showMore = () => {
     setCount((prev) => prev + 3);
   };
 
   return (
-    <div className='post' style={{ width: `${profile && '100%'}` }}>
+    <div
+      className='post'
+      style={{ width: `${profile && '100%'}` }}
+      ref={postRef}>
       <div className='post_header'>
         <Link
           to={`/profile/${post?.user.username}`}
@@ -82,13 +93,17 @@ export default function Post({ post, user, profile }) {
                   `updated ${
                     post?.user.gender === 'male'
                       ? 'his'
-                      : post?.user.gender === 'custom'
-                      ? 'their'
-                      : 'her'
+                      : post?.user.gender === 'female'
+                      ? 'her'
+                      : 'their'
                   } profile picture`}
                 {post?.type === 'coverPicture' &&
                   `updated ${
-                    post?.user.gender === 'male' ? 'his' : 'her'
+                    post?.user.gender === 'male'
+                      ? 'his'
+                      : post?.user.gender === 'female'
+                      ? 'her'
+                      : 'their'
                   } cover picture`}
               </div>
             </div>
@@ -249,23 +264,27 @@ export default function Post({ post, user, profile }) {
             {check ? check : 'Like'}
           </span>
         </div>
-        <div className='post_action hover1'>
+        <div className='post_action ignore_action'>
+          {/* <i className='share_icon'></i> */}
+          <span> </span>
+        </div>
+        <div className='post_action hover1' onClick={commentHandler}>
           <i className='comment_icon'></i>
           <span>Comment</span>
-        </div>
-        <div className='post_action hover1'>
-          <i className='share_icon'></i>
-          <span>Share</span>
         </div>
       </div>
       <div className='comments_wrap'>
         <div className='comments_order'></div>
-        <CreateComment
-          postId={post?._id}
-          setComments={setComments}
-          setCount={setCount}
-          user={user}
-        />
+        {openComment && (
+          <CreateComment
+            postId={post?._id}
+            setComments={setComments}
+            setCount={setCount}
+            user={user}
+            openComment={openComment}
+            setOpenComment={setOpenComment}
+          />
+        )}
         {comments &&
           comments
             .sort((a, b) => {
@@ -282,7 +301,7 @@ export default function Post({ post, user, profile }) {
                 user={user}
               />
             ))}
-        {count < comments.length && (
+        {count < comments?.length && (
           <div className='view_comments' onClick={() => showMore()}>
             View more comments
           </div>
@@ -292,8 +311,14 @@ export default function Post({ post, user, profile }) {
         <PostMenu
           userId={user?.id}
           postUserId={post?.user._id}
+          images={post?.images}
           imagesLength={post?.images?.length}
           setShowMenu={setShowMenu}
+          postId={post?._id}
+          token={user?.token}
+          savedPost={savedPost}
+          setSavedPost={setSavedPost}
+          postRef={postRef}
         />
       )}
     </div>
