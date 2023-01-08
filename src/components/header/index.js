@@ -22,7 +22,7 @@ import AllMenu from './AllMenu';
 import useClickOutside from '../../helpers/clickOutside';
 import UserMenu from './userMenu';
 
-export default function Header({ page }) {
+export default function Header({ getAllPosts, page }) {
   const { user } = useSelector((user) => ({ ...user }));
   // color fill for nav icons
   const color = '#65676b';
@@ -47,7 +47,12 @@ export default function Header({ page }) {
       <div className='header_left'>
         <Link to='/' className='header_logo'>
           <div className='circle'>
-            <RoosterLogo color={logoColor} />
+            <RoosterLogo
+              color={logoColor}
+              onClick={() => {
+                getAllPosts();
+              }}
+            />
           </div>
         </Link>
         <div
@@ -69,7 +74,10 @@ export default function Header({ page }) {
       <div className='header_middle'>
         <Link
           to='/'
-          className={`middle_icon ${page === 'home' ? 'active' : ''}`}>
+          className={`middle_icon ${page === 'home' ? 'active' : 'hover1'}`}
+          onClick={() => {
+            getAllPosts();
+          }}>
           {page === 'home' ? (
             <Home color={'#ffffff'} />
           ) : (
@@ -126,7 +134,6 @@ export default function Header({ page }) {
             }}>
             <ArrowDown />
           </div>
-
           {showUserMenu && <UserMenu user={user} />}
         </div>
       </div>

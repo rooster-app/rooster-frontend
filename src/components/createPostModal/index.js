@@ -7,12 +7,18 @@ import EmojiPickerBackgrounds from './EmojiPickerBackgrounds';
 import AddToYourPost from './AddToYourPost';
 import ImagePreview from './ImagePreview';
 import useClickOutside from '../../helpers/clickOutside';
-import { createPost } from '../../functions/createPost';
+import { createPost } from '../../functions/post';
 import PostError from './PostError';
 import dataURItoBlob from '../../helpers/dataURItoBlob';
 import { uploadImages } from '../../functions/uploadImages';
 
-export default function CreatePostModal({ user, setPostModalVisible }) {
+export default function CreatePostModal({
+  dispatch,
+  posts,
+  profile,
+  setPostModalVisible,
+  user,
+}) {
   const popup = useRef(null);
   const [text, setText] = useState('');
   const [showPrev, setShowPrev] = useState(false);
@@ -37,7 +43,11 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
         user.token
       );
       setLoading(false);
-      if (response.success) {
+      if (response.success === true) {
+        dispatch({
+          type: profile ? "PROFILE_POSTS" : "POSTS_SUCCESS",
+          payload: [response.data, ...posts],
+        });
         setBackground('');
         setText('');
         setPostModalVisible(false);
@@ -66,7 +76,11 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
         user.token
       );
       setLoading(false);
-      if (res.success) {
+      if (res.success === true) {
+        dispatch({
+          type: profile ? "PROFILE_POSTS" : "POSTS_SUCCESS",
+          payload: [res.data, ...posts],
+        });
         setText('');
         setImages('');
         setPostModalVisible(false);
@@ -84,7 +98,11 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
         user.token
       );
       setLoading(false);
-      if (response.success) {
+      if (response.success === true) {
+        dispatch({
+          type: profile ? "PROFILE_POSTS" : "POSTS_SUCCESS",
+          payload: [response.data, ...posts],
+        });
         setBackground('');
         setText('');
         setPostModalVisible(false);
@@ -92,7 +110,7 @@ export default function CreatePostModal({ user, setPostModalVisible }) {
         setError(response);
       }
     } else {
-      console.log('nothing');
+      console.log('Create Post Failed...');
     }
   };
   return (

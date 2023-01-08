@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import './style.css';
 import Cover from './Cover';
 import CreatePostForm from '../../components/createPostForm';
+import CreatePostModal from '../../components/createPostModal';
 import DotLoader from 'react-spinners/DotLoader';
 import Friends from './Friends';
 // import GridPosts from './GridPosts';
@@ -20,14 +21,17 @@ import ProfilePictureInfos from './ProfilePictureInfos';
 import ProfileMenu from './ProfileMenu';
 import { profileReducer } from '../../functions/reducers';
 
-export default function Profile({ setPostModalVisible }) {
+export default function Profile({ getAllPosts }) {
   const { user } = useSelector((state) => ({ ...state }));
 
   const { username } = useParams();
   const navigate = useNavigate();
+  const [postModalVisible, setPostModalVisible] = useState(false);
   const [photos, setPhotos] = useState({});
   const [postPhotoUrls, setPostPhotoUrls] = useState();
   const [othername, setOthername] = useState();
+  const [shuffledFriends, setShuffledFriends] = useState(false);
+  const [shuffledFriendsArray, setShuffledFriendsArray] = useState();
 
   var userName = username === undefined ? user.username : username;
   // determine if the user is profile page visitor or owner
@@ -50,7 +54,7 @@ export default function Profile({ setPostModalVisible }) {
   }, [profile]);
 
   // cloudinary path to get photos from
-  const path = `${userName}/*`;
+  const path = `${user.id}/*`;
   const max = 30;
   const sort = 'desc';
 
@@ -132,21 +136,38 @@ export default function Profile({ setPostModalVisible }) {
     setScrollHeight(window.pageYOffset);
   };
 
+  if (profile?.friends && !shuffledFriends) {
+    const shuffledFriends = [...profile?.friends];
+    shuffledFriends.sort((a, b) => 0.5 - Math.random());
+    setShuffledFriendsArray(shuffledFriends);
+    setShuffledFriends(true);
+  }
+
   return (
     <div className='profile'>
-      <Header page='profile' />
+      {postModalVisible && (
+        <CreatePostModal
+          dispatch={dispatch}
+          posts={profile?.posts}
+          profile={profile}
+          setPostModalVisible={setPostModalVisible}
+          user={user}
+        />
+      )}
+      <Header page='profile' getAllPosts={getAllPosts} />
       <div className='profile_top' ref={profileTop}>
         <div className='profile_container'>
           <Cover
             cover={profile.cover}
             visitor={visitor}
-            photos={photos.resources}
+            photos={photos?.resources}
           />
           <ProfilePictureInfos
             profile={profile}
             visitor={visitor}
-            photos={photos.resources}
+            photos={photos?.resources}
             othername={othername}
+            shuffledFriends={shuffledFriendsArray}
           />
           <ProfileMenu />
         </div>
@@ -172,16 +193,16 @@ export default function Profile({ setPostModalVisible }) {
                 />
                 <Photos
                   username={userName}
-                  token={user.token}
+                  token={user?.token}
                   photos={postPhotoUrls}
                 />
-                <Friends friends={profile.friends} />
+                <Friends friends={shuffledFriendsArray} />
               </div>
               <div className='profile_right'>
                 {!visitor && (
                   <CreatePostForm
                     user={user}
-                    profile
+                    profile={profile}
                     setPostModalVisible={setPostModalVisible}
                   />
                 )}
@@ -193,7 +214,7 @@ export default function Profile({ setPostModalVisible }) {
                     loading={loading}
                     size={30}
                   />
-                  {profile.posts && profile.posts.length ? (
+                  {profile?.posts && profile?.posts?.length > 0 ? (
                     profile.posts.map((post) => (
                       <Post post={post} user={user} key={post._id} profile />
                     ))

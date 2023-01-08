@@ -40,16 +40,35 @@ export const updateCover = async (url, token) => {
   }
 };
 
-export const addFriend = async (id, token) => {
+export const addFriend = async (profileId, userToken) => {
   try {
     //eslint-disable-next-line
     const { data } = await axios.put(
-      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/addFriend/${id}`,
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/addFriend/${profileId}`,
       {},
 
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${userToken}`,
+        },
+      }
+    );
+    return 'ok';
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+
+export const defaultFriend = async (userToken) => {
+  try {
+    //eslint-disable-next-line
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/defaultFriend`,
+      {},
+
+      {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
         },
       }
     );
@@ -80,6 +99,7 @@ export const cancelRequest = async (id, token) => {
 
 export const follow = async (id, token) => {
   try {
+    // eslint-disable-next-line
     const { data } = await axios.put(
       `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/follow/${id}`,
       {},
@@ -90,7 +110,6 @@ export const follow = async (id, token) => {
         },
       }
     );
-    console.log(data);
     return 'ok';
   } catch (error) {
     console.log(error.response.data.message);

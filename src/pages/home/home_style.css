@@ -59,7 +59,7 @@
   .createPost,
   .post {
     width: 600px;
-    margin-left: 10%;
+    margin-left: 10% ;
   }
 }
 @media (max-width: 960px) {

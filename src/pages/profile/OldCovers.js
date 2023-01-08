@@ -31,7 +31,7 @@ export default function OldCovers({ photos, setCoverPicture, setShow }) {
             {photos &&
               photos
                 .filter(
-                  (img) => img.folder === `${user.username}/cover_pictures`
+                  (img) => img.folder === `${user.id}/cover_pictures`
                 )
                 .map((photo) => (
                   <img
@@ -48,7 +48,7 @@ export default function OldCovers({ photos, setCoverPicture, setShow }) {
           <div className='old_pictures'>
             {photos &&
               photos
-                .filter((img) => img.folder !== `${user.username}/post_images`)
+                .filter((img) => img.folder !== `${user.id}/cover_pictures`)
                 .map((photo) => (
                   <img
                     src={photo.secure_url}
