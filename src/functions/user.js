@@ -192,3 +192,74 @@ export const deleteRequest = async (id, token) => {
     return error.response.data.message;
   }
 };
+
+export const search = async (searchTerm, token) => {
+  try {
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/search/${searchTerm}`,
+      {},
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+
+export const addToSearchHistory = async (searchUser, token) => {
+  try {
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/addToSearchHistory`,
+      { searchUser },
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+
+export const getSearchHistory = async (token) => {
+  try {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/getSearchHistory`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+
+export const removeFromSearch = async (searchUser, token) => {
+  try {
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/removeFromSearch`,
+      { searchUser },
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};

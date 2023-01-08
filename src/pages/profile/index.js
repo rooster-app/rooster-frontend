@@ -158,7 +158,7 @@ export default function Profile({ getAllPosts }) {
       <div className='profile_top' ref={profileTop}>
         <div className='profile_container'>
           <Cover
-            cover={profile.cover}
+            cover={profile?.cover}
             visitor={visitor}
             photos={photos?.resources}
           />

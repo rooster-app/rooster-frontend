@@ -11,7 +11,7 @@ header {
   color: var(--color-primary);
 }
 
-/*----Header Left----*/
+/* Header Left */
 .header_left {
   display: flex;
   align-items: center;
@@ -50,9 +50,9 @@ header {
 .search input::placeholder {
   transform: translateY(-1px);
 }
-/*----Header Left End----*/
+/* Header Left End */
 
-/*---Header Middle-----*/
+/* Header Middle */
 .header_middle {
   display: flex;
   align-items: center;
@@ -109,9 +109,9 @@ header {
   font-size: 13px;
   color: #fff;
 }
-/*----Header Middle End----*/
+/* Header Middle End */
 
-/*---Header Right-----*/
+/* Header Right */
 .header_right {
   display: flex;
   position: absolute;
@@ -169,9 +169,9 @@ header {
   font-size: 13px;
   color: #fff;
 }
-/*---Header Right End----*/
+/* Header Right End */
 
-/*----Search Menu----*/
+/* searchMenu */
 .search_area {
   position: absolute;
   align-items: flex-start;
@@ -239,9 +239,50 @@ header {
   cursor: pointer;
   color: var(--blue-color);
 }
-/*----Search Menu End----*/
 
-/*----Search All Menu-----*/
+.search_results {
+  width: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.search_history {
+  width: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.search_user_item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.search_user_item img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.search_user_item span {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.search_user_item i {
+  position: absolute;
+  right: 10px;
+  transform: scale(0.6); 
+}
+/* searchMenu End */
+
+/* allMenu */
 .all_menu {
   position: absolute;
   right: -9rem;
@@ -381,9 +422,8 @@ header {
   justify-content: center;
   background: var(--bg-third);
 }
-/*----Search All Menu End----*/
 
-/*----User menu----*/
+/* userMenu */
 .mmenu {
   padding: 0 0.3rem;
   position: absolute;
@@ -514,9 +554,9 @@ header {
   width: 20px;
   height: 20px;
 }
-/*---User Menu End---*/
+/* userMenu End */
 
-/*---Active Header---*/
+/* Active Header */
 .active_header {
   background: var(--light-blue-color);
 }
@@ -529,9 +569,7 @@ header {
   background: var(--light-blue-color);
   color: var(--light-teal);
 }
-/*---Active Header End---*/
 
-/*---responsive----------*/
 @media (max-width: 1295px) {
   .middle_icon {
     width: 90px;
