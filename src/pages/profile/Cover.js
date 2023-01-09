@@ -112,8 +112,6 @@ export default function Cover({ cover, visitor, photos }) {
           setLoading(false);
           setCoverPicture('');
           cRef.current.src = res[0].url;
-        } else {
-          setLoading(false);
           setError(new_post);
         }
       } else {

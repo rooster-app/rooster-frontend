@@ -6,13 +6,14 @@ import { useEffect, useReducer, useState } from 'react';
 // @scripts
 import Activate from './pages/activate';
 import CreatePostModal from './components/createPostModal';
+import Friends from './pages/friends';
 import Home from './pages/home';
 import LoggedInRoutes from './routes/LoggedInRoutes';
 import Login from './pages/login';
 import NotLoggedInRoutes from './routes/NotLoggedInRoutes';
-import { postsReducer } from './functions/reducers';
 import Profile from './pages/profile';
 import Reset from './pages/reset';
+import { postsReducer } from './functions/reducers';
 
 function App() {
   const [postModalVisible, setPostModalVisible] = useState(false);
@@ -47,6 +48,7 @@ function App() {
         type: 'POSTS_SUCCESS',
         payload: data,
       });
+      return 'Thank you';
     } catch (error) {
       dispatch({
         type: 'POSTS_ERROR',
@@ -82,6 +84,26 @@ function App() {
             path='/profile/:username'
             element={
               <Profile
+                setPostModalVisible={setPostModalVisible}
+                getAllPosts={getAllPosts}
+              />
+            }
+            exact
+          />
+          <Route
+            path='/friends'
+            element={
+              <Friends
+                setPostModalVisible={setPostModalVisible}
+                getAllPosts={getAllPosts}
+              />
+            }
+            exact
+          />
+          <Route
+            path='/friends/:type'
+            element={
+              <Friends
                 setPostModalVisible={setPostModalVisible}
                 getAllPosts={getAllPosts}
               />

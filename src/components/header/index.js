@@ -7,15 +7,16 @@ import './style.css';
 import {
   ArrowDown,
   Friends,
-  Gaming,
+  // Gaming,
   Home,
-  Market,
+  // HomeActive,
+  // Market,
   Menu,
   Messenger,
   Notifications,
   RoosterLogo,
   Search,
-  Watch,
+  // Watch,
 } from '../../svg';
 import SearchMenu from './SearchMenu';
 import AllMenu from './AllMenu';
@@ -88,19 +89,25 @@ export default function Header({ getAllPosts, page }) {
             <Home color={color} />
           )}
         </Link>
-        <Link to='/' className='middle_icon hover1'>
-          <Friends color={color} />
+        <Link
+          to='/friends'
+          className={`middle_icon ${page === 'friends' ? 'active' : 'hover1'}`}>
+          {page === 'friends' ? (
+            <Friends color={'#ffffff'}  />
+          ) : (
+            <Friends color={color} />
+          )}
         </Link>
-        <Link to='/' className='middle_icon hover1'>
+        {/* <Link to='/' className='middle_icon hover1'>
           <Watch color={color} />
           <div className='middle_notification'>9+</div>
-        </Link>
-        <Link to='/' className='middle_icon hover1'>
+        </Link> */}
+        {/* <Link to='/' className='middle_icon hover1'>
           <Market color={color} />
-        </Link>
-        <Link to='/' className='middle_icon hover1 '>
+        </Link> */}
+        {/* <Link to='/' className='middle_icon hover1 '>
           <Gaming color={color} />
-        </Link>
+        </Link> */}
       </div>
       <div className='header_right'>
         <Link
@@ -127,7 +134,7 @@ export default function Header({ getAllPosts, page }) {
         </div>
         <div className='circle_icon hover1'>
           <Notifications />
-          <div className='right_notification'>5</div>
+          <div className='right_notification'> &nbsp; </div>
         </div>
         <div
           className={`circle_icon hover1 ${showUserMenu && 'active_header'}`}
