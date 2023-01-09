@@ -92,14 +92,14 @@ export default function Friendship({ friendshipp, profileId }) {
           </button>
           {friendsMenu && (
             <div className='open_cover_menu' ref={menu}>
-              <div className='open_cover_menu_item hover1'>
+              {/* <div className='open_cover_menu_item hover1'>
                 <img src='../../../icons/favoritesOutline.png' alt='' />
                 Favorites
-              </div>
-              <div className='open_cover_menu_item hover1'>
+              </div> */}
+              {/* <div className='open_cover_menu_item hover1'>
                 <img src='../../../icons/editFriends.png' alt='' />
                 Edit Friend list
-              </div>
+              </div> */}
               {friendship?.following ? (
                 <div
                   className='open_cover_menu_item hover1'

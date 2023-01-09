@@ -164,7 +164,8 @@ header {
   top: -6px;
   right: -5px;
   background: #e41e3f;
-  border-radius: 50px;
+  border-radius: 50%;
+  width: 18px;
   padding: 1px 6px;
   font-size: 13px;
   color: #fff;
@@ -278,7 +279,7 @@ header {
 .search_user_item i {
   position: absolute;
   right: 10px;
-  transform: scale(0.6); 
+  transform: scale(0.6);
 }
 /* searchMenu End */
 

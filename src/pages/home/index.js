@@ -79,8 +79,8 @@ export default function Home({
         {user?.verified === false && <SendVerification user={user} />}
         <CreatePostForm user={user} setPostModalVisible={setPostModalVisible} />
         <div className='posts'>
-          {posts?.map((post) => (
-            <Post key={post?._id} post={post} user={user} />
+          {posts?.map((post, i) => (
+            <Post key={i} post={post} user={user} />
           ))}
         </div>
       </div>

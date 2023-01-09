@@ -623,6 +623,11 @@
     flex-direction: column;
   }
 }
+@media (max-width: 370px) {
+    .open_cover_menu_item {
+    margin-left: 18px !important;
+  }
+}
 @media (min-width: 900px) {
   .friendship {
     transform: translateX(-2rem);
