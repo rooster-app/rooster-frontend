@@ -196,7 +196,7 @@ export default function Profile({ getAllPosts }) {
                   token={user?.token}
                   photos={postPhotoUrls}
                 />
-                <Friends friends={shuffledFriendsArray} />
+                <Friends friends={shuffledFriendsArray} visitor={visitor} />
               </div>
               <div className='profile_right'>
                 {!visitor && (

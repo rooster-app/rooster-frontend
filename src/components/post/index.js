@@ -82,26 +82,26 @@ export default function Post({ post, user, profile }) {
       ref={postRef}>
       <div className='post_header'>
         <Link
-          to={`/profile/${post?.user.username}`}
+          to={`/profile/${post?.user?.username}`}
           className='post_header_left'>
-          <img src={post?.user.picture} alt='' />
+          <img src={post?.user?.picture} alt='' />
           <div className='header_col'>
             <div className='post_profile_name'>
-              {post?.user.first_name} {post?.user.last_name}
+              {post?.user?.first_name} {post?.user?.last_name}
               <div className='updated_p'>
                 {post?.type === 'profilePicture' &&
                   `updated ${
-                    post?.user.gender === 'male'
+                    post?.user?.gender === 'male'
                       ? 'his'
-                      : post?.user.gender === 'female'
+                      : post?.user?.gender === 'female'
                       ? 'her'
                       : 'their'
                   } profile picture`}
                 {post?.type === 'coverPicture' &&
                   `updated ${
-                    post?.user.gender === 'male'
+                    post?.user?.gender === 'male'
                       ? 'his'
-                      : post?.user.gender === 'female'
+                      : post?.user?.gender === 'female'
                       ? 'her'
                       : 'their'
                   } cover picture`}
@@ -159,7 +159,7 @@ export default function Post({ post, user, profile }) {
           <div className='post_updated_bg'>
             <img
               src={`${
-                post?.user.cover
+                post?.user?.cover
                   ? post.user.cover
                   : '../../../images/postBackgrounds/10.jpg'
               }`}

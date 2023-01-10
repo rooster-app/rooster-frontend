@@ -13,12 +13,22 @@
   padding: 5px;
 }
 
+.login_bttn {
+  background-image: linear-gradient(
+    to right,
+    var(--midnite),
+    var(--dark-teal),
+    var(--teal),
+    var(--light-teal)
+  ) !important;
+}
+
 .rooster_img {
-  display: block; 
+  display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: -20px;
-  width: 300px; 
+  width: 300px;
 }
 
 .logo_name {
@@ -42,7 +52,7 @@
 
 .login_1 span {
   font-size: 20px;
-  color: var(--bg-primary);
+  color: #fff;
   display: none; /* toggle for small screens */
 }
 
@@ -87,13 +97,12 @@
 .sign_splitter {
   width: 100%;
   height: 1px;
-  background: var(--dark-teal);
+  background: #b0b3b8;
 }
 
 .sign_extra {
   font-size: 15px;
 }
-
 
 /* Password Eye */
 .password_wrapper {
@@ -113,21 +122,20 @@
   cursor: pointer;
 }
 
-
 /* RegisterForm */
 .register {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--bg-primary);
+  background: #fff;
   box-shadow: 0 1px 2px var(--shadow-1);
   border-radius: 10px;
   padding: 15px;
   padding-bottom: 1rem;
   width: 350px;
   height: fit-content;
-  color: var(--color-primary);
+  color: var(--teal);
   max-height: calc(100vh - 60px);
   overflow-y: auto;
 }
@@ -138,7 +146,7 @@
   flex-direction: column;
   gap: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--bg-third);
+  border-bottom: 1px solid #3a3b3c;
 }
 
 .register_header i {
@@ -154,7 +162,7 @@
 
 .register_header span:last-of-type {
   font-size: 15px;
-  color: var(--color-secondary);
+  color: #65676b;
 }
 
 .register_form {
@@ -183,7 +191,7 @@
   align-items: center;
   gap: 2px;
   font-size: 13px;
-  color: var(--color-secondary);
+  color: #65676b;
 }
 
 .reg_line_header i {
@@ -202,10 +210,11 @@
 .reg_grid select {
   width: 90px;
   font-size: 16px;
-  color: var(--color-primary);
-  background: var(--bg-primary);
+  color: #050505;
+  background: #fff;
   border-radius: 5px;
   cursor: pointer;
+  padding-left: 9px;
 }
 
 .reg_grid label {
@@ -214,21 +223,21 @@
   align-items: center;
   justify-content: space-between;
   font-size: 16px;
-  color: var(--color-primary);
+  color: #050505;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid var(--color-secondary);
+  border: 1px solid var(--light-grey);
   padding: 0 10px;
 }
 
 .reg_infos {
   font-size: 11px;
   margin-top: 10px;
-  color: var(--color-secondary);
+  color: #65676b;
 }
 
 .reg_infos span {
-  color: var(--blue-color);
+  color: var(--teal);
 }
 
 .reg_btn_wrapper {
@@ -239,7 +248,6 @@
   margin: 20px 0 10px 0;
 }
 
-
 /* CCUcollege */
 .ccu_select {
   width: 270px;
@@ -247,11 +255,10 @@
   height: 35px;
   font-size: 14px;
   color: var(--cool-black);
-  background: var(--bg-primary);
+  background: #fff;
   border-radius: 5px;
   cursor: pointer;
 }
-
 
 /* Dob, CCU and Gender errors */
 .reg_grid .input_error {
@@ -269,21 +276,19 @@
   top: 15px !important;
 }
 
-
 /* Error and Success */
 .error_text {
   color: #b94a48;
 }
 .success_text {
-  color: var(--green-color);
-  font-size: 18px;
+  color: var(--teal);
+  font-size: 17px;
   font-weight: 600;
 }
 .signup_error_msg {
   color: var(--error-red);
   font-size: 13px;
 }
-
 
 /* Media queries */
 @media (min-width: 850px) {

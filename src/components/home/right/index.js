@@ -28,11 +28,11 @@ export default function RightHome({ user, profile }) {
           <div className='contacts_header_right'>
             {/* <div className='contact_circle hover1'>
               <NewRoom color={color} />
-            </div>
-            <div className='contact_circle hover1'>
+            </div> */}
+            {/* <div className='contact_circle hover1'>
               <Search color={color} />
-            </div>
-            <div className='contact_circle hover1'>
+            </div> */}
+            {/* <div className='contact_circle hover1'>
               <Dots color={color} />
             </div> */}
           </div>

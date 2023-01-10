@@ -237,7 +237,7 @@ export default function RegisterForm({ setVisible }) {
               </div>
               <div className='reg_col'>
                 <div className='reg_line_header'>
-                  Date of birth <i className='info_icon'></i>
+                  Date of birth 
                 </div>
                 <DateOfBirthSelect
                   birth_day={birth_day}
@@ -252,7 +252,7 @@ export default function RegisterForm({ setVisible }) {
               </div>
               <div className='reg_col'>
                 <div className='reg_line_header'>
-                  Gender <i className='info_icon'></i>
+                  Gender 
                 </div>
 
                 <GenderSelect

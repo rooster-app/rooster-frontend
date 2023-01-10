@@ -27,7 +27,7 @@ export default function LeftHome({ user, profile }) {
           notification={link.notification}
         />
       ))}
-      {!visible && (
+      {/* {!visible && (
         <div
           className='left_link hover1'
           onClick={() => {
@@ -38,8 +38,8 @@ export default function LeftHome({ user, profile }) {
           </div>
           <span>See more</span>
         </div>
-      )}
-      {visible && (
+      )} */}
+      {/* {visible && (
         <div className='more_left'>
           {left.slice(8, left.length).map((link, i) => (
             <LeftLink
@@ -60,7 +60,7 @@ export default function LeftHome({ user, profile }) {
             <span>Show less</span>
           </div>
         </div>
-      )}
+      )} */}
       <div className='splitter'></div>
       <div className='shortcut'>
         <div className='heading'>Shortcuts</div>

@@ -98,8 +98,7 @@ export default function SearchMenu({ color, setShowSearchMenu, token }) {
       {!results.length && (
         <div className='search_history_header'>
           <span>Recent searches</span>
-          {/*eslint-disable-next-line*/}
-          <a>Edit</a>
+          {/* <a>Edit</a> */}
         </div>
       )}
       <div className='search_history scrollbar'>

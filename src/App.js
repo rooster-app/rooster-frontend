@@ -59,7 +59,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="dark">
       {postModalVisible && (
         <CreatePostModal
           dispatch={dispatch}

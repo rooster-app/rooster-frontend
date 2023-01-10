@@ -36,7 +36,7 @@
     width: 70px;
   }
   .left_link {
-    background: var(--bg-third);
+    background: #e4e6eb;
     width: 55px;
     height: 55px;
     border-radius: 50%;
