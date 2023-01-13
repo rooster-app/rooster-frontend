@@ -88,7 +88,7 @@ export default function LoginForm({ setVisible }) {
           src='../../../images/rooster-logo.png'
           alt=''
         />
-        <span>A social networking site for the CCU community</span>
+        <span className="login_message">A social networking site for the CCU community</span>
       </div>
       <div className='login_2'>
         <div className='login_2_wrap'>
@@ -123,7 +123,7 @@ export default function LoginForm({ setVisible }) {
                     {eye}
                   </i>{' '}
                 </div>
-                <button type='submit' className='teal_bttn'>
+                <button type='submit' className='teal_bttn login_bttn'>
                   Log In
                 </button>
               </Form>

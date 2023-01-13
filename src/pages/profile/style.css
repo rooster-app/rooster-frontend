@@ -362,6 +362,7 @@
   color: var(--light-teal);
   cursor: pointer;
   padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .profile_header_link:hover {
@@ -544,6 +545,16 @@
 
 .friendship .teal_bttn {
   height: 34.25px;
+}
+
+.friends_menu_wrap {
+  position: relative;
+}
+
+/* Button */
+.teal_bttn i,
+.teal_bttn img {
+  filter: invert(100%);
 }
 
 @media (max-width: 1175px) {

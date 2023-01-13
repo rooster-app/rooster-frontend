@@ -3,7 +3,10 @@
 }
 
 .register_input_wrap input {
-  background: var(--bg-secondary);
+  background: #f0f2f5;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--light-grey);
 }
 
 .register_input_wrap .input_error {

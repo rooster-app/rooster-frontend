@@ -1,4 +1,5 @@
 // @packages
+import { DotLoader } from 'react-spinners';
 import { useEffect, useReducer } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -147,6 +148,9 @@ export default function Friends() {
               </div>
               {type === undefined && (
                 <div className='flex_wrap'>
+                  {loading && (
+                    <DotLoader color='#0cb1c7' loading={loading} size={30} />
+                  )}
                   {data?.requests &&
                     data?.requests
                       .slice(0, 10)
@@ -242,6 +246,9 @@ export default function Friends() {
               )}
               {type === 'suggestions' && (
                 <div className='flex_wrap'>
+                  {loading && (
+                    <DotLoader color='#0cb1c7' loading={loading} size={30} />
+                  )}
                   {data?.suggestions &&
                     data?.suggestions.map((userr, i) => (
                       <Card
@@ -282,6 +289,9 @@ export default function Friends() {
               )}
               {type === 'all' && (
                 <div className='flex_wrap'>
+                  {loading && (
+                    <DotLoader color='#0cb1c7' loading={loading} size={30} />
+                  )}
                   {data?.friends &&
                     data?.friends
                       .slice(0, 800)

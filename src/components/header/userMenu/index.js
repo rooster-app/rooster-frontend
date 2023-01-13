@@ -79,7 +79,7 @@ export default function UserMenu({ user }) {
             <div className='small_circle'>
               <i className='dark_filled_icon'></i>
             </div>
-            <span>Display & Accessibility</span>
+            <span>Display</span>
             <div className='rArrow'>
               <i className='right_icon'></i>
             </div>

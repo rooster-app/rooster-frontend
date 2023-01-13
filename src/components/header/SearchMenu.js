@@ -35,7 +35,6 @@ export default function SearchMenu({ color, setShowSearchMenu, token }) {
   const getHistory = async () => {
     const res = await getSearchHistory(token);
     setSearchHistory(res);
-    console.log(res);
   };
 
   const searchHandler = async () => {
@@ -98,8 +97,7 @@ export default function SearchMenu({ color, setShowSearchMenu, token }) {
       {!results.length && (
         <div className='search_history_header'>
           <span>Recent searches</span>
-          {/*eslint-disable-next-line*/}
-          <a>Edit</a>
+          {/* <a>Edit</a> */}
         </div>
       )}
       <div className='search_history scrollbar'>

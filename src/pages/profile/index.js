@@ -11,12 +11,10 @@ import CreatePostForm from '../../components/createPostForm';
 import CreatePostModal from '../../components/createPostModal';
 import DotLoader from 'react-spinners/DotLoader';
 import Friends from './Friends';
-// import GridPosts from './GridPosts';
 import Header from '../../components/header';
 import Intro from '../../components/intro';
 import Photos from './Photos';
 import Post from '../../components/post';
-// import PplYouMayKnow from './PplYouMayKnow';
 import ProfilePictureInfos from './ProfilePictureInfos';
 import ProfileMenu from './ProfileMenu';
 import { profileReducer } from '../../functions/reducers';
@@ -30,7 +28,6 @@ export default function Profile({ getAllPosts }) {
   const [photos, setPhotos] = useState({});
   const [postPhotoUrls, setPostPhotoUrls] = useState();
   const [othername, setOthername] = useState();
-  const [shuffledFriends, setShuffledFriends] = useState(false);
   const [shuffledFriendsArray, setShuffledFriendsArray] = useState();
 
   var userName = username === undefined ? user.username : username;
@@ -51,6 +48,12 @@ export default function Profile({ getAllPosts }) {
 
   useEffect(() => {
     setOthername(profile?.details?.otherName);
+
+    if (profile?.friends) {
+      const shuffledFriends = [...profile?.friends];
+      shuffledFriends.sort((a, b) => 0.5 - Math.random());
+      setShuffledFriendsArray(shuffledFriends);
+    }
   }, [profile]);
 
   // cloudinary path to get photos from
@@ -136,13 +139,6 @@ export default function Profile({ getAllPosts }) {
     setScrollHeight(window.pageYOffset);
   };
 
-  if (profile?.friends && !shuffledFriends) {
-    const shuffledFriends = [...profile?.friends];
-    shuffledFriends.sort((a, b) => 0.5 - Math.random());
-    setShuffledFriendsArray(shuffledFriends);
-    setShuffledFriends(true);
-  }
-
   return (
     <div className='profile'>
       {postModalVisible && (
@@ -154,7 +150,7 @@ export default function Profile({ getAllPosts }) {
           user={user}
         />
       )}
-      <Header page='profile' getAllPosts={getAllPosts} />
+      <Header page='profile' getAllPosts={getAllPosts} visitor={visitor} />
       <div className='profile_top' ref={profileTop}>
         <div className='profile_container'>
           <Cover
@@ -169,7 +165,7 @@ export default function Profile({ getAllPosts }) {
             othername={othername}
             shuffledFriends={shuffledFriendsArray}
           />
-          <ProfileMenu />
+          <ProfileMenu visitor={visitor} />
         </div>
       </div>
       <div className='profile_bottom'>
@@ -196,7 +192,7 @@ export default function Profile({ getAllPosts }) {
                   token={user?.token}
                   photos={postPhotoUrls}
                 />
-                <Friends friends={shuffledFriendsArray} />
+                <Friends friends={shuffledFriendsArray} visitor={visitor} />
               </div>
               <div className='profile_right'>
                 {!visitor && (
@@ -206,7 +202,6 @@ export default function Profile({ getAllPosts }) {
                     setPostModalVisible={setPostModalVisible}
                   />
                 )}
-                {/* <GridPosts /> */}
                 <div className='posts'>
                   <DotLoader
                     className='loading-posts'

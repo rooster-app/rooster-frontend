@@ -17,21 +17,21 @@ export default function SettingsPrivacy({ setVisible }) {
         <div className="small_circle">
           <i className="settings_filled_icon"></i>
         </div>
-        <span>Settings</span>
+        <span>Profile Settings</span>
       </div>
-      <div className="mmenu_item hover3">
+      {/* <div className="mmenu_item hover3">
         <div className="small_circle">
           <i className="privacy_checkup_icon"></i>
         </div>
         <span>Privacy Checkup</span>
-      </div>
+      </div> */}
       <div className="mmenu_item hover3">
         <div className="small_circle">
           <i className="privacy_shortcuts_icon"></i>
         </div>
-        <span>Privacy Shortcuts</span>
+        <span>Logout & Reset Password</span>
       </div>
-      <div className="mmenu_item hover3">
+      {/* <div className="mmenu_item hover3">
         <div className="small_circle">
           <i className="activity_log_icon"></i>
         </div>
@@ -48,7 +48,7 @@ export default function SettingsPrivacy({ setVisible }) {
           <i className="language_icon"></i>
         </div>
         <span>Language</span>
-      </div>
+      </div> */}
     </div>
   );
 }

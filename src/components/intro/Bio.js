@@ -19,10 +19,12 @@ export default function Bio({
           name={name}
           value={infos?.relationship}
           onChange={handleChange}>
+          <option value=''>-- Select Relationship --</option>
           <option value='Single'>Single</option>
           <option value='In a relationship'>In a relationship</option>
           <option value='Married'>Married</option>
           <option value='Divorced'>Divorced</option>
+          <option value=''>None</option>
         </select>
       ) : ccu_college ? (
         <select
