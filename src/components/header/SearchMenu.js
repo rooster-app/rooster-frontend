@@ -35,7 +35,6 @@ export default function SearchMenu({ color, setShowSearchMenu, token }) {
   const getHistory = async () => {
     const res = await getSearchHistory(token);
     setSearchHistory(res);
-    console.log(res);
   };
 
   const searchHandler = async () => {

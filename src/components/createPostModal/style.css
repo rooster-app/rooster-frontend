@@ -23,6 +23,10 @@
   border-bottom: 1px solid var(--bg-third);
 }
 
+.box_header span {
+  color: var(--color-primary);
+}
+
 .postBox .small_circle {
   position: absolute;
   right: 16px;
@@ -45,6 +49,7 @@
 
 .box_col {
   transform: translateY(-7px);
+  color: var(--color-primary);
 }
 
 .box_profile_name {
@@ -141,6 +146,7 @@
   width: 50%;
   font-weight: 600;
   font-size: 14px;
+  color: var(--color-primary);
 }
 
 .post_header_right {
@@ -197,6 +203,7 @@
   padding: 10px;
   border: 1px solid var(--bg-third);
   border-radius: 10px;
+  color: var(--color-primary);
 }
 
 .add_pics_inside1 {
@@ -439,13 +446,15 @@
   width: 100%;
   background-size: cover;
 }
+
 .bgHandler textarea {
   text-align: center;
   height: 360px;
   margin-top: 10px;
+  color: black;
 }
 
-/*----Post Error----*/
+/* Post Error */
 .postError {
   position: absolute;
   top: 0;
@@ -469,7 +478,7 @@
   width: 75%;
   font-weight: 600;
 }
-/*----Post Error End----*/
+/* Post Error End */
 
 @keyframes anim {
   0% {

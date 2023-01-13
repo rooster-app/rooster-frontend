@@ -17,7 +17,7 @@ import { postsReducer } from './functions/reducers';
 
 function App() {
   const [postModalVisible, setPostModalVisible] = useState(false);
-  const { user } = useSelector((state) => ({ ...state }));
+  const { darkTheme, user } = useSelector((state) => ({ ...state }));
 
   // eslint-disable-next-line
   const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
@@ -25,11 +25,6 @@ function App() {
     posts: [],
     error: '',
   });
-
-  useEffect(() => {
-    getAllPosts();
-    // eslint-disable-next-line
-  }, [user?.token]);
 
   const getAllPosts = async () => {
     try {
@@ -58,8 +53,13 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    getAllPosts();
+    // eslint-disable-next-line
+  }, [user?.token]);
+
   return (
-    <div className="dark">
+    <div className={darkTheme ? 'dark' : 'rooster_app'}>
       {postModalVisible && (
         <CreatePostModal
           dispatch={dispatch}
@@ -114,7 +114,7 @@ function App() {
             path='/'
             element={
               <Home
-                home_loading={loading}
+                loading={loading}
                 posts={posts}
                 setPostModalVisible={setPostModalVisible}
                 getAllPosts={getAllPosts}

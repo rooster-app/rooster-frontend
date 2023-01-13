@@ -15,12 +15,6 @@ export default function HelpSupport({ setVisible }) {
       </div>
       <div className="mmenu_item hover3">
         <div className="small_circle">
-          <i className="help_center_icon"></i>
-        </div>
-        <span>Help Center</span>
-      </div>
-      <div className="mmenu_item hover3">
-        <div className="small_circle">
           <i className="email_icon"></i>
         </div>
         <span>Support Inbox</span>

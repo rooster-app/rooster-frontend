@@ -30,7 +30,7 @@ export default function Post({ post, user, profile }) {
 
   useEffect(() => {
     setComments(post?.comments);
-  }, [post]);
+  }, [post?.comments]);
 
   const getPostReacts = async () => {
     const res = await getReacts(post?._id, user?.token);
@@ -177,7 +177,6 @@ export default function Post({ post, user, profile }) {
           <img src={post?.images[0].url} alt='' />
         </div>
       )}
-
       <div className='post_infos'>
         <div className='reacts_count'>
           <div className='reacts_count_imgs'>
@@ -309,16 +308,16 @@ export default function Post({ post, user, profile }) {
       </div>
       {showMenu && (
         <PostMenu
-          userId={user?.id}
-          postUserId={post?.user._id}
           images={post?.images}
           imagesLength={post?.images?.length}
-          setShowMenu={setShowMenu}
           postId={post?._id}
-          token={user?.token}
+          postRef={postRef}
+          postUserId={post?.user?._id}
           savedPost={savedPost}
           setSavedPost={setSavedPost}
-          postRef={postRef}
+          setShowMenu={setShowMenu}
+          token={user?.token}
+          userId={user?.id}
         />
       )}
     </div>

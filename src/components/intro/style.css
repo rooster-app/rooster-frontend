@@ -37,6 +37,10 @@
   flex-direction: column;
 }
 
+.add_details_flex {
+  z-index: 999999999999999999999999 !important;
+}
+
 .details_input {
   margin-top: 10px;
   background: var(--bg-secondary) !important;
@@ -130,6 +134,10 @@
   margin: 10px 0;
   padding: 0 10px;
   border-radius: 5px;
+}
+
+select {
+  color: var(--color-primary);
 }
 
 .smaller-icon {

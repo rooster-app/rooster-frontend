@@ -9,6 +9,7 @@ import { createStore } from "redux";
 // @scripts
 import "./index.css";
 import "./styles/icons/icons.css";
+import "./styles/dark.css";
 import rootReducer from "./reducers";
 
 const store = createStore(rootReducer, composeWithDevTools());

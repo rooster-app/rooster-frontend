@@ -547,6 +547,16 @@
   height: 34.25px;
 }
 
+.friends_menu_wrap {
+  position: relative;
+}
+
+/* Button */
+.teal_bttn i,
+.teal_bttn img {
+  filter: invert(100%);
+}
+
 @media (max-width: 1175px) {
   .send_verification,
   .createPost,

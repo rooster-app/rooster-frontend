@@ -13,6 +13,14 @@
   margin-bottom: 50px;
 }
 
+.reset_form_header {
+  color: var(--color-primary);
+}
+
+.reset_form_text {
+  color: var(--color-primary)
+}
+
 .reset_header img {
   width: 60px;
 }

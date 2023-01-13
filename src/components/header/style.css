@@ -660,9 +660,9 @@ header {
   }
 }
 @media (max-width: 400px) {
-  .header_right .circle_icon:nth-child(3) {
+  /* .header_right .circle_icon:nth-child(2) {
     display: none;
-  }
+  } */
   .mmenu {
     width: 290px;
   }
@@ -675,9 +675,9 @@ header {
   }
 }
 @media (max-width: 355px) {
-  .header_right .circle_icon:nth-child(3) {
+  /* .header_right .circle_icon:nth-child(3) {
     display: none;
-  }
+  } */
   .mmenu {
     width: 290px !important;
   }
@@ -695,4 +695,3 @@ header {
     left: -9.75rem;
   }
 }
-/*---responsive----------*/

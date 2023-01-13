@@ -18,6 +18,10 @@
 }
 
 /* Header */
+.dark header {
+  background: var(--bg-primary);
+}
+
 .dark .header_right svg {
   fill: #fff;
 }
@@ -38,7 +42,7 @@
   background: var(--bg-fifth);
 }
 
-.dark input[type="text"] {
+.dark input[type='text'] {
   color: var(--color-primary);
 }
 
@@ -47,6 +51,10 @@
 .dark .white_circle svg,
 .dark .circle i {
   filter: invert(100%) !important;
+}
+
+.dark .profile_link {
+  color: var(--cool-white);
 }
 /* Header End */
 
@@ -88,10 +96,13 @@
   filter: invert(100%);
 }
 
-
 /* Profile */
 .dark .active_link:hover {
-  background: var(--light-blue-color);
+  background: var(--light-blue-color) !important;
+}
+
+.dark .active_link span {
+  color: var(--cool-black);
 }
 
 .dark .open_cover_menu i,
@@ -103,16 +114,21 @@
   filter: invert(100%);
 }
 
-.dark .gray_btn {
+.dark .gray_bttn {
   background: var(--bg-third);
 }
 
-.dark .gray_btn:hover {
+.dark .gray_bttn:hover {
   background: #777;
 }
 
-.dark .gray_btn i,
-.dark .gray_btn img {
+.dark .gray_bttn i,
+.dark .gray_bttn img {
+  filter: invert(100%);
+}
+
+.dark .teal_bttn i,
+.dark .teal_bttn img {
   filter: invert(100%);
 }
 
@@ -134,4 +150,49 @@
 
 .dark .flex_p_t i {
   filter: invert(100%);
+}
+
+/* Home */
+.dark .heading {
+  color: #fff;
+}
+
+/* Buttons */
+.dark .teal_bttn {
+  border: none;
+  outline: none;
+  padding: 8.5px 12px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px !important;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right,
+    var(--dark-teal),
+    var(--teal),
+    var(--light-teal)
+  );
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.dark .open_signup {
+  margin-top: 1rem;
+  width: 70% !important;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+  background: linear-gradient(to right, #f5ce62, #e43603, #fa8072, #e85a19);
+  box-shadow: 0 1px 2px rgba(229, 66, 10, 0.75);
+}
+
+.dark .open_signup:hover {
+  box-shadow: 0 2px 8px rgba(229, 66, 10, 0.75);
 }
