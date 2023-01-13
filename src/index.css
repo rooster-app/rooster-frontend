@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -52,7 +52,13 @@ a {
   --midnite: #041e2b;
   --pm-black: #050505;
   --rooster-red: #ff0000;
-  --rooster-divider: linear-gradient(to top, #041e2b, #023f51, #00829a, #0cb1c7);
+  --rooster-divider: linear-gradient(
+    to top,
+    #041e2b,
+    #023f51,
+    #00829a,
+    #0cb1c7
+  );
   --scrollbarBG: #cfd8dc;
   --thumbBG: #90a4ae;
   --teal: rgb(0, 130, 154);
@@ -86,12 +92,11 @@ a {
   cursor: pointer;
   background-image: linear-gradient(
     to right,
-    var(--midnite),
     var(--dark-teal),
     var(--teal),
     var(--light-teal)
   );
-  box-shadow: 0 1px 2px rgba(49, 196, 190, 0.75);
+  box-shadow: 0 1px 2px var(--dark-teal);
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
@@ -103,7 +108,7 @@ a {
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 3px 8px rgba(49, 196, 190, 0.75);
 }
 
@@ -130,7 +135,7 @@ a {
   font-family: inherit;
   font-weight: 600;
   font-size: 14px;
-  color: #111;
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,7 +167,7 @@ a {
 
 /* Default Button Configs End */
 
-/*----Hovers----*/
+/* Hovers */
 .hover1:hover {
   background: var(--bg-secondary);
 }
@@ -188,7 +193,6 @@ a {
   background: #aeaeafa1;
   border-radius: 5px;
 }
-/* Scrollbar End */
 
 /* Circles */
 .small_circle {
@@ -203,7 +207,6 @@ a {
   background: var(--bg-third);
   cursor: pointer;
 }
-/* Circles End */
 
 /* Filters */
 .filter_blue {
@@ -211,4 +214,4 @@ a {
     saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg)
     brightness(97%) contrast(96%);
 }
-/* Filters End */
+

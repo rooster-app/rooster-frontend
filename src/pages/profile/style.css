@@ -362,6 +362,7 @@
   color: var(--light-teal);
   cursor: pointer;
   padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .profile_header_link:hover {
@@ -546,6 +547,16 @@
   height: 34.25px;
 }
 
+.friends_menu_wrap {
+  position: relative;
+}
+
+/* Button */
+.teal_bttn i,
+.teal_bttn img {
+  filter: invert(100%);
+}
+
 @media (max-width: 1175px) {
   .send_verification,
   .createPost,
@@ -621,6 +632,11 @@
 @media (max-width: 405px) {
   .friendship {
     flex-direction: column;
+  }
+}
+@media (max-width: 370px) {
+    .open_cover_menu_item {
+    margin-left: 18px !important;
   }
 }
 @media (min-width: 900px) {

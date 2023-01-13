@@ -46,6 +46,7 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 19px;
+  color: var(--color-primary);
 }
 
 .updated_p {
@@ -72,11 +73,15 @@
   background-size: cover;
 }
 
+.post_bg_text {
+  color: #000;
+}
+
 .post_text {
   padding: 0 15px 10px 15px;
 }
 
-/*----Grid Images----*/
+/* Grid Images */
 .grid_1 img {
   width: 100%;
   height: 610px;
@@ -276,7 +281,7 @@
   height: 305px;
   object-fit: cover;
 }
-/*----Grid Images----*/
+/* Grid Images End*/
 
 .more-pics-shadow {
   position: absolute;
@@ -397,8 +402,7 @@
   object-fit: cover;
 }
 
-
-/*-----Create Comment-----*/
+/* Create Comment */
 .comments_wrap {
   padding: 10px 15px;
 }
@@ -470,10 +474,9 @@
   right: -4px;
   transform: scale(0.8);
 }
-/*----Create Comment End----*/
+/* Create Comment End */
 
-
-/*----Post Menu----*/
+/* Post Menu */
 .post_menu {
   background: var(--bg-primary);
   width: 300px;
@@ -515,7 +518,7 @@
   background: #ced0d4;
   margin: 5px 0;
 }
-/*----Post Menu End----*/
+/* Post Menu End */
 
 .post_profile_wrap {
   position: relative;
@@ -530,7 +533,7 @@
   left: 0;
   height: 300px;
   width: 100%;
-  background: linear-gradient(45DEG, #eeeeee, #faf8f9, #ffffff);
+  background: linear-gradient(45deg, #eeeeee, #faf8f9, #ffffff);
 }
 
 .post_updated_bg img {

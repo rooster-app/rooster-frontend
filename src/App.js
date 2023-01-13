@@ -6,17 +6,18 @@ import { useEffect, useReducer, useState } from 'react';
 // @scripts
 import Activate from './pages/activate';
 import CreatePostModal from './components/createPostModal';
+import Friends from './pages/friends';
 import Home from './pages/home';
 import LoggedInRoutes from './routes/LoggedInRoutes';
 import Login from './pages/login';
 import NotLoggedInRoutes from './routes/NotLoggedInRoutes';
-import { postsReducer } from './functions/reducers';
 import Profile from './pages/profile';
 import Reset from './pages/reset';
+import { postsReducer } from './functions/reducers';
 
 function App() {
   const [postModalVisible, setPostModalVisible] = useState(false);
-  const { user } = useSelector((state) => ({ ...state }));
+  const { darkTheme, user } = useSelector((state) => ({ ...state }));
 
   // eslint-disable-next-line
   const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
@@ -24,11 +25,6 @@ function App() {
     posts: [],
     error: '',
   });
-
-  useEffect(() => {
-    getAllPosts();
-    // eslint-disable-next-line
-  }, [user?.token]);
 
   const getAllPosts = async () => {
     try {
@@ -47,6 +43,7 @@ function App() {
         type: 'POSTS_SUCCESS',
         payload: data,
       });
+      return 'Thank you';
     } catch (error) {
       dispatch({
         type: 'POSTS_ERROR',
@@ -56,8 +53,13 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    getAllPosts();
+    // eslint-disable-next-line
+  }, [user?.token]);
+
   return (
-    <div>
+    <div className={darkTheme ? 'dark' : 'rooster_app'}>
       {postModalVisible && (
         <CreatePostModal
           dispatch={dispatch}
@@ -89,10 +91,30 @@ function App() {
             exact
           />
           <Route
+            path='/friends'
+            element={
+              <Friends
+                setPostModalVisible={setPostModalVisible}
+                getAllPosts={getAllPosts}
+              />
+            }
+            exact
+          />
+          <Route
+            path='/friends/:type'
+            element={
+              <Friends
+                setPostModalVisible={setPostModalVisible}
+                getAllPosts={getAllPosts}
+              />
+            }
+            exact
+          />
+          <Route
             path='/'
             element={
               <Home
-                home_loading={loading}
+                loading={loading}
                 posts={posts}
                 setPostModalVisible={setPostModalVisible}
                 getAllPosts={getAllPosts}

@@ -26,6 +26,9 @@ export default function CreatePostModal({
   const [error, setError] = useState('');
   const [images, setImages] = useState([]);
   const [background, setBackground] = useState('');
+  const [userLocation, setUserLocation] = useState();
+
+  console.log(`${userLocation ? userLocation : ''}`);
 
   useClickOutside(popup, () => {
     setPostModalVisible(false);
@@ -45,7 +48,7 @@ export default function CreatePostModal({
       setLoading(false);
       if (response.success === true) {
         dispatch({
-          type: profile ? "PROFILE_POSTS" : "POSTS_SUCCESS",
+          type: profile ? 'PROFILE_POSTS' : 'POSTS_SUCCESS',
           payload: [response.data, ...posts],
         });
         setBackground('');
@@ -78,7 +81,7 @@ export default function CreatePostModal({
       setLoading(false);
       if (res.success === true) {
         dispatch({
-          type: profile ? "PROFILE_POSTS" : "POSTS_SUCCESS",
+          type: profile ? 'PROFILE_POSTS' : 'POSTS_SUCCESS',
           payload: [res.data, ...posts],
         });
         setText('');
@@ -100,7 +103,7 @@ export default function CreatePostModal({
       setLoading(false);
       if (response.success === true) {
         dispatch({
-          type: profile ? "PROFILE_POSTS" : "POSTS_SUCCESS",
+          type: profile ? 'PROFILE_POSTS' : 'POSTS_SUCCESS',
           payload: [response.data, ...posts],
         });
         setBackground('');
@@ -164,7 +167,10 @@ export default function CreatePostModal({
             setError={setError}
           />
         )}
-        <AddToYourPost setShowPrev={setShowPrev} />
+        <AddToYourPost
+          setShowPrev={setShowPrev}
+          setUserLocation={setUserLocation}
+        />
         <button
           className='post_submit teal_bttn'
           onClick={() => {

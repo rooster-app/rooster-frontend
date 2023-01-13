@@ -97,7 +97,7 @@ export default function PostMenu({
           <MenuItem
             icon='trash_icon'
             title='Move to trash'
-            subtitle='This post will be permanently deleted'
+            subtitle='This post will be permanently deleted.'
           />
         </div>
       )}
