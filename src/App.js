@@ -13,6 +13,7 @@ import Login from './pages/login';
 import NotLoggedInRoutes from './routes/NotLoggedInRoutes';
 import Profile from './pages/profile';
 import Reset from './pages/reset';
+import Saved from './pages/saved';
 import { postsReducer } from './functions/reducers';
 
 function App() {
@@ -123,6 +124,15 @@ function App() {
             exact
           />
           <Route path='/activate/:token' element={<Activate />} exact />
+          <Route
+            path='/saved'
+            element={
+              <Saved
+                setPostModalVisible={setPostModalVisible}
+              />
+            }
+            exact
+          />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path='/login' element={<Login />} exact />

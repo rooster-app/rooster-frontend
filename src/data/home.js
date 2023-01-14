@@ -4,13 +4,13 @@ export const left = [
     img: 'friends',
     link: '/friends',
   },
-  // {
-  //   text: 'Saved',
-  //   img: 'saved',
-  //   link: '/',
-  // },
   {
-    text: 'Events',
+    text: 'Saved posts',
+    img: 'saved',
+    link: '/saved',
+  },
+  {
+    text: 'Following',
     img: 'events',
     link: '/',
   },

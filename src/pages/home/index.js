@@ -8,7 +8,7 @@ import LeftHome from '../../components/home/left';
 import Post from '../../components/post';
 import RightHome from '../../components/home/right';
 import SendVerification from '../../components/home/sendVerification';
-import './home_style.css';
+import './home.css';
 
 export default function Home({
   getAllPosts,
