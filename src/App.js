@@ -20,7 +20,7 @@ function App() {
   const { darkTheme, user } = useSelector((state) => ({ ...state }));
 
   // eslint-disable-next-line
-  const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
+  const [{ loading, posts, error }, dispatch] = useReducer(postsReducer, {
     loading: false,
     posts: [],
     error: '',
