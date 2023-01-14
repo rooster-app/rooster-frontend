@@ -35,10 +35,11 @@ export default function Header({ getAllPosts, page, visitor }) {
   const usermenu = useRef(null);
   const notifications = useRef(null);
 
-  // local storage for userNotified, set to false at successful user login
+  // local storage for userNotified
   useEffect(() => {
     setUserNotified(JSON.parse(window.localStorage.getItem('userNotified')));
   }, []);
+
   useEffect(() => {
     window.localStorage.setItem('userNotified', userNotified);
   }, [userNotified]);
@@ -86,6 +87,9 @@ export default function Header({ getAllPosts, page, visitor }) {
     if (data.data.requests.length > 0) {
       setUserNotified(false);
       setNewNotifications(true);
+    } else {
+      setUserNotified(true);
+      setNewNotifications(false);
     }
   };
 

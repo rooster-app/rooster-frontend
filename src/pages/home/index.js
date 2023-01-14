@@ -14,24 +14,28 @@ export default function Home({
   getAllPosts,
   setPostModalVisible,
   posts,
-  loading
+  loading,
 }) {
   const { user } = useSelector((user) => ({ ...user }));
   const [height, setHeight] = useState();
+  const [scrollHeight, setScrollHeight] = useState();
   const middle = useRef(null);
 
   useEffect(() => {
-    if (!loading) {
-      setHeight(middle.current.clientHeight + 100);
-    }
-  }, [loading, height]);
+    setHeight(middle.current.clientHeight + 30);
+    window.addEventListener('scroll', getScroll, { passive: true });
+    return () => {
+      window.addEventListener('scroll', getScroll, { passive: true });
+    };
+  }, [loading, scrollHeight]);
+
+  const getScroll = () => {
+    setScrollHeight(window.pageYOffset);
+  };
 
   return (
     <div className='home' style={{ height: `${height + 100}px` }}>
-      <Header
-        page='home'
-        getAllPosts={getAllPosts}
-      />
+      <Header page='home' getAllPosts={getAllPosts} />
       <LeftHome user={user} />
       <div className='home_middle' ref={middle}>
         {user?.verified === false && <SendVerification user={user} />}
