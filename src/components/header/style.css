@@ -170,6 +170,12 @@ header {
   font-size: 13px;
   color: #fff;
 }
+
+.user_notified {
+  position: absolute;
+  top: -6px;
+  right: -5px;
+}
 /* Header Right End */
 
 /* searchMenu */

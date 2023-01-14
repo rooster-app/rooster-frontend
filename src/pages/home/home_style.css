@@ -1,8 +1,8 @@
 .home {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* background: linear-gradient(to right, var(--bg-secondary), #ffffff); */
   background: var(--bg-secondary);
+  height: auto;
 }
 
 .home_middle {

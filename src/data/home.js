@@ -2,7 +2,7 @@ export const left = [
   {
     text: 'Find friends',
     img: 'friends',
-    link: '/friends/suggestions',
+    link: '/friends',
   },
   // {
   //   text: 'Saved',
