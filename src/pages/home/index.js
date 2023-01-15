@@ -8,7 +8,7 @@ import LeftHome from '../../components/home/left';
 import Post from '../../components/post';
 import RightHome from '../../components/home/right';
 import SendVerification from '../../components/home/sendVerification';
-import './home_style.css';
+import './home.css';
 
 export default function Home({
   getAllPosts,
@@ -18,13 +18,20 @@ export default function Home({
 }) {
   const { user } = useSelector((user) => ({ ...user }));
   const [height, setHeight] = useState();
+  const [scrollHeight, setScrollHeight] = useState();
   const middle = useRef(null);
 
   useEffect(() => {
-    if (!loading) {
-      setHeight(middle.current.clientHeight + 100);
-    }
-  }, [loading, height]);
+    setHeight(middle.current.clientHeight + 30);
+    window.addEventListener('scroll', getScroll, { passive: true });
+    return () => {
+      window.addEventListener('scroll', getScroll, { passive: true });
+    };
+  }, [loading, scrollHeight]);
+
+  const getScroll = () => {
+    setScrollHeight(window.pageYOffset);
+  };
 
   return (
     <div className='home' style={{ height: `${height + 100}px` }}>

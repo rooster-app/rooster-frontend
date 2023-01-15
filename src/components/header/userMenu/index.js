@@ -1,8 +1,8 @@
 // @packages
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 // @scripts
 import DisplayAccessibility from './DisplayAccessibility';
 import HelpSupport from './HelpSupport';
@@ -14,11 +14,11 @@ export default function UserMenu({ user }) {
   const [visible, setVisible] = useState(0);
 
   const logoutHandler = () => {
-    Cookies.set("user", "");
+    Cookies.set('user', '');
     dispatch({
-      type: "LOGOUT",
+      type: 'LOGOUT',
     });
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
@@ -35,7 +35,7 @@ export default function UserMenu({ user }) {
             </div>
           </Link>
           <div className='mmenu_splitter'></div>
-          <div className='mmenu_main hover3'>
+          <Link to='/support' className='mmenu_main hover3'>
             <div className='small_circle'>
               <i className='report_filled_icon'></i>
             </div>
@@ -43,7 +43,7 @@ export default function UserMenu({ user }) {
               <div className='mmenu_span1'>Give feedback</div>
               <div className='mmenu_span2'>Help us improve Rooster</div>
             </div>
-          </div>
+          </Link>
           <div className='mmenu_splitter'></div>
           <div
             className='mmenu_item hover3'

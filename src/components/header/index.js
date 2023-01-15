@@ -1,9 +1,10 @@
 // @packages
 import { Link } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useReducer, useState } from 'react';
 import { useSelector } from 'react-redux';
 // @scripts
 import './style.css';
+import { getFriendsPageInfos } from '../../functions/user';
 import {
   Friends,
   Home,
@@ -16,6 +17,8 @@ import {
 import SearchMenu from './SearchMenu';
 import useClickOutside from '../../helpers/clickOutside';
 import UserMenu from './userMenu';
+import UserNotificationsMenu from './UserNotificationsMenu';
+import { friendspage } from '../../functions/reducers';
 
 export default function Header({ getAllPosts, page, visitor }) {
   const { user } = useSelector((user) => ({ ...user }));
@@ -25,7 +28,30 @@ export default function Header({ getAllPosts, page, visitor }) {
 
   const [showSearchMenu, setShowSearchMenu] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [userNotified, setUserNotified] = useState(true);
+  const [newNotifications, setNewNotifications] = useState(false);
+  const [showUserNotificationsMenu, setShowUserNotificationsMenu] =
+    useState(false);
   const usermenu = useRef(null);
+  const notifications = useRef(null);
+
+  // local storage for userNotified
+  useEffect(() => {
+    setUserNotified(JSON.parse(window.localStorage.getItem('userNotified')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('userNotified', userNotified);
+  }, [userNotified]);
+
+  useEffect(() => {
+    getFriendsData();
+    // eslint-disable-next-line
+  }, []);
+
+  useClickOutside(notifications, () => {
+    setShowUserNotificationsMenu(false);
+  });
 
   useClickOutside(usermenu, () => {
     setShowUserMenu(false);
@@ -34,6 +60,36 @@ export default function Header({ getAllPosts, page, visitor }) {
   const getAllPostsHandler = async () => {
     if (getAllPosts) {
       getAllPosts();
+    }
+  };
+
+  // eslint-disable-next-line
+  const [{ loading, error, data }, dispatch] = useReducer(friendspage, {
+    loading: false,
+    data: {},
+    error: '',
+  });
+
+  useEffect(() => {
+    getFriendsData();
+    // eslint-disable-next-line
+  }, []);
+
+  const getFriendsData = async () => {
+    dispatch({ type: 'FRIENDS_REQUEST' });
+    const data = await getFriendsPageInfos(user?.token);
+    if (data?.success === true) {
+      dispatch({ type: 'FRIENDS_SUCCESS', payload: data?.data });
+    } else {
+      dispatch({ type: 'FRIENDS_ERROR', payload: data?.data });
+    }
+
+    if (data.data.requests.length > 0) {
+      setUserNotified(false);
+      setNewNotifications(true);
+    } else {
+      setUserNotified(true);
+      setNewNotifications(false);
     }
   };
 
@@ -105,9 +161,29 @@ export default function Header({ getAllPosts, page, visitor }) {
         <div className='circle_icon hover1'>
           <Messenger />
         </div>
-        <div className='circle_icon hover1'>
-          <Notifications />
-          <div className='right_notification'> &nbsp; </div>
+        <div
+          className={`circle_icon hover1 ${showUserNotificationsMenu && 'active_header'}`}
+          ref={notifications}>
+          <div
+            onClick={() => {
+              setShowUserNotificationsMenu((prev) => !prev);
+              setUserNotified(true);
+            }}>
+            <Notifications />
+            <div
+              className={userNotified ? 'user_notified' : 'right_notification'}>
+              {' '}
+              &nbsp;{' '}
+            </div>
+          </div>
+          {showUserNotificationsMenu && (
+            <UserNotificationsMenu
+              user={user}
+              newNotifications={newNotifications}
+              setNewNotficiations={setNewNotifications}
+              getFriendsData={getFriendsData}
+            />
+          )}
         </div>
         <div
           className={`circle_icon hover1 ${showUserMenu && 'active_header'}`}

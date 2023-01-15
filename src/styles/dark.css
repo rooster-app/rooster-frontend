@@ -56,6 +56,10 @@
 .dark .profile_link {
   color: var(--cool-white);
 }
+
+.dark .notifications_menu_icon {
+  filter: invert(100%) !important;
+}
 /* Header End */
 
 .dark .left_home .small_circle {
@@ -195,4 +199,9 @@
 
 .dark .open_signup:hover {
   box-shadow: 0 2px 8px rgba(229, 66, 10, 0.75);
+}
+
+/* Friends */
+.dark .m_group_icon {
+  filter: invert(85%);
 }

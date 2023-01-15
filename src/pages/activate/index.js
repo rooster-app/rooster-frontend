@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
 // @scripts
 import ActivateForm from './ActivateForm';
 import CreatePostForm from '../../components/createPostForm';
@@ -39,7 +38,7 @@ export default function Activate() {
         { token },
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
+            Authorization: `Bearer ${user?.token}`,
           },
         }
       );
@@ -50,7 +49,7 @@ export default function Activate() {
         payload: true,
       });
       // add default friend on account activation
-      await defaultFriend(user.token);
+      await defaultFriend(user?.token);
       setTimeout(() => {
         navigate('/');
       }, 2500);
