@@ -162,7 +162,7 @@ export default function Header({ getAllPosts, page, visitor }) {
           <Messenger />
         </div>
         <div
-          className={`circle_icon hover1 ${showUserMenu && 'active_header'}`}
+          className={`circle_icon hover1 ${showUserNotificationsMenu && 'active_header'}`}
           ref={notifications}>
           <div
             onClick={() => {

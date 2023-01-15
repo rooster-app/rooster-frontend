@@ -14,6 +14,7 @@ import NotLoggedInRoutes from './routes/NotLoggedInRoutes';
 import Profile from './pages/profile';
 import Reset from './pages/reset';
 import Saved from './pages/saved';
+import Support from './pages/support';
 import { postsReducer } from './functions/reducers';
 
 function App() {
@@ -126,13 +127,10 @@ function App() {
           <Route path='/activate/:token' element={<Activate />} exact />
           <Route
             path='/saved'
-            element={
-              <Saved
-                setPostModalVisible={setPostModalVisible}
-              />
-            }
+            element={<Saved setPostModalVisible={setPostModalVisible} />}
             exact
           />
+          <Route path='/support' element={<Support />} exact />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path='/login' element={<Login />} exact />
