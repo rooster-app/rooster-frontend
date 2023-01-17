@@ -1,65 +1,64 @@
 // @packages
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Cookies from "js-cookie";
-import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
+import { useState } from 'react';
 // @scripts
-import "./style.css";
-import SearchAccount from "./SearchAccount";
-import SendEmail from "./SendEmail";
-import CodeVerification from "./CodeVerification";
-import Footer from "../../components/footer";
-import ChangePassword from "./ChangePassword";
+import './style.css';
+import SearchAccount from './SearchAccount';
+import SendEmail from './SendEmail';
+import CodeVerification from './CodeVerification';
+import Footer from '../../components/footer';
+import ChangePassword from './ChangePassword';
 
 export default function Reset() {
   const { user } = useSelector((state) => ({ ...state }));
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [code, setCode] = useState("");
-  const [conf_password, setConf_password] = useState("");
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [code, setCode] = useState('');
+  const [conf_password, setConf_password] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   // eslint-disable-next-line
   const [loading, setLoading] = useState(false);
-  const [password, setPassword] = useState("");
-  const [userInfos, setUserInfos] = useState("");
+  const [password, setPassword] = useState('');
+  const [userInfos, setUserInfos] = useState('');
   const [visible, setVisible] = useState(0);
-  
+
   const logout = () => {
-    Cookies.set("user", "");
+    Cookies.set('user', '');
     dispatch({
-      type: "LOGOUT",
+      type: 'LOGOUT',
     });
-    navigate("/login");
+    navigate('/login');
   };
-  
+
   return (
-    <div className="reset">
-      <div className="reset_header">
-        <img src="../../../images/rooster-logo.png" alt=""/>
+    <div className='reset'>
+      <div className='reset_header'>
+        <img src='../../../images/rooster-logo.png' alt='' />
         {user ? (
-          <div className="right_reset">
-            <Link to="/profile">
-              <img src={user.picture} alt="" />
+          <div className='right_reset'>
+            <Link to='/profile'>
+              <img src={user.picture} alt='' />
             </Link>
             <button
-              className="teal_bttn"
+              className='teal_bttn'
               onClick={() => {
                 logout();
-              }}
-            >
+              }}>
               Logout
             </button>
           </div>
         ) : (
-          <Link to="/login" className="right_reset">
-            <button className="teal_bttn">Login</button>
+          <Link to='/login' className='right_reset'>
+            <button className='teal_bttn'>Login</button>
           </Link>
         )}
       </div>
-      <div className="reset_wrap">
+      <div className='reset_wrap'>
         {visible === 0 && (
           <SearchAccount
             email={email}
