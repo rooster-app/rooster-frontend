@@ -1,3 +1,6 @@
+// @packages
+import { Link } from 'react-router-dom';
+
 export default function SettingsPrivacy({ setVisible }) {
 
   return (
@@ -25,12 +28,12 @@ export default function SettingsPrivacy({ setVisible }) {
         </div>
         <span>Privacy Checkup</span>
       </div> */}
-      <div className="mmenu_item hover3">
+      <Link to="/reset" className="mmenu_item hover3">
         <div className="small_circle">
           <i className="privacy_shortcuts_icon"></i>
         </div>
-        <span>Logout & Reset Password</span>
-      </div>
+        <span>Reset Password</span>
+      </Link>
       {/* <div className="mmenu_item hover3">
         <div className="small_circle">
           <i className="activity_log_icon"></i>
