@@ -6,6 +6,8 @@
 
 [![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/134be748-4151-4123-a4bf-f64a0e16f126/deploy-status)](https://app.netlify.com/sites/rooster-social/deploys)
+![GitHub Repo stars](https://img.shields.io/github/stars/rooster-app/rooster-frontend?style=social)
+![GitHub forks](https://img.shields.io/github/forks/rooster-app/rooster-frontend?style=social)
 
 </div>
 
@@ -19,7 +21,7 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 
 - Developed with [React](https://github.com/facebook/create-react-app)
 - Users required to have a valid @coastal.edu email address
-- Create and share posts with followers & friends
+- Create and share posts with friends & followers
 - Post reactions & comments
 - Customizable profile page
 - Find Friends & Search History for other users
@@ -55,7 +57,7 @@ To build the app for production to the `build` folder:
 
 ## Environment Variables
 
-#### This applications utilizes [dotenv](https://www.npmjs.com/package/dotenv) to host environment variables. For local utilization configure the following:
+This application utilizes [dotenv](https://www.npmjs.com/package/dotenv) to host environment variables. For local utilization configure the following:
 
 - REACT_APP_BACKEND_URL
 - REACT_APP_DEFAULT_FRIEND_ID
