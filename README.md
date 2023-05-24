@@ -1,6 +1,6 @@
 <div align="center" markdown="1">
 
-<img src="./public/images/red-rooster-logo.svg" width="220" alt="Rooster Logo" />
+<img src="./public/images/red-rooster-logo.svg" width="220" alt="Rooster Logo"/>
 
 # Rooster Frontend
 
@@ -31,7 +31,7 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 - Dark/Light Mode Functionality
 - [Redux](https://redux.js.org/) to assit with state management
 - Deployed to [Netlify](https://www.netlify.com/)
-- Backend API communication for data persistence, retrieval, & authentication services
+- Backend API communication for data persistence, retrieval, authentication & authorization services
 
 ## Getting Started
 
