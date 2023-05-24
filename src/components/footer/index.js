@@ -11,7 +11,7 @@ const Footer = () => {
         <Link to='/'>Privacy</Link>
         <Link to='/'>Terms</Link>
         <Link className='rooster_copy' to='/' style={{ fontSize: '12px' }}>
-          Rooster &copy; 2022
+          Rooster &copy; 2023
         </Link>
       </div>
     </footer>
