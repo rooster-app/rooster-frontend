@@ -1,72 +1,65 @@
-# rooster-frontend
+<div align="center" markdown="1">
 
+<img src="./public/images/red-rooster-logo.svg" width="220" alt="Rooster Logo" />
 
+# Rooster Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/134be748-4151-4123-a4bf-f64a0e16f126/deploy-status)](https://app.netlify.com/sites/rooster-social/deploys)
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+This client-side application is the frontend for Rooster, a social networking site for the Coastal Carolina University (CCU) community 👌
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A live demo of the app can be found at [www.roostersocial.com](https://www.roostersocial.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Specifications
 
-### `npm test`
+- Developed with [React](https://github.com/facebook/create-react-app)
+- Users required to have a valid @coastal.edu email address
+- Create and share posts with followers & friends
+- Post reactions & comments
+- Customizable profile page
+- Find Friends & Search History for other users
+- Signup and Login Process
+- Account Verification
+- Password Reset
+- Dark/Light Mode Functionality
+- [Redux](https://redux.js.org/) to assit with state management
+- Deployed to [Netlify](https://www.netlify.com/)
+- Backend API communication for data persistence, retrieval, & authentication services
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+To install dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run in development mode:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm start
+```
 
-### `npm run eject`
+Open [http://localhost:3000](http://localhost:3000) to view in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To build the app for production to the `build` folder:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+ npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Environment Variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### This applications utilizes [dotenv](https://www.npmjs.com/package/dotenv) to host environment variables. For local utilization configure the following:
 
-## Learn More
+- REACT_APP_BACKEND_URL
+- REACT_APP_DEFAULT_FRIEND_ID
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are welcome! To contribute please contact 📫 rooster@roostersocial.com
