@@ -55,11 +55,11 @@ To build the app for production to the `build` folder:
 
 ## Environment Variables
 
-#### This applications utilizes a [dotenv](https://www.npmjs.com/package/dotenv) to host environment variables. For local utilization configure the following:
+#### This applications utilizes [dotenv](https://www.npmjs.com/package/dotenv) to host environment variables. For local utilization configure the following:
 
 - REACT_APP_BACKEND_URL
 - REACT_APP_DEFAULT_FRIEND_ID
 
 ## Contributing
 
-To contribute please contact 📫 rooster@roostersocial.com
+Contributions are welcome! To contribute please contact 📫 rooster@roostersocial.com
