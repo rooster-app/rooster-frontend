@@ -2,7 +2,7 @@ export const menu = [
   {
     name: "Campus",
     icon: "campus",
-    description: "A unique, exclusive space for college students on Rooster.",
+    description: "A unique, exclusive space for the CCU community on Rooster.",
   },
   {
     name: "Events",
@@ -47,7 +47,7 @@ export const menu = [
       "A video destination personalized to your interests and connections.",
   },
   {
-    name: "Facebook Pay",
+    name: "Rooster Pay",
     icon: "pay",
     description: "A seamless, secure way to pay on the apps you already use.",
   },
