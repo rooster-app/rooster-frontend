@@ -21,14 +21,15 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 
 - Developed with [React](https://github.com/facebook/create-react-app)
 - Users required to have a valid @coastal.edu email address
-- Create and share posts with friends & followers
-- Post reactions & comments
+- Create and share posts/images with friends & followers
+- Post reactions, comments, save, image download
 - Customizable profile page
-- Find Friends & Search History for other users
+- Friend request, follow/unfollow, friend/unfriend
+- Search & Search History for other users
 - Signup and Login Process
 - Account Verification
 - Password Reset
-- Dark/Light Mode Functionality
+- Dark Mode On/Off
 - [Redux](https://redux.js.org/) to assit with state management
 - Deployed to [Netlify](https://www.netlify.com/)
 - Backend API communication for data persistence, retrieval, authentication & authorization services
