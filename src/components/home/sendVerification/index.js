@@ -27,7 +27,7 @@ const SendVerification = ({ user }) => {
 
   return (
     <div className='send_verification'>
-      <span>
+      <span className='send_verification_text'>
         This account has not been verified. Please verify your account before it
         is deleted in 24 hours from creating.
       </span>
