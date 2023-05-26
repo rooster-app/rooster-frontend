@@ -13,6 +13,10 @@
   margin-top: 10px;
 }
 
+.send_verification_text {
+  color: var(--color-primary);
+}
+
 .success_text {
   margin-top: 8px;
   text-align: center;
