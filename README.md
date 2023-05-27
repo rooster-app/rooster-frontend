@@ -19,11 +19,11 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 
 |                           Home Page                            |                           Profile Page                            |
 | :------------------------------------------------------------: | :---------------------------------------------------------------: |
-| <img src="./public/images/rooster-home-page.png" width="255"/> | <img src="./public/images/rooster-profile-page.png" width="255"/> |
+| <img src="./public/images/rooster-home-page.png" width="300"/> | <img src="./public/images/rooster-profile-page.png" width="300"/> |
 
 |                           Create Post                            |                           Friends Page                            |
 | :--------------------------------------------------------------: | :---------------------------------------------------------------: |
-| <img src="./public/images/rooster-create-post.png" width="255"/> | <img src="./public/images/rooster-friends-page.png" width="255"/> |
+| <img src="./public/images/rooster-create-post.png" width="300"/> | <img src="./public/images/rooster-friends-page.png" width="300"/> |
 
 ---
 
@@ -34,7 +34,7 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 - Create and share posts/images with friends & followers
 - Post reactions, comments, save, download
 - Customizable profile page
-- Friend request, follow/unfollow, friend/unfriend
+- Friend request, friend/unfriend, follow/unfollow
 - Search & Search History for other users
 - Signup and Login Process
 - Account Verification
