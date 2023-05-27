@@ -233,7 +233,7 @@ export default function Friends() {
                 <div className='flex_wrap'>
                   {data?.suggestions &&
                     data?.suggestions
-                      .slice(0, 10)
+                      .slice(0, 6)
                       .map((userr, i) => (
                         <Card
                           userr={userr}
