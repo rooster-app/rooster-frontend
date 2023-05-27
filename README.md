@@ -17,6 +17,16 @@ This client-side application is the frontend for Rooster, a social networking si
 
 A live demo of the app can be found at [www.roostersocial.com](https://www.roostersocial.com/)
 
+|                           Home Page                            |                           Profile Page                            |
+| :------------------------------------------------------------: | :---------------------------------------------------------------: |
+| <img src="./public/images/rooster-home-page.png" width="230"/> | <img src="./public/images/rooster-profile-page.png" width="230"/> |
+
+|                           Create Post                            |                           Friends Page                            |
+| :--------------------------------------------------------------: | :---------------------------------------------------------------: |
+| <img src="./public/images/rooster-create-post.png" width="230"/> | <img src="./public/images/rooster-friends-page.png" width="230"/> |
+
+---
+
 ## Project Specifications
 
 - Developed with [React](https://github.com/facebook/create-react-app)
