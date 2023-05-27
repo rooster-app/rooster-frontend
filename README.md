@@ -19,11 +19,11 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 
 |                           Home Page                            |                           Profile Page                            |
 | :------------------------------------------------------------: | :---------------------------------------------------------------: |
-| <img src="./public/images/rooster-home-page.png" width="230"/> | <img src="./public/images/rooster-profile-page.png" width="230"/> |
+| <img src="./public/images/rooster-home-page.png" width="255"/> | <img src="./public/images/rooster-profile-page.png" width="255"/> |
 
 |                           Create Post                            |                           Friends Page                            |
 | :--------------------------------------------------------------: | :---------------------------------------------------------------: |
-| <img src="./public/images/rooster-create-post.png" width="230"/> | <img src="./public/images/rooster-friends-page.png" width="230"/> |
+| <img src="./public/images/rooster-create-post.png" width="255"/> | <img src="./public/images/rooster-friends-page.png" width="255"/> |
 
 ---
 
