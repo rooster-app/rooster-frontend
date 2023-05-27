@@ -29,7 +29,7 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 
 ## Project Specifications
 
-- Developed with [React](https://github.com/facebook/create-react-app)
+- Developed with [React](https://react.dev/)
 - Users required to have a valid @coastal.edu email address
 - Create and share posts/images with friends & followers
 - Post reactions, comments, save, download
