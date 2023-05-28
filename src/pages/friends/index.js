@@ -115,24 +115,6 @@ export default function Friends() {
                 <i className='right_icon'></i>
               </div>
             </Link>
-            {/* <div className="mmenu_item hover3">
-              <div className="small_circle">
-                <i className="birthdays_icon"></i>
-              </div>
-              <span>Birthdays</span>
-              <div className="rArrow">
-                <i className="right_icon"></i>
-              </div>
-            </div> */}
-            {/* <div className="mmenu_item hover3">
-              <div className="small_circle">
-                <i className="all_friends_icon"></i>
-              </div>
-              <span>Custom Lists</span>
-              <div className="rArrow">
-                <i className="right_icon"></i>
-              </div>
-            </div> */}
           </div>
         </div>
         <div className='friends_right'>
@@ -153,7 +135,7 @@ export default function Friends() {
                   )}
                   {data?.requests &&
                     data?.requests
-                      .slice(0, 10)
+                      .slice(0, 6)
                       .map((userr, i) => (
                         <Card
                           userr={userr}
@@ -193,7 +175,7 @@ export default function Friends() {
                 <div className='flex_wrap'>
                   {data?.sentRequests &&
                     data?.sentRequests
-                      .slice(0, 10)
+                      .slice(0, 6)
                       .map((userr, i) => (
                         <Card
                           userr={userr}
