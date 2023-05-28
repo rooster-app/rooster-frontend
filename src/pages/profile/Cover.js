@@ -14,17 +14,24 @@ import { uploadImages } from '../../functions/uploadImages';
 export default function Cover({ cover, visitor, photos }) {
   const { user } = useSelector((state) => ({ ...state }));
 
+  const [error, setError] = useState('');
   const [showCoverMenu, setShowCoverMenu] = useState(false);
   const [coverPicture, setCoverPicture] = useState('');
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
+  const [width, setWidth] = useState();
 
   const menuRef = useRef(null);
   const refInput = useRef(null);
   const cRef = useRef(null);
+  const coverRef = useRef(null);
+
+  useEffect(() => {
+    setWidth(coverRef.current.clientWidth);
+    // eslint-disable-next-line
+  }, [window.innerWidth]);
 
   useClickOutside(menuRef, () => setShowCoverMenu(false));
-  const [error, setError] = useState('');
 
   const handleImage = (e) => {
     let file = e.target.files[0];
@@ -77,13 +84,6 @@ export default function Cover({ cover, visitor, photos }) {
     [croppedAreaPixels]
   );
 
-  const coverRef = useRef(null);
-  const [width, setWidth] = useState();
-  useEffect(() => {
-    setWidth(coverRef.current.clientWidth);
-    // eslint-disable-next-line
-  }, [window.innerWidth]);
-
   const updateCoverPicture = async () => {
     try {
       setLoading(true);
@@ -94,33 +94,35 @@ export default function Cover({ cover, visitor, photos }) {
       let formData = new FormData();
       formData.append('file', blob);
       formData.append('path', path);
-      // upload to cloudinary for img url
-      const res = await uploadImages(formData, path, user?.token);
-      // update the user cover with the url in the database
-      const updated_picture = await updateCover(res[0].url, user?.token);
-      if (updated_picture === 'ok') {
-        // then create a new post
+      // Upload to cloudinary for img url
+      const response = await uploadImages(formData, path, user?.token);
+      // Update the user cover with the url in the database
+      const updatedCoverUrl = await updateCover(response[0].url, user?.token);
+      if (updatedCoverUrl === 'success') {
+        // Create a new cover picture post
         const new_post = await createPost(
           'coverPicture',
           null,
           null,
-          res,
+          response,
           user?.id,
           user?.token
         );
         if (new_post.success === true) {
           setLoading(false);
           setCoverPicture('');
-          cRef.current.src = res[0].url;
-          setError(new_post);
+          cRef.current.src = response[0].url;
+        } else {
+          setLoading(false);
+          setError(new_post.message);
         }
       } else {
         setLoading(false);
-        setError(updated_picture);
+        setError(updatedCoverUrl);
       }
     } catch (error) {
       setLoading(false);
-      setError(error.response.data.message);
+      setError(error?.response?.data?.message);
     }
   };
 
