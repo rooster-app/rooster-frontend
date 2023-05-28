@@ -34,9 +34,9 @@ export const updateCover = async (url, token) => {
         },
       }
     );
-    return 'ok';
+    return 'success';
   } catch (error) {
-    return error.response.data.message;
+    return error?.response?.data?.message;
   }
 };
 
