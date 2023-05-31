@@ -22,6 +22,10 @@ export default function Post({ post, user, profile }) {
   const [openComment, setOpenComment] = useState(false);
   const [visible, setVisible] = useState(false);
   const [total, setTotal] = useState(0);
+  const [editingPost, setEditingPost] = useState(false);
+  const [text, setText] = useState(post?.text);
+
+  const textRef = useRef(null);
 
   useEffect(() => {
     getPostReacts();
@@ -129,7 +133,20 @@ export default function Post({ post, user, profile }) {
         </div>
       ) : post?.type === null ? (
         <>
-          <div className='post_text'>{post?.text}</div>
+          {!editingPost && <div className='post_text'>{text}</div>}
+          {editingPost && (
+            <textarea
+              ref={textRef}
+              maxLength='250'
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              className={'post_input'}
+              style={{
+                paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
+                }%`,
+              }}
+              ></textarea>
+          )}
           {post?.images && post?.images.length && (
             <div
               className={
@@ -314,6 +331,7 @@ export default function Post({ post, user, profile }) {
           postRef={postRef}
           postUserId={post?.user?._id}
           savedPost={savedPost}
+          setEditingPost={setEditingPost}
           setSavedPost={setSavedPost}
           setShowMenu={setShowMenu}
           token={user?.token}

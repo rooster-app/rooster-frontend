@@ -518,6 +518,21 @@
   background: #ced0d4;
   margin: 5px 0;
 }
+
+.post_input {
+  position: relative;
+  outline: none;
+  border: none;
+  resize: none;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  width: 470px;
+  margin-left: 1px;
+  font-family: inherit;
+  font-size: 24px;
+  background: var(--bg-primary);
+  color: var(--color-primary);
+}
 /* Post Menu End */
 
 .post_profile_wrap {
