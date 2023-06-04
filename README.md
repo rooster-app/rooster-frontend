@@ -42,7 +42,7 @@ A live demo of the app can be found at [www.roostersocial.com](https://www.roost
 - Dark Mode On/Off
 - [Redux](https://redux.js.org/) to assit with state management
 - Deployed to [Netlify](https://www.netlify.com/)
-- Backend API communication for data persistence, retrieval, authentication & authorization services
+- ![Backend](https://github.com/rooster-app) API communication for data persistence, retrieval, authentication & authorization services
 
 ## Getting Started
 
@@ -75,4 +75,4 @@ This application utilizes [dotenv](https://www.npmjs.com/package/dotenv) to host
 
 ## Contributing
 
-Contributions are welcome! To contribute please contact 📫 rooster@roostersocial.com
+Contributions are welcome! To contribute please visit us at ![Rooster](https://github.com/rooster-app)
