@@ -22,6 +22,10 @@ export default function Post({ post, user, profile }) {
   const [openComment, setOpenComment] = useState(false);
   const [visible, setVisible] = useState(false);
   const [total, setTotal] = useState(0);
+  const [editingPost, setEditingPost] = useState(false);
+  const [text, setText] = useState(post?.text);
+
+  const textRef = useRef(null);
 
   useEffect(() => {
     getPostReacts();
@@ -73,6 +77,17 @@ export default function Post({ post, user, profile }) {
 
   const showMore = () => {
     setCount((prev) => prev + 3);
+  };
+
+  const cancelUpdatingPostComment = () => {
+    setEditingPost(false);
+    setText(post?.text);
+  }
+
+  const updatePostComment = () => {
+    setEditingPost(false);
+    // Call function to persist comment here
+    return;
   };
 
   return (
@@ -129,7 +144,33 @@ export default function Post({ post, user, profile }) {
         </div>
       ) : post?.type === null ? (
         <>
-          <div className='post_text'>{post?.text}</div>
+          {!editingPost && <div className='post_text'>{text}</div>}
+          {editingPost && (
+            <div>
+              <textarea
+                ref={textRef}
+                maxLength='250'
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className={'post_input'}
+                style={{
+                  paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
+                }%`,
+                }}></textarea>
+              <div className='edit_comment_btn_container'>
+                <button
+                  className='gray_bttn opacity_btn edit_comment_btn'
+                  onClick={() => cancelUpdatingPostComment()}>
+                  Cancel
+                </button>
+                <button
+                  className='teal_bttn edit_comment_btn'
+                  onClick={() => updatePostComment()}>
+                  Save
+                </button>
+              </div>
+            </div>
+          )}
           {post?.images && post?.images.length && (
             <div
               className={
@@ -314,6 +355,7 @@ export default function Post({ post, user, profile }) {
           postRef={postRef}
           postUserId={post?.user?._id}
           savedPost={savedPost}
+          setEditingPost={setEditingPost}
           setSavedPost={setSavedPost}
           setShowMenu={setShowMenu}
           token={user?.token}

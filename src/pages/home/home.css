@@ -16,7 +16,7 @@
   .send_verification,
   .createPost,
   .post {
-    width: 550px;
+    width: 550px !important;
     margin-left: -70px;
   }
   .right_home {
@@ -67,7 +67,7 @@
   .send_verification,
   .createPost,
   .post {
-    width: 540px;
+    width: 540px !important;
     margin-left: 9%;
   }
   .right_home {
@@ -88,12 +88,17 @@
   .send_verification,
   .createPost,
   .post {
-    width: 115%;
+    width: 115% !important;
   }
   .contact span {
     font-size: 12px;
   }
   .contacts_header_right {
+    display: none;
+  }
+}
+@media (max-width: 815px) {
+  .right_home {
     display: none;
   }
 }
@@ -103,9 +108,6 @@
   }
 }
 @media (max-width: 780px) {
-  .right_home {
-    display: none;
-  }
   .send_verification,
   .createPost,
   .post {
@@ -124,7 +126,7 @@
   .send_verification,
   .createPost,
   .post {
-    width: 450px;
+    width: 450px !important;
     margin: 0 auto;
     margin-bottom: 10px;
   }
@@ -145,14 +147,14 @@
   .send_verification,
   .createPost,
   .post {
-    width: 400px;
+    width: 400px !important;
   }
 }
 @media (max-width: 457px) {
   .send_verification,
   .createPost,
   .post {
-    width: 390px;
+    width: 390px !important;
   }
   .createPost_icon svg {
     width: 19px;
@@ -165,7 +167,7 @@
   .createPost,
   .post,
   .send_Verification {
-    width: 100%;
+    width: 100% !important;
   }
   .createPost_Icon {
     font-size: 12px;
