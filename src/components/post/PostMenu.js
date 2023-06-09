@@ -47,7 +47,8 @@ export default function PostMenu({
   };
 
   const editHandler = async () => {
-    setEditingPost(true)
+    setEditingPost(true);
+    setShowMenu(false);
   };
 
   return (
