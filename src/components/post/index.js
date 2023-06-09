@@ -79,6 +79,17 @@ export default function Post({ post, user, profile }) {
     setCount((prev) => prev + 3);
   };
 
+  const cancelUpdatingPostComment = () => {
+    setEditingPost(false);
+    setText(post?.text);
+  }
+
+  const updatePostComment = () => {
+    setEditingPost(false);
+    // Call function to persist comment here
+    return;
+  };
+
   return (
     <div
       className='post'
@@ -135,17 +146,30 @@ export default function Post({ post, user, profile }) {
         <>
           {!editingPost && <div className='post_text'>{text}</div>}
           {editingPost && (
-            <textarea
-              ref={textRef}
-              maxLength='250'
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              className={'post_input'}
-              style={{
-                paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
+            <div>
+              <textarea
+                ref={textRef}
+                maxLength='250'
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className={'post_input'}
+                style={{
+                  paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
                 }%`,
-              }}
-              ></textarea>
+                }}></textarea>
+              <div className='edit_comment_btn_container'>
+                <button
+                  className='gray_bttn opacity_btn edit_comment_btn'
+                  onClick={() => cancelUpdatingPostComment()}>
+                  Cancel
+                </button>
+                <button
+                  className='teal_bttn edit_comment_btn'
+                  onClick={() => updatePostComment()}>
+                  Save
+                </button>
+              </div>
+            </div>
           )}
           {post?.images && post?.images.length && (
             <div
