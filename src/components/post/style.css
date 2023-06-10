@@ -527,21 +527,22 @@
   resize: none;
   padding: 5px 15px;
   margin-bottom: 10px;
-  width: 95%; 
+  width: 98%; 
   margin-left: 1px;
   font-family: inherit;
   background: var(--bg-primary);
   color: var(--color-primary);
   word-wrap: break-word;
+  border-radius: 5px;
 }
 
-.edit_comment_btn_container {
+.edit_text_btn_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 3px;
 }
 
-.edit_comment_btn {
+.edit_text_btn {
   margin-left: 7px;
   margin-right: 7px;
 }

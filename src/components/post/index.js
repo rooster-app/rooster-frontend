@@ -9,10 +9,12 @@ import CreateComment from './CreateComment';
 import PostMenu from './PostMenu';
 import ReactsPopup from './ReactsPopup';
 import { Dots, Public } from '../../svg';
-import { getReacts, reactPost } from '../../functions/post';
+import { getReacts, reactPost, updatePostText } from '../../functions/post';
 
-export default function Post({ post, user, profile }) {
+export default function Post({ post, user, profile, getAllPosts }) {
   const postRef = useRef(null);
+  const textRef = useRef(null);
+
   const [check, setCheck] = useState();
   const [savedPost, setSavedPost] = useState();
   const [comments, setComments] = useState([]);
@@ -24,8 +26,6 @@ export default function Post({ post, user, profile }) {
   const [total, setTotal] = useState(0);
   const [editingPost, setEditingPost] = useState(false);
   const [text, setText] = useState(post?.text);
-
-  const textRef = useRef(null);
 
   useEffect(() => {
     getPostReacts();
@@ -79,15 +79,15 @@ export default function Post({ post, user, profile }) {
     setCount((prev) => prev + 3);
   };
 
-  const cancelUpdatingPostComment = () => {
+  const cancelUpdatingPostTextHandler = () => {
     setEditingPost(false);
-    setText(post?.text);
-  }
+  };
 
-  const updatePostComment = () => {
+  const updatePostTextHandler = async () => {
     setEditingPost(false);
-    // Call function to persist comment here
-    return;
+    // setText(text);
+    await updatePostText(post?._id, text, user?.token);
+    await getAllPosts();
   };
 
   return (
@@ -140,16 +140,12 @@ export default function Post({ post, user, profile }) {
         <div
           className='post_bg'
           style={{ backgroundImage: `url(${post?.background})` }}>
-          <div className='post_bg_text'>{post?.text}</div>
-        </div>
-      ) : post?.type === null ? (
-        <>
-          {!editingPost && <div className='post_text'>{text}</div>}
+          {!editingPost && <div className='post_bg_text'>{post?.text}</div>}
           {editingPost && (
             <div>
               <textarea
                 ref={textRef}
-                maxLength='250'
+                maxLength='2500'
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 className={'post_input'}
@@ -157,15 +153,45 @@ export default function Post({ post, user, profile }) {
                   paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
                 }%`,
                 }}></textarea>
-              <div className='edit_comment_btn_container'>
+              <div className='edit_text_btn_container'>
                 <button
-                  className='gray_bttn opacity_btn edit_comment_btn'
-                  onClick={() => cancelUpdatingPostComment()}>
+                  className='gray_bttn opacity_btn edit_text_btn'
+                  onClick={() => cancelUpdatingPostTextHandler()}>
                   Cancel
                 </button>
                 <button
-                  className='teal_bttn edit_comment_btn'
-                  onClick={() => updatePostComment()}>
+                  className='teal_bttn edit_text_btn'
+                  onClick={() => updatePostTextHandler()}>
+                  Save
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : post?.type === null ? (
+        <>
+          {!editingPost && <div className='post_text'>{post?.text}</div>}
+          {editingPost && (
+            <div>
+              <textarea
+                ref={textRef}
+                maxLength='2500'
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className={'post_input'}
+                style={{
+                  paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
+                }%`,
+                }}></textarea>
+              <div className='edit_text_btn_container'>
+                <button
+                  className='gray_bttn opacity_btn edit_text_btn'
+                  onClick={() => cancelUpdatingPostTextHandler()}>
+                  Cancel
+                </button>
+                <button
+                  className='teal_bttn edit_text_btn'
+                  onClick={() => updatePostTextHandler()}>
                   Save
                 </button>
               </div>
