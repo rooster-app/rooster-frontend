@@ -45,8 +45,8 @@ export default function Post({ post, user, profile, getAllPosts }) {
   };
 
   const reactHandler = async (type) => {
-    reactPost(post?._id, type, user?.token);
-    // if the new type of reaction is what is in the database
+    await reactPost(post?._id, type, user?.token);
+    // If the new type of reaction is what is in the database
     if (check === type) {
       setCheck();
       let index = reacts.findIndex((x) => x.react === check);
@@ -55,7 +55,7 @@ export default function Post({ post, user, profile, getAllPosts }) {
         setTotal((prev) => --prev);
       }
     } else {
-      // otherwise change the type of reaction
+      // Otherwise change the type of reaction
       setCheck(type);
       // and modify counts
       let index = reacts.findIndex((x) => x.react === type);
@@ -84,26 +84,27 @@ export default function Post({ post, user, profile, getAllPosts }) {
   };
 
   const updatePostTextHandler = async () => {
-    setEditingPost(false);
-    // setText(text);
     await updatePostText(post?._id, text, user?.token);
     await getAllPosts();
+    setEditingPost(false);
   };
 
   return (
     <div
-      className='post'
+      className="post"
       style={{ width: `${profile && '100%'}` }}
-      ref={postRef}>
-      <div className='post_header'>
+      ref={postRef}
+    >
+      <div className="post_header">
         <Link
           to={`/profile/${post?.user?.username}`}
-          className='post_header_left'>
-          <img src={post?.user?.picture} alt='' />
-          <div className='header_col'>
-            <div className='post_profile_name'>
+          className="post_header_left"
+        >
+          <img src={post?.user?.picture} alt="" />
+          <div className="header_col">
+            <div className="post_profile_name">
               {post?.user?.first_name} {post?.user?.last_name}
-              <div className='updated_p'>
+              <div className="updated_p">
                 {post?.type === 'profilePicture' &&
                   `updated ${
                     post?.user?.gender === 'male'
@@ -122,46 +123,51 @@ export default function Post({ post, user, profile, getAllPosts }) {
                   } cover picture`}
               </div>
             </div>
-            <div className='post_profile_privacy_date'>
+            <div className="post_profile_privacy_date">
               <Moment fromNow interval={30}>
                 {post?.createdAt}
               </Moment>
-              . <Public color='#828387' />
+              . <Public color="#828387" />
             </div>
           </div>
         </Link>
         <div
-          className='post_header_right hover1'
-          onClick={() => setShowMenu((prev) => !prev)}>
-          <Dots color='#828387' />
+          className="post_header_right hover1"
+          onClick={() => setShowMenu((prev) => !prev)}
+        >
+          <Dots color="#828387" />
         </div>
       </div>
       {post?.background ? (
         <div
-          className='post_bg'
-          style={{ backgroundImage: `url(${post?.background})` }}>
-          {!editingPost && <div className='post_bg_text'>{post?.text}</div>}
+          className="post_bg"
+          style={{ backgroundImage: `url(${post?.background})` }}
+        >
+          {!editingPost && <div className="post_bg_text">{post?.text}</div>}
           {editingPost && (
             <div>
               <textarea
                 ref={textRef}
-                maxLength='2500'
+                maxLength="2500"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 className={'post_input'}
                 style={{
                   paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
                 }%`,
-                }}></textarea>
-              <div className='edit_text_btn_container'>
+                }}
+              ></textarea>
+              <div className="edit_text_btn_container">
                 <button
-                  className='gray_bttn opacity_btn edit_text_btn'
-                  onClick={() => cancelUpdatingPostTextHandler()}>
+                  className="gray_bttn opacity_btn edit_text_btn"
+                  onClick={() => cancelUpdatingPostTextHandler()}
+                >
                   Cancel
                 </button>
                 <button
-                  className='teal_bttn edit_text_btn'
-                  onClick={() => updatePostTextHandler()}>
+                  className="teal_bttn edit_text_btn"
+                  onClick={() => updatePostTextHandler()}
+                >
                   Save
                 </button>
               </div>
@@ -170,28 +176,31 @@ export default function Post({ post, user, profile, getAllPosts }) {
         </div>
       ) : post?.type === null ? (
         <>
-          {!editingPost && <div className='post_text'>{post?.text}</div>}
+          {!editingPost && <div className="post_text">{post?.text}</div>}
           {editingPost && (
             <div>
               <textarea
                 ref={textRef}
-                maxLength='2500'
+                maxLength="2500"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 className={'post_input'}
                 style={{
                   paddingTop: `Math.abs(textRef.current.value.length * 0.1 - 32)
                 }%`,
-                }}></textarea>
-              <div className='edit_text_btn_container'>
+                }}
+              ></textarea>
+              <div className="edit_text_btn_container">
                 <button
-                  className='gray_bttn opacity_btn edit_text_btn'
-                  onClick={() => cancelUpdatingPostTextHandler()}>
+                  className="gray_bttn opacity_btn edit_text_btn"
+                  onClick={() => cancelUpdatingPostTextHandler()}
+                >
                   Cancel
                 </button>
                 <button
-                  className='teal_bttn edit_text_btn'
-                  onClick={() => updatePostTextHandler()}>
+                  className="teal_bttn edit_text_btn"
+                  onClick={() => updatePostTextHandler()}
+                >
                   Save
                 </button>
               </div>
@@ -209,12 +218,13 @@ export default function Post({ post, user, profile, getAllPosts }) {
                   : post?.images.length === 4
                   ? 'grid_4'
                   : post?.images.length >= 5 && 'grid_5'
-              }>
+              }
+            >
               {post?.images.slice(0, 5).map((image, i) => (
-                <img src={image.url} key={i} alt='' className={`img-${i}`} />
+                <img src={image.url} key={i} alt="" className={`img-${i}`} />
               ))}
               {post?.images.length > 5 && (
-                <div className='more-pics-shadow'>
+                <div className="more-pics-shadow">
                   +{post?.images.length - 5}
                 </div>
               )}
@@ -222,31 +232,31 @@ export default function Post({ post, user, profile, getAllPosts }) {
           )}
         </>
       ) : post?.type === 'profilePicture' ? (
-        <div className='post_profile_wrap'>
-          <div className='post_updated_bg'>
+        <div className="post_profile_wrap">
+          <div className="post_updated_bg">
             <img
               src={`${
                 post?.user?.cover
                   ? post.user.cover
                   : '../../../images/postBackgrounds/10.jpg'
               }`}
-              alt=''
+              alt=""
             />
           </div>
           <img
-            alt=''
-            className='post_updated_picture'
+            alt=""
+            className="post_updated_picture"
             src={post?.images[0].url}
           />
         </div>
       ) : (
-        <div className='post_cover_wrap'>
-          <img src={post?.images[0].url} alt='' />
+        <div className="post_cover_wrap">
+          <img src={post?.images[0].url} alt="" />
         </div>
       )}
-      <div className='post_infos'>
-        <div className='reacts_count'>
-          <div className='reacts_count_imgs'>
+      <div className="post_infos">
+        <div className="reacts_count">
+          <div className="reacts_count_imgs">
             {reacts &&
               reacts
                 .sort((a, b) => {
@@ -258,33 +268,32 @@ export default function Post({ post, user, profile, getAllPosts }) {
                     react.count > 0 && (
                       <img
                         src={`../../../reacts/${react.react}.svg`}
-                        alt=''
+                        alt=""
                         key={i}
                       />
                     )
                 )}
           </div>
-          <div className='reacts_count_num'>{total > 0 && total}</div>
+          <div className="reacts_count_num">{total > 0 && total}</div>
         </div>
-        <div className='to_right'>
-          <div className='comments_count'>
+        <div className="to_right">
+          <div className="comments_count">
             {comments?.length > 1
               ? `${comments.length} comments`
               : comments?.length > 0
               ? '1 comment'
               : ''}{' '}
           </div>
-          {/* <div className='share_count'>1 share</div> */}
         </div>
       </div>
-      <div className='post_actions'>
+      <div className="post_actions">
         <ReactsPopup
           visible={visible}
           setVisible={setVisible}
           reactHandler={reactHandler}
         />
         <div
-          className='post_action hover1'
+          className="post_action hover1"
           onMouseOver={() => {
             setTimeout(() => {
               setVisible(true);
@@ -295,16 +304,17 @@ export default function Post({ post, user, profile, getAllPosts }) {
               setVisible(false);
             }, 500);
           }}
-          onClick={() => reactHandler(check ? check : 'like')}>
+          onClick={() => reactHandler(check ? check : 'like')}
+        >
           {check ? (
             <img
               src={`../../../reacts/${check}.svg`}
-              alt=''
-              className='small_react'
+              alt=""
+              className="small_react"
               style={{ width: '18px' }}
             />
           ) : (
-            <i className='like_icon'></i>
+            <i className="like_icon"></i>
           )}
           <span
             style={{
@@ -326,21 +336,21 @@ export default function Post({ post, user, profile, getAllPosts }) {
               : ''
           }
           `,
-            }}>
+            }}
+          >
             {check ? check : 'Like'}
           </span>
         </div>
-        <div className='post_action ignore_action'>
-          {/* <i className='share_icon'></i> */}
+        <div className="post_action ignore_action">
           <span> </span>
         </div>
-        <div className='post_action hover1' onClick={commentHandler}>
-          <i className='comment_icon'></i>
+        <div className="post_action hover1" onClick={commentHandler}>
+          <i className="comment_icon"></i>
           <span>Comment</span>
         </div>
       </div>
-      <div className='comments_wrap'>
-        <div className='comments_order'></div>
+      <div className="comments_wrap">
+        <div className="comments_order"></div>
         {openComment && (
           <CreateComment
             postId={post?._id}
@@ -368,7 +378,7 @@ export default function Post({ post, user, profile, getAllPosts }) {
               />
             ))}
         {count < comments?.length && (
-          <div className='view_comments' onClick={() => showMore()}>
+          <div className="view_comments" onClick={() => showMore()}>
             View more comments
           </div>
         )}
