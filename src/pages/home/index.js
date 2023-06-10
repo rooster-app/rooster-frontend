@@ -42,7 +42,7 @@ export default function Home({
         <CreatePostForm user={user} setPostModalVisible={setPostModalVisible} />
         <div className='posts'>
           {posts?.map((post, i) => (
-            <Post key={i} post={post} user={user} />
+            <Post key={i} post={post} user={user} getAllPosts={getAllPosts}/>
           ))}
         </div>
       </div>

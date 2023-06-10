@@ -64,9 +64,9 @@ export default function EmojiPickerBackgrounds({
       <div className={!type2 ? 'flex_center' : ''} ref={bgRef}>
         <textarea
           ref={textRef}
-          maxLength='250'
+          maxLength='2500'
           value={text}
-          placeholder={`What's on your mind, ${user.first_name}`}
+          placeholder={`What's on your mind, ${user?.first_name}`}
           className={`post_input ${type2 ? 'input2' : ''}${smallScreen && !background && "left0"}`}
           onChange={(e) => setText(e.target.value)}
           style={{

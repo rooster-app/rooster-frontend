@@ -145,3 +145,24 @@ export const deletePost = async (postId, token) => {
     return error.response.data.message;
   }
 };
+
+export const updatePostText = async (postId, text, token) => {
+  try {
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/post/updateText`,
+      {
+        postId,
+        text,
+      },
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
